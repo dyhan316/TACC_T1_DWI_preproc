@@ -1,0 +1,2 @@
+docker: Error response from daemon: Conflict. The container name "/CHA_fs_reconstruction_16_8" is already in use by container "31504de6cbd5f2594f7c15823c4229a150050add655520f999f38629a15c9666". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.

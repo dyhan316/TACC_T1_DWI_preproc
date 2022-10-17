@@ -1,0 +1,9 @@
+WARNING (10/17/22 03:20:48): LAUNCHER_WORKDIR variable not set. Using current directory.
+using /tmp/launcher.10417374.hostlist.C5YFvPcx to get hosts
+starting job on c473-053
+starting job on c473-054
+Warning: Permanently added 'c473-053' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'c473-054' (ECDSA) to the list of known hosts.
+slurmstepd: error: *** JOB 10417374 ON c473-053 CANCELLED AT 2022-10-17T03:30:59 ***
+Killed by signal 15.
+Killed by signal 15.

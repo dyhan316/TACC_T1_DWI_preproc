@@ -1,0 +1,561 @@
+220721-12:31:28,342 nipype.workflow INFO:
+	 Running with omp_nthreads=1, nthreads=46
+220721-12:31:28,395 nipype.workflow IMPORTANT:
+	 
+    Running qsiprep version 0.14.3:
+      * BIDS dataset path: /data.
+      * Participant list: ['210001', '210004', '210005', '210006', '210007', '210008', '210009', '210010', '210011', '210012', '210013', '210014', '210015', '210016', '210017', '210018', '210019', '210020', '210022', '210023', '210024', '210026', '210027', '210028', '210029', '210030', '210031', '210032', '210033', '210034', '210035', '210036', '210037', '210038', '210039', '210040', '210041', '210042', '210043', '210046', '210047', '210048', '210049', '210050', '210051', '210052', '210053', '210054', '210055', '210056', '210057', '210058', '210059', '210060', '210061', '210062', '210063', '210064', '210065', '210066', '210067', '210068', '210069', '210070', '210671'].
+      * Run identifier: 20220721-123110_79d6a706-ddee-4781-822d-640ad72d196f.
+    
+220721-12:31:29,509 nipype.utils WARNING:
+	 A newer version (1.8.3) of nipy/nipype is available. You are using 1.6.1
+220721-12:31:33,634 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:31:33,645 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210001/dwi/sub-210001_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210001'}]
+220721-12:31:33,756 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210001 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.09/1.12 GB.
+220721-12:31:33,759 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:31:33,779 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:31:37,325 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:31:37,335 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210004/dwi/sub-210004_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210004'}]
+220721-12:31:37,457 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210004 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.11/1.14 GB.
+220721-12:31:37,459 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:31:37,478 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:31:41,22 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:31:41,32 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210005/dwi/sub-210005_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210005'}]
+220721-12:31:41,143 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210005 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.10/1.12 GB.
+220721-12:31:41,145 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:31:41,164 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:31:44,754 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:31:44,764 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210006/dwi/sub-210006_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210006'}]
+220721-12:31:44,874 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210006 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.11/1.14 GB.
+220721-12:31:44,877 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:31:44,897 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:31:48,533 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:31:48,543 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210007/dwi/sub-210007_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210007'}]
+220721-12:31:48,667 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210007 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.09/1.12 GB.
+220721-12:31:48,670 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:31:48,689 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:31:52,264 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:31:52,273 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210008/dwi/sub-210008_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210008'}]
+220721-12:31:52,396 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210008 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.10/1.12 GB.
+220721-12:31:52,399 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:31:52,417 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:31:56,32 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:31:56,41 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210009/dwi/sub-210009_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210009'}]
+220721-12:31:56,181 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210009 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.10/1.13 GB.
+220721-12:31:56,184 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:31:56,203 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:31:59,786 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:31:59,795 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210010/dwi/sub-210010_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210010'}]
+220721-12:31:59,952 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210010 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.10/1.12 GB.
+220721-12:31:59,956 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:31:59,978 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:03,656 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:03,666 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210011/dwi/sub-210011_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210011'}]
+220721-12:32:03,810 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210011 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.12/1.15 GB.
+220721-12:32:03,812 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:03,831 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:07,489 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:07,500 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210012/dwi/sub-210012_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210012'}]
+220721-12:32:07,647 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210012 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.10/1.12 GB.
+220721-12:32:07,649 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:07,668 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:12,19 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:12,29 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210013/dwi/sub-210013_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210013'}]
+220721-12:32:12,165 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210013 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.09/1.11 GB.
+220721-12:32:12,167 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:12,187 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:16,954 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:16,964 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210014/dwi/sub-210014_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210014'}]
+220721-12:32:17,92 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210014 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.09/1.12 GB.
+220721-12:32:17,94 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:17,114 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:21,101 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:21,281 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210015/dwi/sub-210015_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210015'}]
+220721-12:32:21,440 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210015 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.10/1.12 GB.
+220721-12:32:21,443 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:21,464 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:25,255 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:25,265 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210016/dwi/sub-210016_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210016'}]
+220721-12:32:25,408 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210016 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.10/1.13 GB.
+220721-12:32:25,411 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:25,430 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:29,254 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:29,264 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210017/dwi/sub-210017_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210017'}]
+220721-12:32:29,414 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210017 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.11/1.14 GB.
+220721-12:32:29,417 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:29,437 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:33,411 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:33,421 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210018/dwi/sub-210018_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210018'}]
+220721-12:32:33,528 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210018 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.09/1.11 GB.
+220721-12:32:33,531 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:33,550 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:37,231 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:37,241 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210019/dwi/sub-210019_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210019'}]
+220721-12:32:37,365 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210019 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.10/1.12 GB.
+220721-12:32:37,368 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:37,387 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:40,969 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:40,979 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210020/dwi/sub-210020_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210020'}]
+220721-12:32:41,93 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210020 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.10/1.13 GB.
+220721-12:32:41,96 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:41,115 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:44,662 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:44,672 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210022/dwi/sub-210022_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210022'}]
+220721-12:32:44,808 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210022 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.10/1.13 GB.
+220721-12:32:44,810 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:44,829 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:48,373 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:48,383 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210023/dwi/sub-210023_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210023'}]
+220721-12:32:48,504 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210023 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.11/1.13 GB.
+220721-12:32:48,507 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:48,526 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:52,238 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:52,248 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210024/dwi/sub-210024_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210024'}]
+220721-12:32:52,371 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210024 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.10/1.12 GB.
+220721-12:32:52,374 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:52,393 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:56,62 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:56,72 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210026/dwi/sub-210026_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210026'}]
+220721-12:32:56,202 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210026 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.10/1.13 GB.
+220721-12:32:56,204 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:56,224 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:32:59,794 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:32:59,804 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210027/dwi/sub-210027_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210027'}]
+220721-12:32:59,942 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210027 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.11/1.14 GB.
+220721-12:32:59,944 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:32:59,964 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:03,555 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:03,565 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210028/dwi/sub-210028_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210028'}]
+220721-12:33:03,723 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210028 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.10/1.13 GB.
+220721-12:33:03,725 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:03,744 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:07,773 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:07,785 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210029/dwi/sub-210029_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210029'}]
+220721-12:33:07,946 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210029 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.08/1.10 GB.
+220721-12:33:07,948 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:07,967 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:11,612 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:11,622 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210030/dwi/sub-210030_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210030'}]
+220721-12:33:11,750 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210030 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.10/1.13 GB.
+220721-12:33:11,753 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:11,773 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:15,339 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:15,349 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210031/dwi/sub-210031_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210031'}]
+220721-12:33:15,495 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210031 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.10/1.13 GB.
+220721-12:33:15,498 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:15,517 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:19,81 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:19,91 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210032/dwi/sub-210032_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210032'}]
+220721-12:33:19,231 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210032 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.08/1.11 GB.
+220721-12:33:19,234 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:19,254 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:23,22 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:23,32 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210033/dwi/sub-210033_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210033'}]
+220721-12:33:23,213 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210033 (1.02 GB / 36 DWIs). Memory resampled/largemem=1.10/1.12 GB.
+220721-12:33:23,216 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:23,235 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:26,878 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:26,887 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210034/dwi/sub-210034_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210034'}]
+220721-12:33:27,70 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210034 (1.03 GB / 36 DWIs). Memory resampled/largemem=1.10/1.13 GB.
+220721-12:33:27,72 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:27,92 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:30,679 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:30,689 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210035/dwi/sub-210035_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210035'}]
+220721-12:33:30,802 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210035 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.14/1.18 GB.
+220721-12:33:30,805 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:30,825 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:34,430 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:34,439 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210036/dwi/sub-210036_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210036'}]
+220721-12:33:34,566 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210036 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.16/1.19 GB.
+220721-12:33:34,568 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:34,587 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:38,213 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:38,223 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210037/dwi/sub-210037_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210037'}]
+220721-12:33:38,345 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210037 (1.05 GB / 51 DWIs). Memory resampled/largemem=1.18/1.23 GB.
+220721-12:33:38,347 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:38,366 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:41,985 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:41,994 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210038/dwi/sub-210038_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210038'}]
+220721-12:33:42,143 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210038 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.16/1.20 GB.
+220721-12:33:42,146 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:42,166 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:45,779 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:45,789 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210039/dwi/sub-210039_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210039'}]
+220721-12:33:45,938 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210039 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.17/1.21 GB.
+220721-12:33:45,940 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:45,959 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:49,306 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:49,316 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210040/dwi/sub-210040_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210040'}]
+220721-12:33:49,436 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210040 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.16/1.20 GB.
+220721-12:33:49,438 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:49,458 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:53,123 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:53,133 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210041/dwi/sub-210041_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210041'}]
+220721-12:33:53,272 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210041 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.15/1.18 GB.
+220721-12:33:53,275 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:53,295 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:33:56,899 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:33:56,909 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210042/dwi/sub-210042_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210042'}]
+220721-12:33:57,42 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210042 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.16/1.20 GB.
+220721-12:33:57,45 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:33:57,64 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:00,686 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:00,696 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210043/dwi/sub-210043_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210043'}]
+220721-12:34:00,826 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210043 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.17/1.22 GB.
+220721-12:34:00,828 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:00,847 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:04,691 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:04,701 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210046/dwi/sub-210046_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210046'}]
+220721-12:34:04,825 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210046 (1.05 GB / 51 DWIs). Memory resampled/largemem=1.19/1.24 GB.
+220721-12:34:04,827 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:04,846 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:08,553 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:08,563 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210047/dwi/sub-210047_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210047'}]
+220721-12:34:08,690 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210047 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.15/1.19 GB.
+220721-12:34:08,692 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:08,712 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:12,400 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:12,411 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210048/dwi/sub-210048_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210048'}]
+220721-12:34:12,536 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210048 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.17/1.22 GB.
+220721-12:34:12,538 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:12,557 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:16,204 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:16,214 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210049/dwi/sub-210049_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210049'}]
+220721-12:34:16,336 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210049 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.16/1.20 GB.
+220721-12:34:16,338 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:16,357 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:19,716 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:19,726 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210050/dwi/sub-210050_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210050'}]
+220721-12:34:19,876 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210050 (1.05 GB / 51 DWIs). Memory resampled/largemem=1.19/1.23 GB.
+220721-12:34:19,879 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:19,897 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:23,581 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:23,591 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210051/dwi/sub-210051_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210051'}]
+220721-12:34:23,754 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210051 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.17/1.22 GB.
+220721-12:34:23,757 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:23,777 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:27,552 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:27,562 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210052/dwi/sub-210052_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210052'}]
+220721-12:34:27,690 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210052 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.17/1.21 GB.
+220721-12:34:27,693 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:27,713 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:31,369 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:31,379 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210053/dwi/sub-210053_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210053'}]
+220721-12:34:31,472 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210053 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.18/1.22 GB.
+220721-12:34:31,475 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:31,494 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:35,114 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:35,124 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210054/dwi/sub-210054_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210054'}]
+220721-12:34:35,274 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210054 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.17/1.21 GB.
+220721-12:34:35,276 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:35,296 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:38,972 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:38,981 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210055/dwi/sub-210055_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210055'}]
+220721-12:34:39,143 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210055 (1.05 GB / 51 DWIs). Memory resampled/largemem=1.18/1.23 GB.
+220721-12:34:39,145 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:39,164 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:42,820 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:42,830 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210056/dwi/sub-210056_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210056'}]
+220721-12:34:42,962 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210056 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.18/1.22 GB.
+220721-12:34:42,964 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:42,984 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:46,411 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:46,421 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210057/dwi/sub-210057_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210057'}]
+220721-12:34:46,543 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210057 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.15/1.19 GB.
+220721-12:34:46,546 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:46,565 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:50,277 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:50,286 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210058/dwi/sub-210058_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210058'}]
+220721-12:34:50,424 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210058 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.17/1.21 GB.
+220721-12:34:50,427 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:50,446 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:54,649 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:54,659 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210059/dwi/sub-210059_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210059'}]
+220721-12:34:54,785 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210059 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.16/1.20 GB.
+220721-12:34:54,788 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:54,807 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:34:58,989 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:34:58,999 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210060/dwi/sub-210060_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210060'}]
+220721-12:34:59,140 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210060 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.18/1.22 GB.
+220721-12:34:59,142 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:34:59,161 nipype.workflow INFO:
+	 Using 1 threads in eddy
+220721-12:35:03,382 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+220721-12:35:03,392 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-210061/dwi/sub-210061_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-210061'}]
+220721-12:35:03,560 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-210061 (1.04 GB / 51 DWIs). Memory resampled/largemem=1.14/1.18 GB.
+220721-12:35:03,563 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+220721-12:35:03,585 nipype.workflow INFO:
+	 Using 1 threads in eddy
