@@ -14,7 +14,7 @@
 # <—— Setup Parameters ——>
 #
 #SBATCH -J run_qsiprep_preproc#name of the job
-#SBATCH -N 2    #how many nodes you need #SBATCH -n $1  #how many jobs 
+#SBATCH -N 3    #how many nodes you need #SBATCH -n $1  #how many jobs 
 #SBATCH -p flat-quadrant #the queue on stampede 2 to use
 #SBATCH -o ./step4_shell_outputs/QSIPREP_preproc.o%j  #change according to you job name
 #SBATCH -e ./step4_shell_outputs/QSIPREP_preproc.e%j #change according to you job name
