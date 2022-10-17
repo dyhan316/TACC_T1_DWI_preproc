@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Simple SLURM script for submitting multiple serial
 # jobs (e.g. parametric studies) using a script wrapper
@@ -14,12 +14,11 @@
 # <—— Setup Parameters ——>
 #
 #SBATCH -J run_qsiprep_preproc#name of the job
-#SBATCH -N 4    #how many nodes you need
-#SBATCH -n 100  #how many jobs 
+#SBATCH -N 2    #how many nodes you need #SBATCH -n $1  #how many jobs 
 #SBATCH -p flat-quadrant #the queue on stampede 2 to use
 #SBATCH -o ./step4_shell_outputs/QSIPREP_preproc.o%j  #change according to you job name
 #SBATCH -e ./step4_shell_outputs/QSIPREP_preproc.e%j #change according to you job name
-#SBATCH -t 24:30:30     #number of hours for the job to run. 48hr is the maximum for normal queue.
+#SBATCH -t 00:30:30     #number of hours for the job to run. 48hr is the maximum for normal queue.
 ##SBATCH –-mail-user=dyhan0316@gmail.com  #email address to send notification
 ##SBATCH -–mail-type=all # Send email at begin and end of job
 # <—— Account String —–>
@@ -42,3 +41,4 @@ export LAUNCHER_JOB_FILE=./step4_shell_outputs/qsipreproc_command_list.txt
 $LAUNCHER_DIR/paramrun
 
 
+#EOT #looked at https://stackoverflow.com/questions/27708656/pass-command-line-arguments-via-sbatch

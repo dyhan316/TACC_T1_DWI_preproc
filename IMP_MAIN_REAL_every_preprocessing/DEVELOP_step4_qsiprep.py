@@ -74,6 +74,9 @@ for sub_shell in os.listdir(args.shell_dir):
     with open(f"{args.base_dir}/step4_shell_outputs/qsipreproc_command_list.txt", "a") as f:
         f.write(f"{command_to_add}\n")
 
-subprocess.run(f"sbatch {args.base_dir}/REAL_activate_step4.sh", shell = True)
+num_subs = len(args.sub_list)
+subprocess.run(f"sbatch -n {num_subs} {args.base_dir}/REAL_activate_step4.sh", shell = True)
+#subprocess.run(f"sbatch -D '{num_subs}' {args.base_dir}/REAL_activate_step4.sh --export=var_name='$1'", shell = True)
+#used $1 as input for sbatch as per : https://stackoverflow.com/questions/27708656/pass-command-line-arguments-via-sbatch
 pdb.set_trace()
 
