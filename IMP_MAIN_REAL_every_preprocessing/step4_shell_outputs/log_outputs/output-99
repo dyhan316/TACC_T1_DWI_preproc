@@ -1,0 +1,11 @@
+221019-07:12:08,661 nipype.workflow INFO:
+	 Running with omp_nthreads=8, nthreads=272
+221019-07:12:08,995 nipype.workflow IMPORTANT:
+	 
+    Running qsiprep version 0.14.3:
+      * BIDS dataset path: /data.
+      * Participant list: ['140923'].
+      * Run identifier: 20221019-070941_ee48979b-fadf-44b3-93c9-68add2721ba3.
+    
+221019-07:12:15,756 nipype.utils WARNING:
+	 A newer version (1.8.4) of nipy/nipype is available. You are using 1.6.1

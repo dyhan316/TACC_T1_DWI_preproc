@@ -12,11 +12,12 @@ import pdb
 #######ASSUMPTIONS######
 curr_dir = os.getcwd()
 class Args():
-    def __init__(self):
+    def __init__(self, age_range):
+        self.age_range = age_range#'age_4.5_to_5'
         self.base_dir = Path(curr_dir)
         self.scratch_dir = Path('/scratch/08834/tg881334/CHA_preproc') #where the BIDS and outputs are and will be saved
-        self.BIDS_dir = Path(self.scratch_dir/'2.one_BIDS/age_1_to_1.5') #MUST BE MODIFIED TO WANT
-        self.save_dir = Path(self.scratch_dir/'3.qsipreproc_results')
+        self.BIDS_dir = Path(self.scratch_dir/'2.one_BIDS/{}'.format(self.age_range)) #MUST BE MODIFIED TO THE INPUT I WANT TO RUN WITH
+        self.save_dir = Path(self.scratch_dir/'3.qsipreproc_results/{}'.format(self.age_range))
         self.supp_dir = Path('/work2/08834/tg881334/stampede2/CHA_preproc/CHA_preproc_supplementary_files') #directory where the singularity images and etc are held
         self.shell_dir = Path(self.base_dir / 'step4_shell_outputs/run_this_test') #where the shelll scripts for each subject will be saved
         self.log_dir = Path(self.base_dir/'step4_shell_outputs/log_outputs')
@@ -24,7 +25,7 @@ class Args():
         #age 에 관한 것이 있어야 할듯! (특히, freesurfer infant 할떄)
         self.infant = True #MUST BE CHANGED
         print("change __init__ to make sure that 'infant' is only turned on when we ARE dealing with infants")
-args = Args()
+args = Args(age_range='age_4.5_to_5')
 
 print(args.sub_list)
 

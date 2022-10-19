@@ -15,10 +15,11 @@
 #
 #SBATCH -J run_qsiprep_preproc#name of the job
 #SBATCH -N 2    #how many nodes you need #SBATCH -n $1  #how many jobs 
-#SBATCH -p flat-quadrant #flat-quadrant #the queue on stampede 2 to use
+#SBATCH -p icx-normal #flat-quadrant #the queue on stampede 2 to use
 #SBATCH -o ./step4_shell_outputs/flat_quadrant_QSIPREP_preproc.o%j  #change according to you job name
 #SBATCH -e ./step4_shell_outputs/flat_quadrant_QSIPREP_preproc.e%j #change according to you job name
-#SBATCH -t 24:00:00     #number of hours for the job to run. 48hr is the maximum for normal queue.
+#SBATCH -t 00:05:00     #number of hours for the job to run. 48hr is the maximum for normal queue.
+#SBATCH --ntasks-per-node 2 #set maximum about of thigns ot use (https://slurm.schedmd.com/sbatch.html#OPT_ntasks-per-node)
 ##SBATCH –-mail-user=dyhan0316@gmail.com  #email address to send notification
 ##SBATCH -–mail-type=all # Send email at begin and end of job
 # <—— Account String —–>
