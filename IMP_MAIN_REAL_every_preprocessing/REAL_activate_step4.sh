@@ -14,8 +14,8 @@
 # <—— Setup Parameters ——>
 #
 #SBATCH -J run_qsiprep_preproc#name of the job
-#SBATCH -N 7  #24 sub per node, so for 128 subjects, 5.01 neede,d so doing 6  #how many nodes you need #SBATCH -n $1  #how many jobs 
-#SBATCH -p flat-quadrant #flat-quadrant #the queue on stampede 2 to use
+#SBATCH -N 2  #24 sub per node, so for 128 subjects, 5.01 neede,d so doing 6  #how many nodes you need #SBATCH -n $1  #how many jobs 
+#SBATCH -p skx-dev #flat-quadrant #the queue on stampede 2 to use
 #SBATCH -o ./step4_shell_outputs/flat_quadrant_QSIPREP_preproc.o%j  #change according to you job name
 #SBATCH -e ./step4_shell_outputs/flat_quadrant_QSIPREP_preproc.e%j #change according to you job name
 #SBATCH -t 2:00:00     #number of hours for the job to run. 48hr is the maximum for normal queue.

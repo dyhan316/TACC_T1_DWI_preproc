@@ -1,0 +1,894 @@
+WARNING (10/20/22 00:28:03): LAUNCHER_WORKDIR variable not set. Using current directory.
+using /tmp/launcher.10431791.hostlist.vQn0ZZ80 to get hosts
+starting job on c473-051
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/__init__.py", line 20, in <module>
+    from .refs import due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/refs.py", line 4, in <module>
+    from .external.due import due, Doi, BibTeX
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/external/due.py", line 57, in <module>
+    from duecredit import due, BibTeX, Doi, Url
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/__init__.py", line 17, in <module>
+    from .dueswitch import due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 131, in <module>
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 68, in __init__
+    "Got active=%r, inactive=%r" % (active, inactive)
+ValueError: Both inactive and active collectors should be provided. Got active=None, inactive=InactiveDueCreditCollector()
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/versions.py", line 18, in <module>
+ModuleNotFoundError: No module named 'importlib.metadata'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/utils.py", line 190, in wrapped_func
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 35, in _get_active_due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/collector.py", line 20, in <module>
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/io.py", line 31, in <module>
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/versions.py", line 20, in <module>
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 857, in get_code
+  File "<frozen importlib._bootstrap_external>", line 525, in _compile_bytecode
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 1034, in emit
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 880, in format
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/log.py", line 138, in format
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 621, in format
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 561, in formatTime
+MemoryError
+Call stack:
+  File "<string>", line 1, in <module>
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/__init__.py", line 20, in <module>
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/refs.py", line 4, in <module>
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/external/due.py", line 57, in <module>
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/__init__.py", line 17, in <module>
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 131, in <module>
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/utils.py", line 194, in wrapped_func
+Message: 'DueCredit internal failure while running <function _get_active_due at 0x2b2742630400>: MemoryError(). Please report to developers at https://github.com/duecredit/duecredit/issues'
+Arguments: ()
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+    old_handlers)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+    code = spawn._main(child_r)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+    self = reduction.pickle.load(from_parent)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/__init__.py", line 20, in <module>
+    from .refs import due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/refs.py", line 4, in <module>
+    from .external.due import due, Doi, BibTeX
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/external/due.py", line 57, in <module>
+    from duecredit import due, BibTeX, Doi, Url
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/__init__.py", line 17, in <module>
+    from .dueswitch import due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 131, in <module>
+    due = DueSwitch(_get_inactive_due(), _get_active_due(), _get_duecredit_enable())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 68, in __init__
+    "Got active=%r, inactive=%r" % (active, inactive)
+ValueError: Both inactive and active collectors should be provided. Got active=None, inactive=InactiveDueCreditCollector()
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+    old_handlers)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+    code = spawn._main(child_r)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+    self = reduction.pickle.load(from_parent)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/__init__.py", line 20, in <module>
+    from .refs import due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/refs.py", line 4, in <module>
+    from .external.due import due, Doi, BibTeX
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/external/due.py", line 57, in <module>
+    from duecredit import due, BibTeX, Doi, Url
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/__init__.py", line 17, in <module>
+    from .dueswitch import due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 131, in <module>
+    due = DueSwitch(_get_inactive_due(), _get_active_due(), _get_duecredit_enable())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 68, in __init__
+    "Got active=%r, inactive=%r" % (active, inactive)
+ValueError: Both inactive and active collectors should be provided. Got active=None, inactive=InactiveDueCreditCollector()
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+    old_handlers)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+    code = spawn._main(child_r)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+    self = reduction.pickle.load(from_parent)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/__init__.py", line 18, in <module>
+    from .utils.config import NipypeConfig
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/config.py", line 19, in <module>
+    import numpy as np
+  File "/usr/local/miniconda/lib/python3.7/site-packages/numpy/__init__.py", line 152, in <module>
+    from . import random
+  File "/usr/local/miniconda/lib/python3.7/site-packages/numpy/random/__init__.py", line 181, in <module>
+    from . import _pickle
+  File "/usr/local/miniconda/lib/python3.7/site-packages/numpy/random/_pickle.py", line 1, in <module>
+    from .mtrand import RandomState
+ImportError: /usr/local/miniconda/lib/python3.7/site-packages/numpy/random/mtrand.cpython-37m-x86_64-linux-gnu.so: failed to map segment from shared object
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+    old_handlers)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+    code = spawn._main(child_r)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+    self = reduction.pickle.load(from_parent)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/__init__.py", line 12, in <module>
+    from .multiproc import MultiProcPlugin
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 22, in <module>
+    from ...utils.profiler import get_system_total_memory_gb
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/profiler.py", line 12, in <module>
+    import psutil
+  File "/usr/local/miniconda/lib/python3.7/site-packages/psutil/__init__.py", line 39, in <module>
+    from . import _common
+  File "/usr/local/miniconda/lib/python3.7/site-packages/psutil/_common.py", line 173, in <module>
+    'sout'])
+  File "/usr/local/miniconda/lib/python3.7/collections/__init__.py", line 397, in namedtuple
+    exec(s, namespace)
+MemoryError
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+    old_handlers)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+    code = spawn._main(child_r)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+    self = reduction.pickle.load(from_parent)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/__init__.py", line 61, in <module>
+    from .pipeline import Node, MapNode, JoinNode, Workflow
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/__init__.py", line 9, in <module>
+    from .engine import Node, MapNode, JoinNode, Workflow
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/__init__.py", line 11, in <module>
+    from .workflows import Workflow
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 23, in <module>
+    from ...interfaces.base import traits, TraitedSpec, TraitDictObject, TraitListObject
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/interfaces/__init__.py", line 11, in <module>
+    from .io import DataGrabber, DataSink, SelectFiles, BIDSDataGrabber
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/interfaces/io.py", line 37, in <module>
+    from .base import (
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/interfaces/base/__init__.py", line 11, in <module>
+    from traits.trait_handlers import TraitDictObject, TraitListObject
+  File "/usr/local/miniconda/lib/python3.7/site-packages/traits/trait_handlers.py", line 45, in <module>
+    from .trait_base import (strx, SequenceTypes, Undefined, TypeTypes, ClassTypes,
+  File "/usr/local/miniconda/lib/python3.7/site-packages/traits/trait_base.py", line 135, in <module>
+    from . import ctraits
+ImportError: /usr/local/miniconda/lib/python3.7/site-packages/traits/ctraits.cpython-37m-x86_64-linux-gnu.so: failed to map segment from shared object
+exception calling callback for <Future at 0x2ab04b754cc0 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2ab05b8ec978 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2b3dcc087048 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2b05a5aaa128 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2b3de02300f0 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2b05a64a1b00 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2b3de0230978 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+QSIPrep failed: A child process terminated abruptly, the process pool is not usable anymore
+QSIPrep failed: A child process terminated abruptly, the process pool is not usable anymore
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+    old_handlers)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+    code = spawn._main(child_r)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+    self = reduction.pickle.load(from_parent)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/__init__.py", line 5, in <module>
+    from .debug import DebugPlugin
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/debug.py", line 7, in <module>
+    import networkx as nx
+  File "/usr/local/miniconda/lib/python3.7/site-packages/networkx/__init__.py", line 72, in <module>
+    from networkx import generators
+  File "/usr/local/miniconda/lib/python3.7/site-packages/networkx/generators/__init__.py", line 14, in <module>
+    from networkx.generators.geometric import *
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 857, in get_code
+  File "<frozen importlib._bootstrap_external>", line 525, in _compile_bytecode
+MemoryError
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+    old_handlers)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+    code = spawn._main(child_r)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+    self = reduction.pickle.load(from_parent)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/__init__.py", line 5, in <module>
+    from .debug import DebugPlugin
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/debug.py", line 7, in <module>
+    import networkx as nx
+  File "/usr/local/miniconda/lib/python3.7/site-packages/networkx/__init__.py", line 72, in <module>
+    from networkx import generators
+  File "/usr/local/miniconda/lib/python3.7/site-packages/networkx/generators/__init__.py", line 14, in <module>
+    from networkx.generators.geometric import *
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 857, in get_code
+  File "<frozen importlib._bootstrap_external>", line 525, in _compile_bytecode
+MemoryError
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/versions.py", line 18, in <module>
+ModuleNotFoundError: No module named 'importlib.metadata'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/utils.py", line 190, in wrapped_func
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 35, in _get_active_due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/collector.py", line 20, in <module>
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/io.py", line 31, in <module>
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/versions.py", line 20, in <module>
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 857, in get_code
+  File "<frozen importlib._bootstrap_external>", line 525, in _compile_bytecode
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 1034, in emit
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 880, in format
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/log.py", line 138, in format
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 621, in format
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 561, in formatTime
+MemoryError
+Call stack:
+  File "<string>", line 1, in <module>
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/versions.py", line 18, in <module>
+ModuleNotFoundError: No module named 'importlib.metadata'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/utils.py", line 190, in wrapped_func
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 35, in _get_active_due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/collector.py", line 20, in <module>
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/io.py", line 31, in <module>
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/versions.py", line 20, in <module>
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 857, in get_code
+  File "<frozen importlib._bootstrap_external>", line 525, in _compile_bytecode
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 1034, in emit
+    msg = self.format(record)
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 880, in format
+    return fmt.format(record)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/log.py", line 138, in format
+    return logging.Formatter.format(self, record)
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 621, in format
+    record.asctime = self.formatTime(record, self.datefmt)
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 561, in formatTime
+    t = time.strftime(self.default_time_format, ct)
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 261, in main
+    old_handlers)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/forkserver.py", line 297, in _serve_one
+    code = spawn._main(child_r)
+  File "/usr/local/miniconda/lib/python3.7/multiprocessing/spawn.py", line 115, in _main
+    self = reduction.pickle.load(from_parent)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/__init__.py", line 20, in <module>
+    from .refs import due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/refs.py", line 4, in <module>
+    from .external.due import due, Doi, BibTeX
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/external/due.py", line 57, in <module>
+    from duecredit import due, BibTeX, Doi, Url
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/__init__.py", line 17, in <module>
+    from .dueswitch import due
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/dueswitch.py", line 131, in <module>
+    due = DueSwitch(_get_inactive_due(), _get_active_due(), _get_duecredit_enable())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/duecredit/utils.py", line 194, in wrapped_func
+    % (f, e))
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 1395, in warning
+    self._log(WARNING, msg, args, **kwargs)
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 1519, in _log
+    self.handle(record)
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 1529, in handle
+    self.callHandlers(record)
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 1591, in callHandlers
+    hdlr.handle(record)
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 905, in handle
+    self.emit(record)
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 1040, in emit
+    self.handleError(record)
+  File "/usr/local/miniconda/lib/python3.7/logging/__init__.py", line 967, in handleError
+    traceback.print_stack(frame, file=sys.stderr)
+  File "/usr/local/miniconda/lib/python3.7/traceback.py", line 190, in print_stack
+    print_list(extract_stack(f, limit=limit), file=file)
+  File "/usr/local/miniconda/lib/python3.7/traceback.py", line 25, in print_list
+    print(item, file=file, end="")
+MemoryError
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 184, in run
+    self._send_procs_to_workers(updatehash=updatehash, graph=graph)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 367, in _send_procs_to_workers
+    tid = self._submit_job(deepcopy(self.procs[jobid]), updatehash=updatehash)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 175, in _submit_job
+    result_future = self.pool.submit(run_node, node, updatehash, self._taskid)
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/process.py", line 599, in submit
+    raise BrokenProcessPool(self._broken)
+concurrent.futures.process.BrokenProcessPool: A child process terminated abruptly, the process pool is not usable anymore
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 184, in run
+    self._send_procs_to_workers(updatehash=updatehash, graph=graph)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 367, in _send_procs_to_workers
+    tid = self._submit_job(deepcopy(self.procs[jobid]), updatehash=updatehash)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 175, in _submit_job
+    result_future = self.pool.submit(run_node, node, updatehash, self._taskid)
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/process.py", line 599, in submit
+    raise BrokenProcessPool(self._broken)
+concurrent.futures.process.BrokenProcessPool: A child process terminated abruptly, the process pool is not usable anymore
+exception calling callback for <Future at 0x2b83ed95fc50 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2b83fdaf59e8 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2b83fdaf5320 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2b4da7f07630 state=finished raised FileNotFoundError>
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 67, in run_node
+    result["result"] = node.run(updatehash=updatehash)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 486, in run
+    self._get_hashval()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 538, in _get_hashval
+    self._get_inputs()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 580, in _get_inputs
+    outputs = _load_resultfile(results_fname).outputs
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 293, in load_resultfile
+    result = loadpkl(results_file)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 666, in loadpkl
+    raise e
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 643, in loadpkl
+    unpkl = pickle.loads(pkl_contents)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/interfaces/__init__.py", line 9, in <module>
+    from ..niworkflows.interfaces.images import (TemplateDimensions, MatchHeader)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/__init__.py", line 6, in <module>
+    from .masks import BETRPT as BET
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/masks.py", line 21, in <module>
+    from seaborn import color_palette
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/__init__.py", line 6, in <module>
+    from .rcmod import *
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/rcmod.py", line 5, in <module>
+    from . import palettes, _orig_rc_params
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/palettes.py", line 12, in <module>
+    from .utils import desaturate, set_hls_values, get_color_cycle
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/utils.py", line 11, in <module>
+    import matplotlib.pyplot as plt
+  File "/usr/local/miniconda/lib/python3.7/site-packages/matplotlib/pyplot.py", line 115, in <module>
+    _backend_mod, new_figure_manager, draw_if_interactive, _show = pylab_setup()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/matplotlib/backends/__init__.py", line 62, in pylab_setup
+    [backend_name], 0)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py", line 48, in <module>
+    from matplotlib.backends._backend_agg import RendererAgg as _RendererAgg
+ImportError: /usr/local/miniconda/lib/python3.7/site-packages/matplotlib/backends/_backend_agg.cpython-37m-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/process.py", line 232, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 70, in run_node
+    result["result"] = node.result
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 217, in result
+    op.join(self.output_dir(), "result_%s.pklz" % self.name)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 291, in load_resultfile
+    raise FileNotFoundError(results_file)
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_bvals/result_conformed_bvals.pklz
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_bvals/result_conformed_bvals.pklz
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+exception calling callback for <Future at 0x2b4da7f070f0 state=finished raised FileNotFoundError>
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 67, in run_node
+    result["result"] = node.run(updatehash=updatehash)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 486, in run
+    self._get_hashval()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 538, in _get_hashval
+    self._get_inputs()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 580, in _get_inputs
+    outputs = _load_resultfile(results_fname).outputs
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 293, in load_resultfile
+    result = loadpkl(results_file)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 666, in loadpkl
+    raise e
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 643, in loadpkl
+    unpkl = pickle.loads(pkl_contents)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/interfaces/__init__.py", line 9, in <module>
+    from ..niworkflows.interfaces.images import (TemplateDimensions, MatchHeader)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/__init__.py", line 6, in <module>
+    from .masks import BETRPT as BET
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/masks.py", line 21, in <module>
+    from seaborn import color_palette
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/__init__.py", line 14, in <module>
+    from .matrix import *
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/matrix.py", line 11, in <module>
+    from scipy.cluster import hierarchy
+  File "/usr/local/miniconda/lib/python3.7/site-packages/scipy/cluster/__init__.py", line 27, in <module>
+    from . import vq, hierarchy
+  File "/usr/local/miniconda/lib/python3.7/site-packages/scipy/cluster/vq.py", line 77, in <module>
+    from . import _vq
+ImportError: /usr/local/miniconda/lib/python3.7/site-packages/scipy/cluster/_vq.cpython-37m-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/process.py", line 232, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 70, in run_node
+    result["result"] = node.result
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 217, in result
+    op.join(self.output_dir(), "result_%s.pklz" % self.name)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 291, in load_resultfile
+    raise FileNotFoundError(results_file)
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_raw_images/result_conformed_raw_images.pklz
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_raw_images/result_conformed_raw_images.pklz
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+exception calling callback for <Future at 0x2b4da77850f0 state=finished raised FileNotFoundError>
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 67, in run_node
+    result["result"] = node.run(updatehash=updatehash)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 486, in run
+    self._get_hashval()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 538, in _get_hashval
+    self._get_inputs()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 580, in _get_inputs
+    outputs = _load_resultfile(results_fname).outputs
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 293, in load_resultfile
+    result = loadpkl(results_file)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 666, in loadpkl
+    raise e
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 643, in loadpkl
+    unpkl = pickle.loads(pkl_contents)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/interfaces/__init__.py", line 9, in <module>
+    from ..niworkflows.interfaces.images import (TemplateDimensions, MatchHeader)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/__init__.py", line 6, in <module>
+    from .masks import BETRPT as BET
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/masks.py", line 21, in <module>
+    from seaborn import color_palette
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/__init__.py", line 14, in <module>
+    from .matrix import *
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/matrix.py", line 11, in <module>
+    from scipy.cluster import hierarchy
+  File "/usr/local/miniconda/lib/python3.7/site-packages/scipy/cluster/__init__.py", line 27, in <module>
+    from . import vq, hierarchy
+  File "/usr/local/miniconda/lib/python3.7/site-packages/scipy/cluster/vq.py", line 77, in <module>
+    from . import _vq
+ImportError: /usr/local/miniconda/lib/python3.7/site-packages/scipy/cluster/_vq.cpython-37m-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/process.py", line 232, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 70, in run_node
+    result["result"] = node.result
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 217, in result
+    op.join(self.output_dir(), "result_%s.pklz" % self.name)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 291, in load_resultfile
+    raise FileNotFoundError(results_file)
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_images/result_conformed_images.pklz
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_images/result_conformed_images.pklz
+exception calling callback for <Future at 0x2b4da7f07940 state=finished raised FileNotFoundError>
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 67, in run_node
+    result["result"] = node.run(updatehash=updatehash)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 486, in run
+    self._get_hashval()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 538, in _get_hashval
+    self._get_inputs()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 580, in _get_inputs
+    outputs = _load_resultfile(results_fname).outputs
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 293, in load_resultfile
+    result = loadpkl(results_file)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 666, in loadpkl
+    raise e
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 643, in loadpkl
+    unpkl = pickle.loads(pkl_contents)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/interfaces/__init__.py", line 9, in <module>
+    from ..niworkflows.interfaces.images import (TemplateDimensions, MatchHeader)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/__init__.py", line 6, in <module>
+    from .masks import BETRPT as BET
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/masks.py", line 21, in <module>
+    from seaborn import color_palette
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/__init__.py", line 6, in <module>
+    from .rcmod import *
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/rcmod.py", line 5, in <module>
+    from . import palettes, _orig_rc_params
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/palettes.py", line 12, in <module>
+    from .utils import desaturate, set_hls_values, get_color_cycle
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/utils.py", line 11, in <module>
+    import matplotlib.pyplot as plt
+  File "/usr/local/miniconda/lib/python3.7/site-packages/matplotlib/pyplot.py", line 115, in <module>
+    _backend_mod, new_figure_manager, draw_if_interactive, _show = pylab_setup()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/matplotlib/backends/__init__.py", line 62, in pylab_setup
+    [backend_name], 0)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py", line 48, in <module>
+    from matplotlib.backends._backend_agg import RendererAgg as _RendererAgg
+ImportError: /usr/local/miniconda/lib/python3.7/site-packages/matplotlib/backends/_backend_agg.cpython-37m-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/process.py", line 232, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 70, in run_node
+    result["result"] = node.result
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 217, in result
+    op.join(self.output_dir(), "result_%s.pklz" % self.name)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 291, in load_resultfile
+    raise FileNotFoundError(results_file)
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformation_reports/result_conformation_reports.pklz
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformation_reports/result_conformation_reports.pklz
+exception calling callback for <Future at 0x2b4da7f077b8 state=finished raised FileNotFoundError>
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 67, in run_node
+    result["result"] = node.run(updatehash=updatehash)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 486, in run
+    self._get_hashval()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 538, in _get_hashval
+    self._get_inputs()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 580, in _get_inputs
+    outputs = _load_resultfile(results_fname).outputs
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 293, in load_resultfile
+    result = loadpkl(results_file)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 666, in loadpkl
+    raise e
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/utils/filemanip.py", line 643, in loadpkl
+    unpkl = pickle.loads(pkl_contents)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/interfaces/__init__.py", line 9, in <module>
+    from ..niworkflows.interfaces.images import (TemplateDimensions, MatchHeader)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/__init__.py", line 6, in <module>
+    from .masks import BETRPT as BET
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/niworkflows/interfaces/masks.py", line 21, in <module>
+    from seaborn import color_palette
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/__init__.py", line 6, in <module>
+    from .rcmod import *
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/rcmod.py", line 5, in <module>
+    from . import palettes, _orig_rc_params
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/palettes.py", line 12, in <module>
+    from .utils import desaturate, set_hls_values, get_color_cycle
+  File "/usr/local/miniconda/lib/python3.7/site-packages/seaborn/utils.py", line 11, in <module>
+    import matplotlib.pyplot as plt
+  File "/usr/local/miniconda/lib/python3.7/site-packages/matplotlib/pyplot.py", line 115, in <module>
+    _backend_mod, new_figure_manager, draw_if_interactive, _show = pylab_setup()
+  File "/usr/local/miniconda/lib/python3.7/site-packages/matplotlib/backends/__init__.py", line 62, in pylab_setup
+    [backend_name], 0)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py", line 48, in <module>
+    from matplotlib.backends._backend_agg import RendererAgg as _RendererAgg
+ImportError: /usr/local/miniconda/lib/python3.7/site-packages/matplotlib/backends/_backend_agg.cpython-37m-x86_64-linux-gnu.so: failed to map segment from shared object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/process.py", line 232, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 70, in run_node
+    result["result"] = node.result
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 217, in result
+    op.join(self.output_dir(), "result_%s.pklz" % self.name)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/utils.py", line 291, in load_resultfile
+    raise FileNotFoundError(results_file)
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_bvecs/result_conformed_bvecs.pklz
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+FileNotFoundError: /out/tmp/qsiprep_wf/single_subject_131294_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_bvecs/result_conformed_bvecs.pklz
+slurmstepd: error: *** JOB 10431791 ON c473-051 CANCELLED AT 2022-10-20T02:11:22 ***
+Killed by signal 15.

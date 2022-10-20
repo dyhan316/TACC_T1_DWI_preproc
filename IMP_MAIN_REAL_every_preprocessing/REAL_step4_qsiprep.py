@@ -9,7 +9,8 @@ import pdb
 #args = parser.parse_args()
 
 ######IMPORTANT TO SELECT THIS########
-age_list = ['age_4.5_to_5','age_5_to_5.5']
+age_list = ['age_16_to_18','age_18_to_20']
+            #['age_4.5_to_5','age_5_to_5.5']
            #below : not done yet
            #,'age_5.5_to_6','age_6_to_7','age_7_to_8','age_8_to_9','age_9_to_10']
            #['age_0_to_1',  'age_1.5_to_2','age_1_to_1.5','age_3.5_to_4','age_4_to_4.5','age_10_to_13',
