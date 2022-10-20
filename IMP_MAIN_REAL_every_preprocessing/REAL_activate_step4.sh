@@ -17,7 +17,7 @@
 #SBATCH -p skx-dev #flat-quadrant #the queue on stampede 2 to use
 #SBATCH -o ./step4_shell_outputs/flat_quadrant_QSIPREP_preproc.o%j  #change according to you job name
 #SBATCH -e ./step4_shell_outputs/flat_quadrant_QSIPREP_preproc.e%j #change according to you job name
-#SBATCH -t 2:00:00     #number of hours for the job to run. 48hr is the maximum for normal queue.
+#SBATCH -t 0:30:00     #number of hours for the job to run. 48hr is the maximum for normal queue.
 ##SBATCH --ntasks-per-node 24 #freesurfer : 4GB per subject needed, so trying iwth 24GB ###ADDED REMOVE LATER IF NECESSARUY #removed becasue no configuraiton possible error occured
 ##SBATCH –-mail-user=dyhan0316@gmail.com  #email address to send notification
 ##SBATCH -–mail-type=all # Send email at begin and end of job
