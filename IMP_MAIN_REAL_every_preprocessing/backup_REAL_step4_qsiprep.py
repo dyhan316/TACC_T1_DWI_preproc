@@ -9,7 +9,7 @@ import pdb
 #args = parser.parse_args()
 
 ######IMPORTANT TO SELECT THIS########
-age_list = ['age_8_to_9','age_9_to_10','age_10_to_13','age_13_to_16','age_16_to_18','age_18_to_20']
+age_list = ['age_16_to_18','age_18_to_20']
             #['age_4.5_to_5','age_5_to_5.5']
            #below : not done yet
            #,'age_5.5_to_6','age_6_to_7','age_7_to_8','age_8_to_9','age_9_to_10']
@@ -92,11 +92,9 @@ for age_range in age_list:
             f.write(f"{command_to_add}\n")
     
     num_subs+=len(args.sub_list) #addition over all age groups 
-import math
+
 num_subs = num_subs + 1 #had to do +1 to get every subject to be done (one process seems to be reserfved for running the thing as a whole)
-ntasks_per_node = 17
-num_nodes = int(math.ceil(float(num_subs)/ntasks_per_node)) #number of nodes to take, with ntasks per node satisfiedceiling으로 필요한 만큼 node가져가기
-subprocess.run(f"sbatch -n {num_subs} -N {num_nodes} {args.base_dir}/REAL_activate_step4.sh", shell = True)
+subprocess.run(f"sbatch -n {num_subs} {args.base_dir}/REAL_activate_step4.sh", shell = True)
 #added -n {num_subs} so that it automatically chooses the right number of jobs (slurm number of jobs)
 pdb.set_trace()
     #pdb.set_trace()
