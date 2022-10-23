@@ -1,0 +1,1673 @@
+221022-01:16:08,822 nipype.workflow INFO:
+	 Running with omp_nthreads=1, nthreads=2
+221022-01:16:08,825 nipype.workflow IMPORTANT:
+	 
+    Running qsiprep version 0.14.3:
+      * BIDS dataset path: /data.
+      * Participant list: ['160667'].
+      * Run identifier: 20221022-011602_186a0e51-8d9d-4baa-8da7-3b7d8299998a.
+    
+221022-01:16:09,113 nipype.utils WARNING:
+	 A newer version (1.8.4) of nipy/nipype is available. You are using 1.6.1
+221022-01:16:10,26 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+221022-01:16:10,38 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-160667/dwi/sub-160667_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-160667'}]
+221022-01:16:10,156 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-160667 (1.13 GB / 36 DWIs). Memory resampled/largemem=1.53/1.66 GB.
+221022-01:16:10,158 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+221022-01:16:10,178 nipype.workflow INFO:
+	 Using 1 threads in eddy
+221022-01:16:24,522 nipype.workflow IMPORTANT:
+	 Works derived from this qsiprep execution should include the following boilerplate:
+
+
+Preprocessing was performed using *QSIPrep* 0.14.3,
+which is based on *Nipype* 1.6.1
+(@nipype1; @nipype2; RRID:SCR_002502).
+
+Anatomical data preprocessing
+
+: The T1-weighted (T1w) image was corrected for intensity non-uniformity (INU)
+using `N4BiasFieldCorrection` [@n4, ANTs 2.3.1],
+and used as T1w-reference throughout the workflow.
+The T1w-reference was then skull-stripped using `antsBrainExtraction.sh`
+(ANTs 2.3.1), using OASIS as target template.
+Brain surfaces were reconstructed using `recon-all` [FreeSurfer 6.0.1,
+RRID:SCR_001847, @fs_reconall], and the brain mask estimated
+previously was refined with a custom variation of the method to reconcile
+ANTs-derived and FreeSurfer-derived segmentations of the cortical
+gray-matter of Mindboggle [RRID:SCR_002438, @mindboggle].
+Spatial normalization to the ICBM 152 Nonlinear Asymmetrical
+template version 2009c [@mni, RRID:SCR_008796] was performed
+through nonlinear registration with `antsRegistration`
+[ANTs 2.3.1, RRID:SCR_004757, @ants], using
+brain-extracted versions of both T1w volume and template.
+Brain tissue segmentation of cerebrospinal fluid (CSF),
+white-matter (WM) and gray-matter (GM) was performed on
+the brain-extracted T1w using `FAST` [FSL 6.0.3:b862cdd5, RRID:SCR_002823,
+@fsl_fast].
+
+
+Diffusion data preprocessing
+
+: Any images with a b-value less than 100 s/mm^2 were treated as a *b*=0 image. MP-PCA denoising as implemented in MRtrix3's `dwidenoise`[@dwidenoise1] was applied with a 5-voxel window. After MP-PCA, Gibbs unringing was performed using MRtrix3's `mrdegibbs` [@mrdegibbs]. Following unringing, B1 field inhomogeneity was corrected using `dwibiascorrect` from MRtrix3 with the N4 algorithm [@n4]. After B1 bias correction, the mean intensity of the DWI series was adjusted so all the mean intensity of the b=0 images matched across eachseparate DWI scanning sequence.
+
+FSL (version 6.0.3:b862cdd5)'s eddy was used for head motion correction and Eddy current correction [@anderssoneddy]. Eddy was configured with a $q$-space smoothing factor of 10, a total of 5 iterations, and 1000 voxels used to estimate hyperparameters. A linear first level model and a linear second level model were used to characterize Eddy current-related spatial distortion. $q$-space coordinates were forcefully assigned to shells. Field offset was attempted to be separated from subject movement. Shells were aligned post-eddy. Eddy's outlier replacement was run [@eddyrepol]. Data were grouped by slice, only including values from slices determined to contain at least 250 intracerebral voxels. Groups deviating by more than 4 standard deviations from the prediction had their data replaced with imputed values. Final interpolation was performed using the `jac` method.
+
+Several confounding time-series were calculated based on the
+preprocessed DWI: framewise displacement (FD) using the
+implementation in *Nipype* [following the definitions by @power_fd_dvars].
+The head-motion estimates calculated in the correction step were also
+placed within the corresponding confounds file. Slicewise cross correlation
+was also calculated.
+The DWI time-series were resampled to ACPC,
+generating a *preprocessed DWI run in ACPC space* with 1.2mm isotropic voxels.
+
+
+Many internal operations of *QSIPrep* use
+*Nilearn* 0.8.1 [@nilearn, RRID:SCR_001362] and
+*Dipy* [@dipy].
+For more details of the pipeline, see [the section corresponding
+to workflows in *QSIPrep*'s documentation](https://qsiprep.readthedocs.io/en/latest/workflows.html "QSIPrep's documentation").
+
+
+### References
+
+
+221022-01:16:51,62 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.output_grid_wf.autobox_template" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/autobox_template".
+221022-01:16:51,232 nipype.workflow INFO:
+	 [Node] Running "autobox_template" ("nipype.interfaces.afni.utils.Autobox"), a CommandLine Interface with command:
+3dAutobox -input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/autobox_template/mni_1mm_t1w_lps.nii.gz -prefix mni_1mm_t1w_lps_autobox.nii.gz -npad 8
+221022-01:16:52,956 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.bidssrc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/bidssrc".
+221022-01:16:53,218 nipype.workflow INFO:
+	 [Node] Running "bidssrc" ("qsiprep.interfaces.bids.BIDSDataGrabber")
+221022-01:16:53,220 nipype.interface WARNING:
+	 No 't2w' images found for sub-<undefined>
+221022-01:16:53,220 nipype.interface WARNING:
+	 No 'flair' images found for sub-<undefined>
+221022-01:16:53,220 nipype.interface WARNING:
+	 No 'fmap' images found for sub-<undefined>
+221022-01:16:53,220 nipype.interface WARNING:
+	 No 'sbref' images found for sub-<undefined>
+221022-01:16:53,220 nipype.interface WARNING:
+	 No 'roi' images found for sub-<undefined>
+221022-01:16:53,494 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.bidssrc".
+221022-01:16:53,712 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.output_grid_wf.autobox_template".
+221022-01:16:55,158 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conform_dwis01" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conform_dwis01".
+221022-01:16:55,169 nipype.workflow INFO:
+	 [Node] Running "conform_dwis01" ("qsiprep.interfaces.images.ConformDwi")
+221022-01:16:57,165 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.anat_template_wf.t1_template_dimensions" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/anat_template_wf/t1_template_dimensions".
+221022-01:16:58,94 nipype.workflow INFO:
+	 [Node] Running "t1_template_dimensions" ("qsiprep.niworkflows.interfaces.images.TemplateDimensions")
+221022-01:16:58,239 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.anat_template_wf.t1_template_dimensions".
+221022-01:16:59,278 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.output_grid_wf.deoblique_autobox" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/deoblique_autobox".
+221022-01:16:59,295 nipype.workflow INFO:
+	 [Node] Running "deoblique_autobox" ("nipype.interfaces.afni.preprocess.Warp"), a CommandLine Interface with command:
+3dWarp -deoblique -prefix mni_1mm_t1w_lps_autobox_warp.nii.gz /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/deoblique_autobox/mni_1mm_t1w_lps_autobox.nii.gz
+221022-01:17:02,820 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.output_grid_wf.deoblique_autobox".
+221022-01:17:03,419 nipype.utils WARNING:
+	 A newer version (1.8.4) of nipy/nipype is available. You are using 1.6.1
+221022-01:17:03,536 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.anat_template_wf.t1_conform" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/anat_template_wf/t1_conform".
+221022-01:17:03,547 nipype.workflow INFO:
+	 [Node] Setting-up "_t1_conform0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/anat_template_wf/t1_conform/mapflow/_t1_conform0".
+221022-01:17:03,566 nipype.workflow INFO:
+	 [Node] Running "_t1_conform0" ("qsiprep.interfaces.images.Conform")
+221022-01:17:06,283 nipype.interface INFO:
+	 Not applying reorientation to /data/sub-160667/dwi/sub-160667_dwi.nii.gz: already in LAS
+221022-01:17:06,329 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conform_dwis01".
+221022-01:17:06,577 nipype.workflow INFO:
+	 [Node] Finished "_t1_conform0".
+221022-01:17:06,584 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.anat_template_wf.t1_conform".
+221022-01:17:07,197 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_images" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_images".
+221022-01:17:07,197 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_raw_images" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_raw_images".
+221022-01:17:07,214 nipype.workflow INFO:
+	 [Node] Running "conformed_images" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:07,217 nipype.workflow INFO:
+	 [Node] Running "conformed_raw_images" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:07,224 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_images".
+221022-01:17:07,227 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_raw_images".
+221022-01:17:09,189 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_bvals" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_bvals".
+221022-01:17:09,190 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_bvecs" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_bvecs".
+221022-01:17:09,295 nipype.workflow INFO:
+	 [Node] Running "conformed_bvecs" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:09,295 nipype.workflow INFO:
+	 [Node] Running "conformed_bvals" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:09,306 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_bvecs".
+221022-01:17:09,313 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_bvals".
+221022-01:17:11,136 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformation_reports" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformation_reports".
+221022-01:17:11,136 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.anat_derivatives_wf.t1_name" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/anat_derivatives_wf/t1_name".
+221022-01:17:11,147 nipype.workflow INFO:
+	 [Node] Running "t1_name" ("nipype.interfaces.utility.wrappers.Function")
+221022-01:17:11,148 nipype.workflow INFO:
+	 [Node] Running "conformation_reports" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:11,156 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformation_reports".
+221022-01:17:11,157 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.anat_derivatives_wf.t1_name".
+221022-01:17:15,470 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.output_grid_wf.resample_to_voxel_size" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size".
+221022-01:17:15,478 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.raw_merge" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/raw_merge".
+221022-01:17:15,527 nipype.workflow INFO:
+	 [Node] Running "raw_merge" ("qsiprep.interfaces.nilearn.Merge")
+221022-01:17:15,528 nipype.workflow INFO:
+	 [Node] Running "resample_to_voxel_size" ("nipype.interfaces.afni.utils.Resample"), a CommandLine Interface with command:
+3dresample -prefix mni_1mm_t1w_lps_autobox_warp_resample.nii.gz -dxyz 1.200000 1.200000 1.200000 -inset /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp.nii.gz
+221022-01:17:17,700 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.output_grid_wf.resample_to_voxel_size".
+221022-01:17:19,638 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merge_dwis" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merge_dwis".
+221022-01:17:19,841 nipype.workflow INFO:
+	 [Node] Running "merge_dwis" ("qsiprep.interfaces.dwi_merge.MergeDWIs")
+221022-01:17:23,244 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merge_dwis".
+221022-01:17:23,945 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.t1_skull_strip" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip".
+221022-01:17:23,961 nipype.workflow INFO:
+	 [Node] Running "t1_skull_strip" ("nipype.interfaces.ants.segmentation.BrainExtraction"), a CommandLine Interface with command:
+antsBrainExtraction.sh -a /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/anat_template_wf/t1_conform/mapflow/_t1_conform0/sub-160667_T1w_lps.nii.gz -m /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/tpl-OASIS30ANTs_res-01_class-brainmask_probtissue.nii.gz -e /niworkflows_data/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_T1w.nii.gz -d 3 -f /niworkflows_data/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_label-BrainCerebellumExtraction_roi.nii.gz -s nii.gz -k 1 -o highres001_ -q 1 -u 1
+221022-01:17:31,861 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.raw_merge".
+221022-01:17:33,623 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.test_pre_hmc_connect" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/test_pre_hmc_connect".
+221022-01:17:33,634 nipype.workflow INFO:
+	 [Node] Running "test_pre_hmc_connect" ("qsiprep.interfaces.utils.TestInput")
+221022-01:17:33,635 nipype.workflow WARNING:
+	 Storing result file without outputs
+221022-01:17:33,639 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.test_pre_hmc_connect".
+221022-01:17:35,606 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_src" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src".
+221022-01:17:35,625 nipype.workflow INFO:
+	 [Node] Running "raw_src" ("qsiprep.interfaces.dsi_studio.DSIStudioCreateSrc"), a CommandLine Interface with command:
+dsi_studio --action=src  --bval=/data/sub-160667/dwi/sub-160667_dwi.bval --bvec=/data/sub-160667/dwi/sub-160667_dwi.bvec --source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/raw_merge/sub-160667_dwi_merged.nii.gz --threads=1 --output=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src/sub-160667_dwi_merged.src.gz
+221022-01:18:12,79 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_src".
+221022-01:18:13,649 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.denoiser" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/denoiser".
+221022-01:18:13,680 nipype.workflow INFO:
+	 [Node] Running "denoiser" ("qsiprep.interfaces.mrtrix.DWIDenoise"), a CommandLine Interface with command:
+dwidenoise -extent 5,5,5 -noise sub-160667_dwi_noise.nii.gz /data/sub-160667/dwi/sub-160667_dwi.nii.gz sub-160667_dwi_denoised.nii.gz
+221022-01:27:14,880 nipype.interface INFO:
+	 Generating denoising visual report
+221022-01:31:22,855 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.denoiser".
+221022-01:31:24,532 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_src" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src".
+221022-01:31:24,596 nipype.workflow INFO:
+	 [Node] Running "raw_src" ("qsiprep.interfaces.dsi_studio.DSIStudioCreateSrc"), a CommandLine Interface with command:
+dsi_studio --action=src  --bval=/data/sub-160667/dwi/sub-160667_dwi.bval --bvec=/data/sub-160667/dwi/sub-160667_dwi.bvec --source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/raw_merge/sub-160667_dwi_merged.nii.gz --threads=1 --output=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src/sub-160667_dwi_merged.src.gz
+221022-01:32:00,785 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_src".
+221022-01:32:02,659 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_src_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src_qc".
+221022-01:32:02,699 nipype.workflow INFO:
+	 [Node] Running "raw_src_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioSrcQC")
+221022-01:32:09,380 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src_qc/sub-160667_dwi_merged.src.gz
+action=qc
+checking /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src_qc/sub-160667_dwi_merged.src.gz
+
+221022-01:32:09,391 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_src_qc".
+221022-01:32:10,498 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_gqi" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi".
+221022-01:32:10,528 nipype.workflow INFO:
+	 [Node] Running "raw_gqi" ("qsiprep.interfaces.dsi_studio.DSIStudioGQIReconstruction"), a CommandLine Interface with command:
+dsi_studio --action=rec --method=4 --check_btable=0 --source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi/sub-160667_dwi_merged.src.gz --threads=1 --num_fiber=3 --record_odf=1 --param0=1.2500 --thread_count=1
+current dir /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi
+input src /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi/sub-160667_dwi_merged.src.gz
+split src name sub-160667_dwi_merged.src.gz
+search target /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi/sub-160667_dwi_merged.src.gz*gqi*.fib.gz
+221022-01:35:54,438 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_gqi".
+221022-01:35:54,989 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.degibbser" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/degibbser".
+221022-01:35:55,10 nipype.workflow INFO:
+	 [Node] Running "degibbser" ("qsiprep.interfaces.mrtrix.MRDeGibbs"), a CommandLine Interface with command:
+mrdegibbs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/denoiser/sub-160667_dwi_denoised.nii.gz sub-160667_dwi_denoised_mrdegibbs.nii.gz
+221022-01:41:13,502 nipype.interface INFO:
+	 Generating denoising visual report
+221022-01:43:00,954 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.degibbser".
+221022-01:43:01,127 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_src_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src_qc".
+221022-01:43:01,159 nipype.workflow INFO:
+	 [Node] Running "raw_src_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioSrcQC")
+221022-01:43:04,958 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src_qc/sub-160667_dwi_merged.src.gz
+action=qc
+checking /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src_qc/sub-160667_dwi_merged.src.gz
+
+221022-01:43:04,971 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_src_qc".
+221022-01:43:05,111 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_gqi" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi".
+221022-01:43:05,147 nipype.workflow INFO:
+	 [Node] Running "raw_gqi" ("qsiprep.interfaces.dsi_studio.DSIStudioGQIReconstruction"), a CommandLine Interface with command:
+dsi_studio --action=rec --method=4 --check_btable=0 --source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi/sub-160667_dwi_merged.src.gz --threads=1 --num_fiber=3 --record_odf=1 --param0=1.2500 --thread_count=1
+current dir /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi
+input src /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi/sub-160667_dwi_merged.src.gz
+split src name sub-160667_dwi_merged.src.gz
+search target /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi/sub-160667_dwi_merged.src.gz*gqi*.fib.gz
+221022-01:46:43,602 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_gqi".
+221022-01:46:45,388 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_fib_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_fib_qc".
+221022-01:46:45,404 nipype.workflow INFO:
+	 [Node] Running "raw_fib_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioFibQC")
+221022-01:46:59,746 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_fib_qc/sub-160667_dwi_merged.src.gz.odf.gqi.1.25.fib.gz
+action=qc
+loading /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_fib_qc/sub-160667_dwi_merged.src.gz.odf.gqi.1.25.fib.gz...
+
+221022-01:46:59,764 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_fib_qc".
+221022-01:47:01,565 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.get_b0s" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/get_b0s".
+221022-01:47:01,596 nipype.workflow INFO:
+	 [Node] Running "get_b0s" ("qsiprep.interfaces.gradients.ExtractB0s")
+221022-01:47:07,262 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.get_b0s".
+221022-01:47:07,375 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_fib_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_fib_qc".
+221022-01:47:07,391 nipype.workflow INFO:
+	 [Node] Running "raw_fib_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioFibQC")
+221022-01:47:21,594 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_fib_qc/sub-160667_dwi_merged.src.gz.odf.gqi.1.25.fib.gz
+action=qc
+loading /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_fib_qc/sub-160667_dwi_merged.src.gz.odf.gqi.1.25.fib.gz...
+
+221022-01:47:21,613 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_fib_qc".
+221022-01:47:23,423 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.merged_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/merged_qc".
+221022-01:47:23,441 nipype.workflow INFO:
+	 [Node] Running "merged_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioMergeQC")
+221022-01:47:23,494 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.merged_qc".
+221022-01:47:25,393 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.quick_mask" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/quick_mask".
+221022-01:47:25,407 nipype.workflow INFO:
+	 [Node] Running "quick_mask" ("qsiprep.interfaces.nilearn.MaskEPI")
+221022-01:47:36,760 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.quick_mask".
+221022-01:47:37,407 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.merged_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/merged_qc".
+221022-01:47:37,420 nipype.workflow INFO:
+	 [Node] Running "merged_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioMergeQC")
+221022-01:47:37,438 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.merged_qc".
+221022-01:47:39,420 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.biascorr" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/biascorr".
+221022-01:47:39,439 nipype.workflow INFO:
+	 [Node] Running "biascorr" ("qsiprep.interfaces.mrtrix.DWIBiasCorrect"), a CommandLine Interface with command:
+dwibiascorrect ants -ants.b [150,3] -ants.c [200x200,1e-6] -bias sub-160667_dwi_denoised_mrdegibbs_bias.nii.gz -fslgrad /data/sub-160667/dwi/sub-160667_dwi.bvec /data/sub-160667/dwi/sub-160667_dwi.bval -mask /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/quick_mask/sub-160667_dwi_denoised_mrdegibbs_b0_series_mask.nii.gz /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/degibbser/sub-160667_dwi_denoised_mrdegibbs.nii.gz sub-160667_dwi_denoised_mrdegibbs_N4.nii.gz
+221022-01:48:46,356 nipype.interface INFO:
+	 Generating denoising visual report
+221022-01:51:09,634 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.biascorr".
+221022-01:51:11,756 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.merge_confounds" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/merge_confounds".
+221022-01:51:11,772 nipype.workflow INFO:
+	 [Node] Running "merge_confounds" ("nipype.interfaces.utility.base.Merge")
+221022-01:51:11,783 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.merge_confounds".
+221022-01:51:13,643 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.gather_inputs" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/gather_inputs".
+221022-01:51:13,665 nipype.workflow INFO:
+	 [Node] Running "gather_inputs" ("qsiprep.interfaces.eddy.GatherEddyInputs")
+221022-01:51:20,989 nipype.interface WARNING:
+	 Using slower b02b0_1.cnf because an axis has an odd number of slices
+221022-01:51:22,106 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.gather_inputs".
+221022-01:51:23,648 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.hstack_confounds" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/hstack_confounds".
+221022-01:51:23,662 nipype.workflow INFO:
+	 [Node] Running "hstack_confounds" ("qsiprep.interfaces.dwi_merge.StackConfounds")
+221022-01:51:23,694 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.hstack_confounds".
+221022-01:51:25,654 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.enhance_pre_sdc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/enhance_pre_sdc".
+221022-01:51:25,667 nipype.workflow INFO:
+	 [Node] Running "enhance_pre_sdc" ("qsiprep.interfaces.nilearn.EnhanceB0")
+221022-01:51:37,550 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.enhance_pre_sdc".
+221022-01:51:37,720 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.distorted_merge" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/distorted_merge".
+221022-01:51:37,734 nipype.workflow INFO:
+	 [Node] Running "distorted_merge" ("qsiprep.interfaces.images.IntraModalMerge")
+221022-01:51:38,108 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.distorted_merge".
+221022-01:51:39,664 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merge_confounds" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merge_confounds".
+221022-01:51:39,730 nipype.workflow INFO:
+	 [Node] Running "merge_confounds" ("nipype.interfaces.utility.base.Merge")
+221022-01:51:39,740 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merge_confounds".
+221022-01:51:41,666 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.hstack_confounds" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/hstack_confounds".
+221022-01:51:41,676 nipype.workflow INFO:
+	 [Node] Running "hstack_confounds" ("qsiprep.interfaces.dwi_merge.StackConfounds")
+221022-01:51:41,709 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.hstack_confounds".
+221022-02:58:22,237 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.t1_skull_strip".
+221022-02:58:22,465 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_align" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align".
+221022-02:58:22,493 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_align" ("nipype.interfaces.ants.registration.Registration"), a CommandLine Interface with command:
+antsRegistration --collapse-output-transforms 1 --dimensionality 3 --initial-moving-transform [ /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz, /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_N4Corrected0.nii.gz, 1 ] --initialize-transforms-per-stage 0 --interpolation LanczosWindowedSinc --output [ transform, transform_Warped.nii.gz ] --transform Rigid[ 0.2 ] --metric Mattes[ /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz, /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_N4Corrected0.nii.gz, 1, 32, Random, 0.25 ] --convergence [ 10000x1000x10000x10000, 1e-06, 10 ] --smoothing-sigmas 7.0x3.0x1.0x0.0vox --shrink-factors 8x4x2x1 --use-histogram-matching 1 --winsorize-image-intensities [ 0.025, 0.975 ]  --write-composite-transform 0
+221022-03:03:10,150 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_align".
+221022-03:03:10,758 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_brain" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_brain".
+221022-03:03:10,758 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_head" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_head".
+221022-03:03:10,778 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_resample_head" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_N4Corrected0.nii.gz --input-image-type 0 --interpolation LanczosWindowedSinc --output highres001_N4Corrected0_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align/transform0GenericAffine.mat
+221022-03:03:10,778 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_resample_brain" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_BrainExtractionBrain.nii.gz --input-image-type 0 --interpolation LanczosWindowedSinc --output highres001_BrainExtractionBrain_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align/transform0GenericAffine.mat
+221022-03:03:36,813 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_brain".
+221022-03:03:38,817 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_mask" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_mask".
+221022-03:03:38,832 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_resample_mask" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_BrainExtractionMask.nii.gz --input-image-type 0 --interpolation MultiLabel --output highres001_BrainExtractionMask_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align/transform0GenericAffine.mat
+221022-03:03:39,747 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_head".
+221022-03:03:40,820 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_seg" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_seg".
+221022-03:03:40,836 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_resample_seg" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_BrainExtractionSegmentation.nii.gz --input-image-type 0 --interpolation MultiLabel --output highres001_BrainExtractionSegmentation_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align/transform0GenericAffine.mat
+221022-03:04:37,570 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_mask".
+221022-03:04:38,871 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.recon_config" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/recon_config".
+221022-03:04:38,919 nipype.workflow INFO:
+	 [Node] Running "recon_config" ("qsiprep.interfaces.freesurfer.FSDetectInputs")
+221022-03:04:38,942 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.recon_config".
+221022-03:04:40,805 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_seg".
+221022-03:04:41,190 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon1".
+221022-03:04:41,303 nipype.workflow INFO:
+	 [Node] Running "autorecon1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon1 -i /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_head/highres001_N4Corrected0_trans.nii.gz -noskullstrip -openmp 1 -subjid sub-160667 -sd /out/freesurfer
+221022-03:09:23,60 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon1".
+221022-03:09:25,179 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.skull_strip_extern" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/skull_strip_extern".
+221022-03:09:25,180 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.fsnative_2_t1_xfm" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/fsnative_2_t1_xfm".
+221022-03:09:25,193 nipype.workflow INFO:
+	 [Node] Running "skull_strip_extern" ("qsiprep.interfaces.freesurfer.FSInjectBrainExtracted")
+221022-03:09:25,198 nipype.workflow INFO:
+	 [Node] Running "fsnative_2_t1_xfm" ("nipype.interfaces.freesurfer.preprocess.RobustRegister"), a CommandLine Interface with command:
+mri_robust_register --satit --iscale --lta /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/fsnative_2_t1_xfm/T1_robustreg.lta --mov /out/freesurfer/sub-160667/mri/T1.mgz --dst /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_head/highres001_N4Corrected0_trans.nii.gz
+221022-03:09:27,580 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.skull_strip_extern".
+221022-03:09:29,156 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon2_vol".
+221022-03:09:29,169 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon2-volonly -openmp 1 -subjid sub-160667 -sd /out/freesurfer 
+221022-03:09:29,170 nipype.workflow INFO:
+	 [Node] Running "autorecon2_vol" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon2-volonly -openmp 1 -subjid sub-160667 -sd /out/freesurfer 
+221022-03:09:29,172 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon2-volonly -openmp 1 -subjid sub-160667 -sd /out/freesurfer 
+221022-03:10:04,253 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.fsnative_2_t1_xfm".
+221022-03:10:05,226 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.t1_2_fsnative_xfm" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/t1_2_fsnative_xfm".
+221022-03:10:05,239 nipype.workflow INFO:
+	 [Node] Running "t1_2_fsnative_xfm" ("qsiprep.interfaces.freesurfer.PatchedLTAConvert"), a CommandLine Interface with command:
+lta_convert --inlta /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/fsnative_2_t1_xfm/T1_robustreg.lta --invert --outlta /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/t1_2_fsnative_xfm/out.lta
+221022-03:10:05,380 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.t1_2_fsnative_xfm".
+221022-03:10:07,227 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.anat_derivatives_wf.lta_2_itk" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/anat_derivatives_wf/lta_2_itk".
+221022-03:10:07,240 nipype.workflow INFO:
+	 [Node] Running "lta_2_itk" ("qsiprep.interfaces.freesurfer.PatchedLTAConvert"), a CommandLine Interface with command:
+lta_convert --inlta /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/t1_2_fsnative_xfm/out.lta --outitk /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/anat_derivatives_wf/lta_2_itk/out.txt
+221022-03:10:07,381 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.anat_derivatives_wf.lta_2_itk".
+221022-06:46:03,668 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol".
+221022-06:46:06,831 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221022-06:46:06,833 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221022-06:46:06,847 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-160667 -sd /out/freesurfer 
+221022-06:46:06,848 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-160667 -sd /out/freesurfer 
+221022-06:46:06,849 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-160667 -sd /out/freesurfer 
+221022-06:46:06,850 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-160667 -sd /out/freesurfer 
+221022-06:46:06,851 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-160667 -sd /out/freesurfer 
+221022-06:46:06,852 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-160667 -sd /out/freesurfer 
+221022-09:57:04,456 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221022-11:09:21,584 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221022-11:09:22,467 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221022-11:09:22,495 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221022-11:09:22,535 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-11:09:22,537 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221022-11:09:22,539 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-11:09:22,783 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221022-11:09:22,788 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221022-11:09:22,882 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-11:09:22,884 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221022-11:09:22,888 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-11:09:23,124 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221022-11:09:23,137 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221022-11:09:26,461 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon30" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3/mapflow/_autorecon30".
+221022-11:09:26,462 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon31" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3/mapflow/_autorecon31".
+221022-11:09:26,907 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-160667 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-11:09:26,908 nipype.workflow INFO:
+	 [Node] Running "_autorecon30" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-160667 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-11:09:26,909 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi rh -openmp 1 -subjid sub-160667 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-11:09:26,911 nipype.workflow INFO:
+	 [Node] Running "_autorecon31" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon3 -hemi rh -openmp 1 -subjid sub-160667 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-11:09:26,912 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-160667 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-11:09:26,915 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi rh -openmp 1 -subjid sub-160667 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-12:00:17,377 nipype.workflow INFO:
+	 [Node] Finished "_autorecon30".
+221022-12:02:30,26 nipype.workflow INFO:
+	 [Node] Finished "_autorecon31".
+221022-12:02:31,675 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon3" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3".
+221022-12:02:33,24 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon30" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3/mapflow/_autorecon30".
+221022-12:02:33,78 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-12:02:33,80 nipype.workflow INFO:
+	 [Node] Running "_autorecon30" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221022-12:02:33,84 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-12:02:33,325 nipype.workflow INFO:
+	 [Node] Finished "_autorecon30".
+221022-12:02:33,330 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon31" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3/mapflow/_autorecon31".
+221022-12:02:33,367 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-12:02:33,369 nipype.workflow INFO:
+	 [Node] Running "_autorecon31" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221022-12:02:33,372 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-12:02:33,606 nipype.workflow INFO:
+	 [Node] Finished "_autorecon31".
+221022-12:02:33,617 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon3".
+221022-12:02:35,645 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.recon_report" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/recon_report".
+221022-12:02:35,645 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.get_surfaces" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/get_surfaces".
+221022-12:02:35,660 nipype.workflow INFO:
+	 [Node] Running "get_surfaces" ("nipype.interfaces.io.FreeSurferSource")
+221022-12:02:35,665 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-12:02:35,667 nipype.workflow INFO:
+	 [Node] Running "recon_report" ("qsiprep.niworkflows.interfaces.segmentation.ReconAllRPT"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221022-12:02:35,671 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-12:02:35,704 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.get_surfaces".
+221022-12:02:37,696 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aseg.fs_datasource" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aseg/fs_datasource".
+221022-12:02:37,710 nipype.workflow INFO:
+	 [Node] Running "fs_datasource" ("nipype.interfaces.io.FreeSurferSource")
+221022-12:02:37,770 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aseg.fs_datasource".
+221022-12:02:39,669 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aparc_aseg.fs_datasource" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aparc_aseg/fs_datasource".
+221022-12:02:39,682 nipype.workflow INFO:
+	 [Node] Running "fs_datasource" ("nipype.interfaces.io.FreeSurferSource")
+221022-12:02:39,711 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aparc_aseg.fs_datasource".
+221022-12:02:41,690 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aseg.tonative" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aseg/tonative".
+221022-12:02:41,711 nipype.workflow INFO:
+	 [Node] Running "tonative" ("nipype.interfaces.freesurfer.model.Label2Vol"), a CommandLine Interface with command:
+mri_label2vol --regheader /out/freesurfer/sub-160667/mri/aseg.mgz --seg /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aseg/tonative/aseg.mgz --temp /out/freesurfer/sub-160667/mri/rawavg.mgz --o /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aseg/tonative/aseg_vol.nii.gz
+221022-12:02:53,505 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aseg.tonative".
+221022-12:02:53,663 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aparc_aseg.tonative" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aparc_aseg/tonative".
+221022-12:02:53,684 nipype.workflow INFO:
+	 [Node] Running "tonative" ("nipype.interfaces.freesurfer.model.Label2Vol"), a CommandLine Interface with command:
+mri_label2vol --regheader /out/freesurfer/sub-160667/mri/aseg.mgz --seg /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aparc_aseg/tonative/aparc+aseg.mgz --temp /out/freesurfer/sub-160667/mri/rawavg.mgz --o /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aparc_aseg/tonative/aparc+aseg_vol.nii.gz
+221022-12:02:56,32 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.recon_report".
+221022-12:03:01,223 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aseg.tonii" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aseg/tonii".
+221022-12:03:01,333 nipype.workflow INFO:
+	 [Node] Running "tonii" ("nipype.interfaces.freesurfer.preprocess.MRIConvert"), a CommandLine Interface with command:
+mri_convert --out_type nii --resample_type nearest --reslice_like /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_head/highres001_N4Corrected0_trans.nii.gz --input_volume /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aseg/tonative/aseg_vol.nii.gz --output_volume /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aseg/tonii/aseg_vol_out.nii.gz
+221022-12:03:02,454 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aseg.tonii".
+221022-12:03:03,340 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aparc_aseg.tonative".
+221022-12:03:03,426 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.refine" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/refine".
+221022-12:03:03,465 nipype.workflow INFO:
+	 [Node] Running "refine" ("qsiprep.interfaces.freesurfer.RefineBrainMask")
+221022-12:03:05,432 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aparc_aseg.tonii" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aparc_aseg/tonii".
+221022-12:03:05,449 nipype.workflow INFO:
+	 [Node] Running "tonii" ("nipype.interfaces.freesurfer.preprocess.MRIConvert"), a CommandLine Interface with command:
+mri_convert --out_type nii --resample_type nearest --reslice_like /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_head/highres001_N4Corrected0_trans.nii.gz --input_volume /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aparc_aseg/tonative/aparc+aseg_vol.nii.gz --output_volume /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/segs_to_native_aparc_aseg/tonii/aparc+aseg_vol_out.nii.gz
+221022-12:03:06,999 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.segs_to_native_aparc_aseg.tonii".
+221022-12:03:07,955 nipype.workflow INFO:
+	 [Node] Setting-up "_midthickness0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness0".
+221022-12:03:08,47 nipype.workflow INFO:
+	 [Node] Running "_midthickness0" ("qsiprep.interfaces.freesurfer.MakeMidthickness"), a CommandLine Interface with command:
+mris_expand -pial /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness0/lh.pial -thickness -thickness_name /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness0/lh.thickness /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness0/lh.smoothwm 0.5 midthickness
+221022-12:03:49,592 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.refine".
+221022-12:03:51,419 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.applyrefined" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/applyrefined".
+221022-12:03:51,438 nipype.workflow INFO:
+	 [Node] Running "applyrefined" ("nipype.interfaces.fsl.maths.ApplyMask"), a CommandLine Interface with command:
+fslmaths /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_head/highres001_N4Corrected0_trans.nii.gz -mas /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/refine/highres001_N4Corrected0_trans_rbrainmask.nii.gz /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/applyrefined/highres001_N4Corrected0_trans_masked.nii.gz
+221022-12:03:54,828 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.applyrefined".
+221022-12:03:55,626 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.t1_2_mni" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_2_mni".
+221022-12:03:55,657 nipype.workflow INFO:
+	 [Node] Running "t1_2_mni" ("qsiprep.niworkflows.interfaces.registration.RobustMNINormalizationRPT")
+221022-12:18:00,650 nipype.workflow INFO:
+	 [Node] Finished "_midthickness0".
+221022-12:18:02,383 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.t1_seg" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_seg".
+221022-12:18:02,401 nipype.workflow INFO:
+	 [Node] Running "t1_seg" ("nipype.interfaces.fsl.preprocess.FAST"), a CommandLine Interface with command:
+fast -N -p -g -S 1 /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_seg/highres001_N4Corrected0_trans_masked.nii.gz
+221022-12:20:39,475 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.t1_seg".
+221022-12:20:40,504 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.pre_eddy_b0_ref_wf.register_t1_to_raw" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/pre_eddy_b0_ref_wf/register_t1_to_raw".
+221022-12:20:40,575 nipype.workflow INFO:
+	 [Node] Running "register_t1_to_raw" ("nipype.interfaces.ants.registration.Registration"), a CommandLine Interface with command:
+antsRegistration --collapse-output-transforms 1 --dimensionality 3 --float 0 --initial-moving-transform [ /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/applyrefined/highres001_N4Corrected0_trans_masked.nii.gz, /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/gather_inputs/topup_imain.nii.gz, 1 ] --initialize-transforms-per-stage 0 --interpolation Linear --output transform --transform Rigid[ 0.1 ] --metric MI[ /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/applyrefined/highres001_N4Corrected0_trans_masked.nii.gz, /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/gather_inputs/topup_imain.nii.gz, 1, 32, Regular, 0.25 ] --convergence [ 1000x500x250x100, 1e-06, 10 ] --smoothing-sigmas 3.0x2.0x1.0x0.0vox --shrink-factors 8x4x2x1 --use-estimate-learning-rate-once 0 --use-histogram-matching 0 --masks [ /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/refine/highres001_N4Corrected0_trans_rbrainmask.nii.gz, NULL ] --transform Affine[ 0.1 ] --metric MI[ /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/applyrefined/highres001_N4Corrected0_trans_masked.nii.gz, /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/gather_inputs/topup_imain.nii.gz, 1, 32, Regular, 0.25 ] --convergence [ 1000x500x250x100, 1e-06, 10 ] --smoothing-sigmas 3.0x2.0x1.0x0.0vox --shrink-factors 8x4x2x1 --use-estimate-learning-rate-once 0 --use-histogram-matching 0 --masks [ /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/refine/highres001_N4Corrected0_trans_rbrainmask.nii.gz, NULL ] --winsorize-image-intensities [ 0.005, 0.995 ]  --write-composite-transform 0
+221022-12:22:56,226 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.pre_eddy_b0_ref_wf.register_t1_to_raw".
+221022-12:22:56,585 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.seg2msks" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/seg2msks".
+221022-12:22:56,600 nipype.workflow INFO:
+	 [Node] Running "seg2msks" ("nipype.interfaces.utility.wrappers.Function")
+221022-12:22:57,819 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.seg2msks".
+221022-12:22:58,947 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.pre_eddy_b0_ref_wf.t1_mask_to_b0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/pre_eddy_b0_ref_wf/t1_mask_to_b0".
+221022-12:22:58,970 nipype.workflow INFO:
+	 [Node] Running "t1_mask_to_b0" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/refine/highres001_N4Corrected0_trans_rbrainmask.nii.gz --interpolation MultiLabel --output highres001_N4Corrected0_trans_rbrainmask_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/gather_inputs/topup_imain.nii.gz --transform [ /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/pre_eddy_b0_ref_wf/register_t1_to_raw/transform0GenericAffine.mat, 1 ]
+221022-12:24:03,681 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.pre_eddy_b0_ref_wf.t1_mask_to_b0".
+221022-12:24:04,617 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.seg_rpt" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/seg_rpt".
+221022-12:24:04,637 nipype.workflow INFO:
+	 [Node] Running "seg_rpt" ("qsiprep.niworkflows.interfaces.masks.ROIsPlot")
+221022-12:24:30,531 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.seg_rpt".
+221022-12:24:32,686 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.pre_eddy_b0_ref_wf.enhance_and_mask_b0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/pre_eddy_b0_ref_wf/enhance_and_mask_b0".
+221022-12:24:32,699 nipype.workflow INFO:
+	 [Node] Running "enhance_and_mask_b0" ("qsiprep.interfaces.nilearn.EnhanceAndSkullstripB0")
+221022-12:25:23,698 nipype.interface WARNING:
+	 Degenerate Mask case. Using compute_epi_mask
+221022-12:25:50,438 nipype.interface WARNING:
+	 Masking appears to have failed. Using a backup method
+221022-12:26:14,73 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.pre_eddy_b0_ref_wf.enhance_and_mask_b0".
+221022-12:26:14,984 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.b0_ref_to_lps" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/b0_ref_to_lps".
+221022-12:26:14,998 nipype.workflow INFO:
+	 [Node] Running "b0_ref_to_lps" ("qsiprep.interfaces.images.ConformDwi")
+221022-12:26:16,900 nipype.interface INFO:
+	 Re-orienting /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/pre_eddy_b0_ref_wf/enhance_and_mask_b0/topup_imain_unbiasedsharpened.nii.gz to LPS
+221022-12:26:18,705 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.b0_ref_to_lps".
+221022-12:26:20,827 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.b0_ref_mask_to_lps" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/b0_ref_mask_to_lps".
+221022-12:26:20,842 nipype.workflow INFO:
+	 [Node] Running "b0_ref_mask_to_lps" ("qsiprep.interfaces.images.ConformDwi")
+221022-12:26:20,949 nipype.interface INFO:
+	 Re-orienting /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/pre_eddy_b0_ref_wf/enhance_and_mask_b0/topup_imain_mask.nii.gz to LPS
+221022-12:26:21,63 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.b0_ref_mask_to_lps".
+221022-12:26:22,803 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.eddy" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/eddy".
+221022-12:26:23,38 nipype.workflow INFO:
+	 [Node] Running "eddy" ("qsiprep.interfaces.eddy.ExtendedEddy"), a CommandLine Interface with command:
+eddy_openmp  --cnr_maps --flm=linear --ff=10.0 --acqp=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/gather_inputs/eddy_acqp.txt --bvals=/data/sub-160667/dwi/sub-160667_dwi.bval --bvecs=/data/sub-160667/dwi/sub-160667_dwi.bvec --imain=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/biascorr/sub-160667_dwi_denoised_mrdegibbs_N4.nii.gz --index=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/gather_inputs/eddy_index.txt --mask=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/pre_eddy_b0_ref_wf/enhance_and_mask_b0/topup_imain_mask.nii.gz --interp=spline --data_is_shelled --resamp=jac --niter=5 --nvoxhp=1000 --out=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/eddy/eddy_corrected --repol --slm=linear
+221022-16:38:30,968 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.eddy".
+221022-16:38:32,439 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.b0_ref_brain_to_lps" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/b0_ref_brain_to_lps".
+221022-16:38:32,502 nipype.workflow INFO:
+	 [Node] Running "b0_ref_brain_to_lps" ("qsiprep.interfaces.images.ConformDwi")
+221022-16:38:33,957 nipype.interface INFO:
+	 Re-orienting /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/pre_eddy_b0_ref_wf/enhance_and_mask_b0/topup_imain_brain.nii.gz to LPS
+221022-16:38:35,335 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.b0_ref_brain_to_lps".
+221022-16:38:36,368 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.b0_anat_coreg.b0_to_anat" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat".
+221022-16:38:36,522 nipype.workflow INFO:
+	 [Node] Running "b0_to_anat" ("qsiprep.interfaces.niworkflows.ANTSRegistrationRPT"), a CommandLine Interface with command:
+antsRegistration --collapse-output-transforms 1 --dimensionality 3 --initial-moving-transform [ /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/applyrefined/highres001_N4Corrected0_trans_masked.nii.gz, /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/b0_ref_to_lps/topup_imain_unbiasedsharpened_LPS.nii.gz, 0 ] --initialize-transforms-per-stage 0 --interpolation HammingWindowedSinc --output [ transform, transform_Warped.nii.gz ] --transform Rigid[ 0.2 ] --metric Mattes[ /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/applyrefined/highres001_N4Corrected0_trans_masked.nii.gz, /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/b0_ref_to_lps/topup_imain_unbiasedsharpened_LPS.nii.gz, 1, 32, Random, 0.25 ] --convergence [ 10000x1000x10000x10000, 1e-06, 10 ] --smoothing-sigmas 7.0x3.0x1.0x0.0vox --shrink-factors 8x4x2x1 --use-histogram-matching 1 --winsorize-image-intensities [ 0.025, 0.975 ]  --write-composite-transform 0
+221022-16:44:50,234 nipype.interface INFO:
+	 Report - setting fixed (/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/applyrefined/highres001_N4Corrected0_trans_masked.nii.gz) and moving (/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform_Warped.nii.gz) images
+221022-16:45:06,808 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.b0_anat_coreg.b0_to_anat".
+221022-16:45:09,561 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.back_to_lps" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/back_to_lps".
+221022-16:45:09,746 nipype.workflow INFO:
+	 [Node] Running "back_to_lps" ("qsiprep.interfaces.images.ConformDwi")
+221022-16:45:41,757 nipype.interface INFO:
+	 Re-orienting /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/eddy/eddy_corrected.nii.gz to LPS
+221022-16:46:14,178 nipype.interface INFO:
+	 Reorienting /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/eddy/eddy_corrected.eddy_rotated_bvecs to LPS
+221022-16:46:14,395 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.back_to_lps".
+221022-16:46:14,845 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.cnr_lps" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/cnr_lps".
+221022-16:46:14,857 nipype.workflow INFO:
+	 [Node] Running "cnr_lps" ("qsiprep.interfaces.images.ConformDwi")
+221022-16:46:16,391 nipype.interface INFO:
+	 Re-orienting /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/eddy/eddy_corrected.eddy_cnr_maps.nii.gz to LPS
+221022-16:46:17,857 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.cnr_lps".
+221022-16:46:18,840 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.spm_motion" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/spm_motion".
+221022-16:46:18,854 nipype.workflow INFO:
+	 [Node] Running "spm_motion" ("qsiprep.interfaces.eddy.Eddy2SPMMotion")
+221022-16:46:18,963 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.spm_motion".
+221022-16:46:21,175 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.split_eddy_lps" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps".
+221022-16:46:21,188 nipype.workflow INFO:
+	 [Node] Running "split_eddy_lps" ("qsiprep.interfaces.images.SplitDWIs")
+221022-16:47:01,632 nipype.interface INFO:
+	 Converting oblique-image bvecs to workd coordinate reference frame
+221022-16:47:01,677 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0000eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0000.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0000.nii.gz
+221022-16:47:01,743 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0001eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0001.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0001.nii.gz
+221022-16:47:01,902 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0002eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0002.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0002.nii.gz
+221022-16:47:01,961 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0003eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0003.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0003.nii.gz
+221022-16:47:02,31 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0004eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0004.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0004.nii.gz
+221022-16:47:02,84 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0005eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0005.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0005.nii.gz
+221022-16:47:02,139 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0006eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0006.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0006.nii.gz
+221022-16:47:02,195 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0007eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0007.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0007.nii.gz
+221022-16:47:02,252 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0008eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0008.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0008.nii.gz
+221022-16:47:02,418 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0009eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0009.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0009.nii.gz
+221022-16:47:02,475 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0010eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0010.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0010.nii.gz
+221022-16:47:02,531 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0011eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0011.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0011.nii.gz
+221022-16:47:02,590 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0012eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0012.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0012.nii.gz
+221022-16:47:02,651 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0013eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0013.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0013.nii.gz
+221022-16:47:02,706 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0014eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0014.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0014.nii.gz
+221022-16:47:02,760 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0015eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0015.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0015.nii.gz
+221022-16:47:02,816 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0016eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0016.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0016.nii.gz
+221022-16:47:02,878 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0017eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0017.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0017.nii.gz
+221022-16:47:02,937 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0018eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0018.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0018.nii.gz
+221022-16:47:02,992 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0019eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0019.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0019.nii.gz
+221022-16:47:03,55 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0020eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0020.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0020.nii.gz
+221022-16:47:03,210 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0021eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0021.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0021.nii.gz
+221022-16:47:03,271 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0022eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0022.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0022.nii.gz
+221022-16:47:03,335 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0023eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0023.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0023.nii.gz
+221022-16:47:03,400 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0024eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0024.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0024.nii.gz
+221022-16:47:03,463 nipype.interface INFO:
+	 /opt/3Tissue/bin/mrinfo -dwgrad -fslgrad /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/_0025eddy_corrected_LPS_fix.eddy_rotated_bvecs /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/sub-160667_dwi_0025.bval /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0025.nii.gz
+221022-16:47:03,525 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.hmc_sdc_wf.split_eddy_lps".
+221022-16:47:04,995 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.confounds_wf.fdisp" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/confounds_wf/fdisp".
+221022-16:47:05,9 nipype.workflow INFO:
+	 [Node] Running "fdisp" ("nipype.algorithms.confounds.FramewiseDisplacement")
+221022-16:47:05,26 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.confounds_wf.fdisp".
+221022-16:47:07,149 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.compose_transforms" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/compose_transforms".
+221022-16:47:07,306 nipype.workflow INFO:
+	 [Node] Running "compose_transforms" ("qsiprep.interfaces.gradients.ComposeTransforms")
+221022-16:47:07,307 nipype.interface INFO:
+	 hmc
+221022-16:47:07,307 nipype.interface INFO:
+	 fieldwarp
+221022-16:47:07,307 nipype.interface INFO:
+	 to b=0 affine
+221022-16:47:07,308 nipype.interface INFO:
+	 to b=0 warp
+221022-16:47:07,308 nipype.interface INFO:
+	 b=0 to T1w
+221022-16:47:07,308 nipype.interface INFO:
+	 Including ['/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat', '/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat']
+221022-16:47:07,324 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.compose_transforms".
+221022-16:47:08,954 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.get_interpolation" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/get_interpolation".
+221022-16:47:08,996 nipype.workflow INFO:
+	 [Node] Running "get_interpolation" ("qsiprep.interfaces.images.ChooseInterpolator")
+[1.2 1.2 1.2] [0.70317  0.70317  1.800027]
+221022-16:47:09,22 nipype.interface WARNING:
+	 Using BSpline interpolation for upsampling
+221022-16:47:09,33 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.get_interpolation".
+221022-16:47:11,241 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.cnr_tfm" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/cnr_tfm".
+221022-16:47:11,268 nipype.workflow INFO:
+	 [Node] Running "cnr_tfm" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/cnr_lps/eddy_corrected.eddy_cnr_maps_LPS.nii.gz --interpolation LanczosWindowedSinc --output eddy_corrected.eddy_cnr_maps_LPS_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-16:47:33,10 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.cnr_tfm".
+221022-16:47:35,3 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.rotate_gradients" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients".
+221022-16:47:35,73 nipype.workflow INFO:
+	 [Node] Running "rotate_gradients" ("qsiprep.interfaces.gradients.GradientRotation")
+221022-16:47:35,115 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:35,243 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:35,369 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:35,492 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:35,618 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:35,749 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:35,876 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:36,37 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:36,194 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:36,322 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:36,449 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:36,576 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:36,708 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:36,842 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:36,974 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:37,130 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:37,265 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:37,398 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:37,533 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:37,671 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:37,807 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:37,934 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:38,163 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:38,290 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:38,418 nipype.interface INFO:
+	 antsApplyTransformsToPoints --dimensionality 3 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_pre_rotation.csv --output /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/transform0GenericAffine_post_rotation.csv --transform [/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat, 1]
+221022-16:47:38,667 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.rotate_gradients".
+221022-16:47:39,145 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.conf_plot" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/conf_plot".
+221022-16:47:39,201 nipype.workflow INFO:
+	 [Node] Running "conf_plot" ("qsiprep.interfaces.confounds.DMRISummary")
+221022-16:47:40,383 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_preproc_wf.conf_plot".
+221022-16:47:41,207 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.gtab_t1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/gtab_t1".
+221022-16:47:41,219 nipype.workflow INFO:
+	 [Node] Running "gtab_t1" ("qsiprep.interfaces.mrtrix.MRTrixGradientTable")
+221022-16:47:41,236 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.gtab_t1".
+221022-16:48:39,178 nipype.workflow INFO:
+	 [Node] Setting-up "_midthickness1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness1".
+221022-16:48:39,318 nipype.workflow INFO:
+	 [Node] Running "_midthickness1" ("qsiprep.interfaces.freesurfer.MakeMidthickness"), a CommandLine Interface with command:
+mris_expand -pial /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness1/rh.pial -thickness -thickness_name /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness1/rh.thickness /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness1/rh.smoothwm 0.5 midthickness
+221022-17:00:25,944 nipype.workflow INFO:
+	 [Node] Finished "_midthickness1".
+221022-17:00:28,99 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.midthickness" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness".
+221022-17:00:28,124 nipype.workflow INFO:
+	 [Node] Setting-up "_midthickness0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness0".
+221022-17:00:28,160 nipype.workflow INFO:
+	 [Node] Cached "_midthickness0" - collecting precomputed outputs
+221022-17:00:28,160 nipype.workflow INFO:
+	 [Node] "_midthickness0" found cached.
+221022-17:00:28,162 nipype.workflow INFO:
+	 [Node] Setting-up "_midthickness1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/midthickness/mapflow/_midthickness1".
+221022-17:00:28,166 nipype.workflow INFO:
+	 [Node] Cached "_midthickness1" - collecting precomputed outputs
+221022-17:00:28,166 nipype.workflow INFO:
+	 [Node] "_midthickness1" found cached.
+221022-17:00:28,173 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.midthickness".
+221022-17:00:30,67 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.save_midthickness" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/save_midthickness".
+221022-17:00:30,175 nipype.workflow INFO:
+	 [Node] Running "save_midthickness" ("nipype.interfaces.io.DataSink")
+221022-17:00:30,187 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.save_midthickness".
+221022-17:00:32,472 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform0".
+221022-17:00:32,484 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform0" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0000.nii.gz --interpolation BSpline --output vol0000_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:00:37,638 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform0".
+221022-17:00:38,124 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform1".
+221022-17:00:38,136 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform1" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0001.nii.gz --interpolation BSpline --output vol0001_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:00:44,465 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform1".
+221022-17:00:46,107 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform2" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform2".
+221022-17:00:46,122 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform2" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0002.nii.gz --interpolation BSpline --output vol0002_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:00:50,194 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform2".
+221022-17:00:52,115 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform3" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform3".
+221022-17:00:52,133 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform3" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0003.nii.gz --interpolation BSpline --output vol0003_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:00:56,25 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform3".
+221022-17:00:58,110 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform4" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform4".
+221022-17:00:58,123 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform4" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0004.nii.gz --interpolation BSpline --output vol0004_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:02,261 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform4".
+221022-17:01:04,120 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform5" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform5".
+221022-17:01:04,135 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform5" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0005.nii.gz --interpolation BSpline --output vol0005_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:09,149 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform5".
+221022-17:01:10,128 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform6" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform6".
+221022-17:01:10,142 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform6" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0006.nii.gz --interpolation BSpline --output vol0006_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:14,130 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform6".
+221022-17:01:16,104 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform7" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform7".
+221022-17:01:16,116 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform7" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0007.nii.gz --interpolation BSpline --output vol0007_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:19,896 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform7".
+221022-17:01:20,94 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform8" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform8".
+221022-17:01:20,107 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform8" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0008.nii.gz --interpolation BSpline --output vol0008_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:26,815 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform8".
+221022-17:01:28,108 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform9" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform9".
+221022-17:01:28,120 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform9" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0009.nii.gz --interpolation BSpline --output vol0009_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:32,296 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform9".
+221022-17:01:34,159 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform10" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform10".
+221022-17:01:34,173 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform10" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0010.nii.gz --interpolation BSpline --output vol0010_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:39,759 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform10".
+221022-17:01:40,141 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform11" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform11".
+221022-17:01:40,160 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform11" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0011.nii.gz --interpolation BSpline --output vol0011_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:45,581 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform11".
+221022-17:01:46,153 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform12" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform12".
+221022-17:01:46,165 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform12" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0012.nii.gz --interpolation BSpline --output vol0012_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:50,962 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform12".
+221022-17:01:52,169 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform13" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform13".
+221022-17:01:52,192 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform13" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0013.nii.gz --interpolation BSpline --output vol0013_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:01:56,109 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform13".
+221022-17:01:58,174 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform14" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform14".
+221022-17:01:58,190 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform14" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0014.nii.gz --interpolation BSpline --output vol0014_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:02,129 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform14".
+221022-17:02:04,153 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform15" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform15".
+221022-17:02:04,166 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform15" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0015.nii.gz --interpolation BSpline --output vol0015_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:08,167 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform15".
+221022-17:02:10,187 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform16" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform16".
+221022-17:02:10,200 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform16" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0016.nii.gz --interpolation BSpline --output vol0016_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:15,536 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform16".
+221022-17:02:16,172 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform17" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform17".
+221022-17:02:17,164 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform17" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0017.nii.gz --interpolation BSpline --output vol0017_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:22,553 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform17".
+221022-17:02:24,204 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform18" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform18".
+221022-17:02:24,219 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform18" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0018.nii.gz --interpolation BSpline --output vol0018_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:29,720 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform18".
+221022-17:02:30,210 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform19" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform19".
+221022-17:02:30,222 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform19" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0019.nii.gz --interpolation BSpline --output vol0019_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:35,266 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform19".
+221022-17:02:36,199 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform20" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform20".
+221022-17:02:36,211 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform20" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0020.nii.gz --interpolation BSpline --output vol0020_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:40,168 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform20".
+221022-17:02:42,182 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform21" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform21".
+221022-17:02:42,195 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform21" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0021.nii.gz --interpolation BSpline --output vol0021_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:46,368 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform21".
+221022-17:02:48,195 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform22" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform22".
+221022-17:02:48,210 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform22" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0022.nii.gz --interpolation BSpline --output vol0022_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:52,180 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform22".
+221022-17:02:54,252 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform23" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform23".
+221022-17:02:54,266 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform23" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0023.nii.gz --interpolation BSpline --output vol0023_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:02:58,697 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform23".
+221022-17:03:00,199 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform24" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform24".
+221022-17:03:00,231 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform24" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0024.nii.gz --interpolation BSpline --output vol0024_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:03:04,607 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform24".
+221022-17:03:06,242 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform25" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform25".
+221022-17:03:06,256 nipype.workflow INFO:
+	 [Node] Running "_dwi_transform25" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/hmc_sdc_wf/split_eddy_lps/vol0025.nii.gz --interpolation BSpline --output vol0025_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp_resample.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_preproc_wf/b0_anat_coreg/b0_to_anat/transform0GenericAffine.mat
+221022-17:03:10,101 nipype.workflow INFO:
+	 [Node] Finished "_dwi_transform25".
+221022-17:03:12,245 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.dwi_transform" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform".
+221022-17:03:12,278 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform0".
+221022-17:03:12,282 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform0" - collecting precomputed outputs
+221022-17:03:12,282 nipype.workflow INFO:
+	 [Node] "_dwi_transform0" found cached.
+221022-17:03:12,284 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform1".
+221022-17:03:12,287 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform1" - collecting precomputed outputs
+221022-17:03:12,288 nipype.workflow INFO:
+	 [Node] "_dwi_transform1" found cached.
+221022-17:03:12,289 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform2" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform2".
+221022-17:03:12,293 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform2" - collecting precomputed outputs
+221022-17:03:12,293 nipype.workflow INFO:
+	 [Node] "_dwi_transform2" found cached.
+221022-17:03:12,295 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform3" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform3".
+221022-17:03:12,299 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform3" - collecting precomputed outputs
+221022-17:03:12,299 nipype.workflow INFO:
+	 [Node] "_dwi_transform3" found cached.
+221022-17:03:12,302 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform4" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform4".
+221022-17:03:12,305 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform4" - collecting precomputed outputs
+221022-17:03:12,305 nipype.workflow INFO:
+	 [Node] "_dwi_transform4" found cached.
+221022-17:03:12,308 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform5" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform5".
+221022-17:03:12,312 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform5" - collecting precomputed outputs
+221022-17:03:12,312 nipype.workflow INFO:
+	 [Node] "_dwi_transform5" found cached.
+221022-17:03:12,314 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform6" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform6".
+221022-17:03:12,317 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform6" - collecting precomputed outputs
+221022-17:03:12,317 nipype.workflow INFO:
+	 [Node] "_dwi_transform6" found cached.
+221022-17:03:12,319 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform7" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform7".
+221022-17:03:12,322 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform7" - collecting precomputed outputs
+221022-17:03:12,322 nipype.workflow INFO:
+	 [Node] "_dwi_transform7" found cached.
+221022-17:03:12,324 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform8" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform8".
+221022-17:03:12,328 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform8" - collecting precomputed outputs
+221022-17:03:12,328 nipype.workflow INFO:
+	 [Node] "_dwi_transform8" found cached.
+221022-17:03:12,330 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform9" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform9".
+221022-17:03:12,333 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform9" - collecting precomputed outputs
+221022-17:03:12,333 nipype.workflow INFO:
+	 [Node] "_dwi_transform9" found cached.
+221022-17:03:12,335 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform10" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform10".
+221022-17:03:12,339 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform10" - collecting precomputed outputs
+221022-17:03:12,339 nipype.workflow INFO:
+	 [Node] "_dwi_transform10" found cached.
+221022-17:03:12,341 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform11" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform11".
+221022-17:03:12,344 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform11" - collecting precomputed outputs
+221022-17:03:12,344 nipype.workflow INFO:
+	 [Node] "_dwi_transform11" found cached.
+221022-17:03:12,347 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform12" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform12".
+221022-17:03:12,351 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform12" - collecting precomputed outputs
+221022-17:03:12,351 nipype.workflow INFO:
+	 [Node] "_dwi_transform12" found cached.
+221022-17:03:12,353 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform13" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform13".
+221022-17:03:12,357 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform13" - collecting precomputed outputs
+221022-17:03:12,357 nipype.workflow INFO:
+	 [Node] "_dwi_transform13" found cached.
+221022-17:03:12,360 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform14" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform14".
+221022-17:03:12,363 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform14" - collecting precomputed outputs
+221022-17:03:12,363 nipype.workflow INFO:
+	 [Node] "_dwi_transform14" found cached.
+221022-17:03:12,366 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform15" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform15".
+221022-17:03:12,369 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform15" - collecting precomputed outputs
+221022-17:03:12,369 nipype.workflow INFO:
+	 [Node] "_dwi_transform15" found cached.
+221022-17:03:12,371 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform16" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform16".
+221022-17:03:12,373 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform16" - collecting precomputed outputs
+221022-17:03:12,373 nipype.workflow INFO:
+	 [Node] "_dwi_transform16" found cached.
+221022-17:03:12,375 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform17" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform17".
+221022-17:03:12,377 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform17" - collecting precomputed outputs
+221022-17:03:12,378 nipype.workflow INFO:
+	 [Node] "_dwi_transform17" found cached.
+221022-17:03:12,379 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform18" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform18".
+221022-17:03:12,381 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform18" - collecting precomputed outputs
+221022-17:03:12,382 nipype.workflow INFO:
+	 [Node] "_dwi_transform18" found cached.
+221022-17:03:12,383 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform19" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform19".
+221022-17:03:12,385 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform19" - collecting precomputed outputs
+221022-17:03:12,386 nipype.workflow INFO:
+	 [Node] "_dwi_transform19" found cached.
+221022-17:03:12,387 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform20" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform20".
+221022-17:03:12,390 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform20" - collecting precomputed outputs
+221022-17:03:12,390 nipype.workflow INFO:
+	 [Node] "_dwi_transform20" found cached.
+221022-17:03:12,391 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform21" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform21".
+221022-17:03:12,394 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform21" - collecting precomputed outputs
+221022-17:03:12,394 nipype.workflow INFO:
+	 [Node] "_dwi_transform21" found cached.
+221022-17:03:12,395 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform22" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform22".
+221022-17:03:12,398 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform22" - collecting precomputed outputs
+221022-17:03:12,398 nipype.workflow INFO:
+	 [Node] "_dwi_transform22" found cached.
+221022-17:03:12,399 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform23" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform23".
+221022-17:03:12,402 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform23" - collecting precomputed outputs
+221022-17:03:12,402 nipype.workflow INFO:
+	 [Node] "_dwi_transform23" found cached.
+221022-17:03:12,403 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform24" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform24".
+221022-17:03:12,406 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform24" - collecting precomputed outputs
+221022-17:03:12,406 nipype.workflow INFO:
+	 [Node] "_dwi_transform24" found cached.
+221022-17:03:12,407 nipype.workflow INFO:
+	 [Node] Setting-up "_dwi_transform25" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/dwi_transform/mapflow/_dwi_transform25".
+221022-17:03:12,410 nipype.workflow INFO:
+	 [Node] Cached "_dwi_transform25" - collecting precomputed outputs
+221022-17:03:12,410 nipype.workflow INFO:
+	 [Node] "_dwi_transform25" found cached.
+221022-17:03:12,435 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.dwi_transform".
+221022-17:03:14,209 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.merge" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/merge".
+221022-17:03:14,244 nipype.workflow INFO:
+	 [Node] Running "merge" ("qsiprep.interfaces.nilearn.Merge")
+221022-17:03:23,724 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.merge".
+221022-17:03:24,264 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.extract_b0_series" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/extract_b0_series".
+221022-17:03:24,311 nipype.workflow INFO:
+	 [Node] Running "extract_b0_series" ("qsiprep.interfaces.gradients.ExtractB0s")
+221022-17:03:24,797 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.extract_b0_series".
+221022-17:03:26,274 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.raw_src" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_src".
+221022-17:03:26,290 nipype.workflow INFO:
+	 [Node] Running "raw_src" ("qsiprep.interfaces.dsi_studio.DSIStudioCreateSrc"), a CommandLine Interface with command:
+dsi_studio --action=src  --bval=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/rotated.bval --bvec=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/rotate_gradients/rotated.bvec --source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/merge/vol0000_trans_merged.nii --threads=1 --output=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_src/vol0000_trans_merged.src.gz
+221022-17:03:43,856 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.raw_src".
+221022-17:04:06,569 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.final_b0_ref.t1_mask_to_b0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/final_b0_ref/t1_mask_to_b0".
+221022-17:04:06,602 nipype.workflow INFO:
+	 [Node] Running "t1_mask_to_b0" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/refine/highres001_N4Corrected0_trans_rbrainmask.nii.gz --interpolation Linear --output highres001_N4Corrected0_trans_rbrainmask_trans.nii.gz --reference-image /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/extract_b0_series/vol0000_trans_merged_b0_series_mean.nii --transform identity
+221022-17:04:07,633 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.final_b0_ref.t1_mask_to_b0".
+221022-17:04:08,682 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.raw_src_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_src_qc".
+221022-17:04:08,697 nipype.workflow INFO:
+	 [Node] Running "raw_src_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioSrcQC")
+221022-17:04:12,169 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_src_qc/vol0000_trans_merged.src.gz
+action=qc
+checking /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_src_qc/vol0000_trans_merged.src.gz
+
+221022-17:04:12,182 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.raw_src_qc".
+221022-17:04:12,693 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.raw_gqi" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_gqi".
+221022-17:04:12,711 nipype.workflow INFO:
+	 [Node] Running "raw_gqi" ("qsiprep.interfaces.dsi_studio.DSIStudioGQIReconstruction"), a CommandLine Interface with command:
+dsi_studio --action=rec --method=4 --check_btable=0 --source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_gqi/vol0000_trans_merged.src.gz --threads=1 --num_fiber=3 --record_odf=1 --param0=1.2500 --thread_count=1
+current dir /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_gqi
+input src /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_gqi/vol0000_trans_merged.src.gz
+split src name vol0000_trans_merged.src.gz
+search target /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_gqi/vol0000_trans_merged.src.gz*gqi*.fib.gz
+221022-17:06:49,253 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.raw_gqi".
+221022-17:06:50,880 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.final_b0_ref.enhance_and_mask_b0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/final_b0_ref/enhance_and_mask_b0".
+221022-17:06:50,895 nipype.workflow INFO:
+	 [Node] Running "enhance_and_mask_b0" ("qsiprep.interfaces.nilearn.EnhanceAndSkullstripB0")
+221022-17:07:28,345 nipype.interface WARNING:
+	 Degenerate Mask case. Using compute_epi_mask
+221022-17:07:45,416 nipype.interface WARNING:
+	 Masking appears to have failed. Using a backup method
+221022-17:08:00,96 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.final_b0_ref.enhance_and_mask_b0".
+221022-17:08:00,966 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.raw_fib_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_fib_qc".
+221022-17:08:00,984 nipype.workflow INFO:
+	 [Node] Running "raw_fib_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioFibQC")
+221022-17:08:13,485 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_fib_qc/vol0000_trans_merged.src.gz.odf.gqi.1.25.fib.gz
+action=qc
+loading /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/raw_fib_qc/vol0000_trans_merged.src.gz.odf.gqi.1.25.fib.gz...
+
+221022-17:08:13,498 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.raw_fib_qc".
+221022-17:08:14,984 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.final_b0_ref.b0ref_reportlet" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/final_b0_ref/b0ref_reportlet".
+221022-17:08:14,999 nipype.workflow INFO:
+	 [Node] Running "b0ref_reportlet" ("qsiprep.niworkflows.interfaces.registration.SimpleBeforeAfterRPT")
+221022-17:08:40,698 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.final_b0_ref.b0ref_reportlet".
+221022-17:08:41,12 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.t1_dice_calc.downsample_t1_mask" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/t1_dice_calc/downsample_t1_mask".
+221022-17:08:41,27 nipype.workflow INFO:
+	 [Node] Running "downsample_t1_mask" ("nipype.interfaces.afni.utils.Resample"), a CommandLine Interface with command:
+3dresample -master /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/final_b0_ref/enhance_and_mask_b0/vol0000_trans_merged_b0_series_mean_mask.nii -prefix highres001_N4Corrected0_trans_rbrainmask_resample.nii.gz -rmode NN -inset /out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/t1_dice_calc/downsample_t1_mask/highres001_N4Corrected0_trans_rbrainmask.nii.gz
+221022-17:08:41,496 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.t1_dice_calc.downsample_t1_mask".
+221022-17:08:43,30 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.interactive_report_wf.tensor_fit" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/interactive_report_wf/tensor_fit".
+221022-17:08:43,49 nipype.workflow INFO:
+	 [Node] Running "tensor_fit" ("qsiprep.interfaces.dipy.TensorReconstruction")
+221022-17:09:27,94 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.interactive_report_wf.tensor_fit".
+221022-17:09:57,523 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.merged_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/transform_dwis_t1/calculate_qc/merged_qc".
+221022-17:09:57,538 nipype.workflow INFO:
+	 [Node] Running "merged_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioMergeQC")
+221022-17:09:57,556 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.transform_dwis_t1.calculate_qc.merged_qc".
+221022-17:09:59,787 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.t1_dice_calc.calculate_dice" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/t1_dice_calc/calculate_dice".
+221022-17:09:59,799 nipype.workflow INFO:
+	 [Node] Running "calculate_dice" ("qsiprep.interfaces.anatomical.DiceOverlap")
+221022-17:10:00,407 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.t1_dice_calc.calculate_dice".
+221022-17:10:01,669 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.series_qc" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/series_qc".
+221022-17:10:01,778 nipype.workflow INFO:
+	 [Node] Running "series_qc" ("qsiprep.interfaces.reports.SeriesQC")
+221022-17:10:01,836 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.series_qc".
+221022-17:10:03,825 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.interactive_report_wf.interactive_report" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/dwi_finalize_wf/interactive_report_wf/interactive_report".
+221022-17:10:03,932 nipype.workflow INFO:
+	 [Node] Running "interactive_report" ("qsiprep.interfaces.reports.InteractiveReport")
+221022-17:12:24,498 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.t1_2_mni".
+221022-17:12:25,871 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.mni_mask" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/mni_mask".
+221022-17:12:25,889 nipype.workflow INFO:
+	 [Node] Running "mni_mask" ("qsiprep.niworkflows.interfaces.fixes.FixHeaderApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --dimensionality 3 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/refine/highres001_N4Corrected0_trans_rbrainmask.nii.gz --interpolation MultiLabel --output highres001_N4Corrected0_trans_rbrainmask_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_2_mni/ants_t1_to_mniComposite.h5
+221022-17:13:43,183 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.dwi_finalize_wf.interactive_report_wf.interactive_report".
+221022-17:13:44,618 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.mni_seg" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/mni_seg".
+221022-17:13:44,636 nipype.workflow INFO:
+	 [Node] Running "mni_seg" ("qsiprep.niworkflows.interfaces.fixes.FixHeaderApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --dimensionality 3 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_seg/highres001_N4Corrected0_trans_masked_seg.nii.gz --interpolation MultiLabel --output highres001_N4Corrected0_trans_masked_seg_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_2_mni/ants_t1_to_mniComposite.h5
+221022-17:14:17,716 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.mni_mask".
+221022-17:14:18,214 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii0".
+221022-17:14:18,226 nipype.workflow INFO:
+	 [Node] Running "_fs_2_gii0" ("nipype.interfaces.freesurfer.utils.MRIsConvert"), a CommandLine Interface with command:
+mris_convert /out/freesurfer/sub-160667/surf/lh.smoothwm /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii0/lh.smoothwm_converted.gii
+221022-17:14:19,563 nipype.workflow INFO:
+	 [Node] Finished "_fs_2_gii0".
+221022-17:14:19,905 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii1".
+221022-17:14:19,917 nipype.workflow INFO:
+	 [Node] Running "_fs_2_gii1" ("nipype.interfaces.freesurfer.utils.MRIsConvert"), a CommandLine Interface with command:
+mris_convert /out/freesurfer/sub-160667/surf/rh.smoothwm /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii1/rh.smoothwm_converted.gii
+221022-17:14:21,202 nipype.workflow INFO:
+	 [Node] Finished "_fs_2_gii1".
+221022-17:14:21,919 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii2" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii2".
+221022-17:14:21,931 nipype.workflow INFO:
+	 [Node] Running "_fs_2_gii2" ("nipype.interfaces.freesurfer.utils.MRIsConvert"), a CommandLine Interface with command:
+mris_convert /out/freesurfer/sub-160667/surf/lh.pial /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii2/lh.pial_converted.gii
+221022-17:14:24,178 nipype.workflow INFO:
+	 [Node] Finished "_fs_2_gii2".
+221022-17:14:25,959 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii3" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii3".
+221022-17:14:25,974 nipype.workflow INFO:
+	 [Node] Running "_fs_2_gii3" ("nipype.interfaces.freesurfer.utils.MRIsConvert"), a CommandLine Interface with command:
+mris_convert /out/freesurfer/sub-160667/surf/rh.pial /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii3/rh.pial_converted.gii
+221022-17:14:27,283 nipype.workflow INFO:
+	 [Node] Finished "_fs_2_gii3".
+221022-17:14:27,953 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii4" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii4".
+221022-17:14:27,966 nipype.workflow INFO:
+	 [Node] Running "_fs_2_gii4" ("nipype.interfaces.freesurfer.utils.MRIsConvert"), a CommandLine Interface with command:
+mris_convert /out/freesurfer/sub-160667/surf/rh.inflated /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii4/rh.inflated_converted.gii
+221022-17:14:29,394 nipype.workflow INFO:
+	 [Node] Finished "_fs_2_gii4".
+221022-17:14:29,989 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii5" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii5".
+221022-17:14:30,2 nipype.workflow INFO:
+	 [Node] Running "_fs_2_gii5" ("nipype.interfaces.freesurfer.utils.MRIsConvert"), a CommandLine Interface with command:
+mris_convert /out/freesurfer/sub-160667/surf/lh.inflated /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii5/lh.inflated_converted.gii
+221022-17:14:31,302 nipype.workflow INFO:
+	 [Node] Finished "_fs_2_gii5".
+221022-17:14:31,962 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii6" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii6".
+221022-17:14:31,976 nipype.workflow INFO:
+	 [Node] Running "_fs_2_gii6" ("nipype.interfaces.freesurfer.utils.MRIsConvert"), a CommandLine Interface with command:
+mris_convert /out/freesurfer/sub-160667/surf/lh.midthickness /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii6/lh.midthickness_converted.gii
+221022-17:14:33,288 nipype.workflow INFO:
+	 [Node] Finished "_fs_2_gii6".
+221022-17:14:33,943 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii7" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii7".
+221022-17:14:33,958 nipype.workflow INFO:
+	 [Node] Running "_fs_2_gii7" ("nipype.interfaces.freesurfer.utils.MRIsConvert"), a CommandLine Interface with command:
+mris_convert /out/freesurfer/sub-160667/surf/rh.midthickness /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii7/rh.midthickness_converted.gii
+221022-17:14:35,146 nipype.workflow INFO:
+	 [Node] Finished "_fs_2_gii7".
+221022-17:14:35,929 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.fs_2_gii" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii".
+221022-17:14:35,946 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii0".
+221022-17:14:35,949 nipype.workflow INFO:
+	 [Node] Cached "_fs_2_gii0" - collecting precomputed outputs
+221022-17:14:35,950 nipype.workflow INFO:
+	 [Node] "_fs_2_gii0" found cached.
+221022-17:14:35,951 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii1".
+221022-17:14:35,954 nipype.workflow INFO:
+	 [Node] Cached "_fs_2_gii1" - collecting precomputed outputs
+221022-17:14:35,954 nipype.workflow INFO:
+	 [Node] "_fs_2_gii1" found cached.
+221022-17:14:35,956 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii2" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii2".
+221022-17:14:35,959 nipype.workflow INFO:
+	 [Node] Cached "_fs_2_gii2" - collecting precomputed outputs
+221022-17:14:35,959 nipype.workflow INFO:
+	 [Node] "_fs_2_gii2" found cached.
+221022-17:14:35,961 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii3" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii3".
+221022-17:14:35,964 nipype.workflow INFO:
+	 [Node] Cached "_fs_2_gii3" - collecting precomputed outputs
+221022-17:14:35,964 nipype.workflow INFO:
+	 [Node] "_fs_2_gii3" found cached.
+221022-17:14:35,966 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii4" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii4".
+221022-17:14:35,969 nipype.workflow INFO:
+	 [Node] Cached "_fs_2_gii4" - collecting precomputed outputs
+221022-17:14:35,969 nipype.workflow INFO:
+	 [Node] "_fs_2_gii4" found cached.
+221022-17:14:35,971 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii5" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii5".
+221022-17:14:35,974 nipype.workflow INFO:
+	 [Node] Cached "_fs_2_gii5" - collecting precomputed outputs
+221022-17:14:35,974 nipype.workflow INFO:
+	 [Node] "_fs_2_gii5" found cached.
+221022-17:14:35,976 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii6" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii6".
+221022-17:14:35,979 nipype.workflow INFO:
+	 [Node] Cached "_fs_2_gii6" - collecting precomputed outputs
+221022-17:14:35,979 nipype.workflow INFO:
+	 [Node] "_fs_2_gii6" found cached.
+221022-17:14:35,980 nipype.workflow INFO:
+	 [Node] Setting-up "_fs_2_gii7" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fs_2_gii/mapflow/_fs_2_gii7".
+221022-17:14:35,983 nipype.workflow INFO:
+	 [Node] Cached "_fs_2_gii7" - collecting precomputed outputs
+221022-17:14:35,984 nipype.workflow INFO:
+	 [Node] "_fs_2_gii7" found cached.
+221022-17:14:35,994 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.fs_2_gii".
+221022-17:14:38,60 nipype.workflow INFO:
+	 [Node] Setting-up "_mni_tpms0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/mni_tpms/mapflow/_mni_tpms0".
+221022-17:14:38,75 nipype.workflow INFO:
+	 [Node] Running "_mni_tpms0" ("qsiprep.niworkflows.interfaces.fixes.FixHeaderApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --dimensionality 3 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_seg/highres001_N4Corrected0_trans_masked_prob_0.nii.gz --interpolation Linear --output highres001_N4Corrected0_trans_masked_prob_0_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_2_mni/ants_t1_to_mniComposite.h5
+221022-17:14:43,141 nipype.workflow INFO:
+	 [Node] Finished "_mni_tpms0".
+221022-17:14:43,970 nipype.workflow INFO:
+	 [Node] Setting-up "_mni_tpms1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/mni_tpms/mapflow/_mni_tpms1".
+221022-17:14:43,993 nipype.workflow INFO:
+	 [Node] Running "_mni_tpms1" ("qsiprep.niworkflows.interfaces.fixes.FixHeaderApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --dimensionality 3 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_seg/highres001_N4Corrected0_trans_masked_prob_1.nii.gz --interpolation Linear --output highres001_N4Corrected0_trans_masked_prob_1_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_2_mni/ants_t1_to_mniComposite.h5
+221022-17:14:49,506 nipype.workflow INFO:
+	 [Node] Finished "_mni_tpms1".
+221022-17:14:49,981 nipype.workflow INFO:
+	 [Node] Setting-up "_mni_tpms2" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/mni_tpms/mapflow/_mni_tpms2".
+221022-17:14:49,996 nipype.workflow INFO:
+	 [Node] Running "_mni_tpms2" ("qsiprep.niworkflows.interfaces.fixes.FixHeaderApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --dimensionality 3 --float 1 --input /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_seg/highres001_N4Corrected0_trans_masked_prob_2.nii.gz --interpolation Linear --output highres001_N4Corrected0_trans_masked_prob_2_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/t1_2_mni/ants_t1_to_mniComposite.h5
+221022-17:14:55,474 nipype.workflow INFO:
+	 [Node] Finished "_mni_tpms2".
+221022-17:14:55,955 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.mni_tpms" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/mni_tpms".
+221022-17:14:55,970 nipype.workflow INFO:
+	 [Node] Setting-up "_mni_tpms0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/mni_tpms/mapflow/_mni_tpms0".
+221022-17:14:55,972 nipype.workflow INFO:
+	 [Node] Cached "_mni_tpms0" - collecting precomputed outputs
+221022-17:14:55,973 nipype.workflow INFO:
+	 [Node] "_mni_tpms0" found cached.
+221022-17:14:55,974 nipype.workflow INFO:
+	 [Node] Setting-up "_mni_tpms1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/mni_tpms/mapflow/_mni_tpms1".
+221022-17:14:55,977 nipype.workflow INFO:
+	 [Node] Cached "_mni_tpms1" - collecting precomputed outputs
+221022-17:14:55,977 nipype.workflow INFO:
+	 [Node] "_mni_tpms1" found cached.
+221022-17:14:55,978 nipype.workflow INFO:
+	 [Node] Setting-up "_mni_tpms2" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/mni_tpms/mapflow/_mni_tpms2".
+221022-17:14:55,981 nipype.workflow INFO:
+	 [Node] Cached "_mni_tpms2" - collecting precomputed outputs
+221022-17:14:55,981 nipype.workflow INFO:
+	 [Node] "_mni_tpms2" found cached.
+221022-17:14:55,987 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.mni_tpms".
+221022-17:14:58,162 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs0".
+221022-17:14:58,173 nipype.workflow INFO:
+	 [Node] Running "_fix_surfs0" ("qsiprep.interfaces.surf.NormalizeSurf")
+221022-17:14:58,488 nipype.workflow INFO:
+	 [Node] Finished "_fix_surfs0".
+221022-17:14:59,939 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs1".
+221022-17:14:59,950 nipype.workflow INFO:
+	 [Node] Running "_fix_surfs1" ("qsiprep.interfaces.surf.NormalizeSurf")
+221022-17:15:00,197 nipype.workflow INFO:
+	 [Node] Finished "_fix_surfs1".
+221022-17:15:01,984 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs2" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs2".
+221022-17:15:01,995 nipype.workflow INFO:
+	 [Node] Running "_fix_surfs2" ("qsiprep.interfaces.surf.NormalizeSurf")
+221022-17:15:02,341 nipype.workflow INFO:
+	 [Node] Finished "_fix_surfs2".
+221022-17:15:04,8 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs3" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs3".
+221022-17:15:04,18 nipype.workflow INFO:
+	 [Node] Running "_fix_surfs3" ("qsiprep.interfaces.surf.NormalizeSurf")
+221022-17:15:04,250 nipype.workflow INFO:
+	 [Node] Finished "_fix_surfs3".
+221022-17:15:05,968 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs4" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs4".
+221022-17:15:05,986 nipype.workflow INFO:
+	 [Node] Running "_fix_surfs4" ("qsiprep.interfaces.surf.NormalizeSurf")
+221022-17:15:06,243 nipype.workflow INFO:
+	 [Node] Finished "_fix_surfs4".
+221022-17:15:07,958 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs5" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs5".
+221022-17:15:07,971 nipype.workflow INFO:
+	 [Node] Running "_fix_surfs5" ("qsiprep.interfaces.surf.NormalizeSurf")
+221022-17:15:08,231 nipype.workflow INFO:
+	 [Node] Finished "_fix_surfs5".
+221022-17:15:09,952 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs6" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs6".
+221022-17:15:09,963 nipype.workflow INFO:
+	 [Node] Running "_fix_surfs6" ("qsiprep.interfaces.surf.NormalizeSurf")
+221022-17:15:10,209 nipype.workflow INFO:
+	 [Node] Finished "_fix_surfs6".
+221022-17:15:12,6 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs7" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs7".
+221022-17:15:12,679 nipype.workflow INFO:
+	 [Node] Running "_fix_surfs7" ("qsiprep.interfaces.surf.NormalizeSurf")
+221022-17:15:12,927 nipype.workflow INFO:
+	 [Node] Finished "_fix_surfs7".
+221022-17:15:14,5 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.fix_surfs" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs".
+221022-17:15:14,18 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs0" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs0".
+221022-17:15:14,21 nipype.workflow INFO:
+	 [Node] Cached "_fix_surfs0" - collecting precomputed outputs
+221022-17:15:14,21 nipype.workflow INFO:
+	 [Node] "_fix_surfs0" found cached.
+221022-17:15:14,22 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs1" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs1".
+221022-17:15:14,24 nipype.workflow INFO:
+	 [Node] Cached "_fix_surfs1" - collecting precomputed outputs
+221022-17:15:14,24 nipype.workflow INFO:
+	 [Node] "_fix_surfs1" found cached.
+221022-17:15:14,25 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs2" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs2".
+221022-17:15:14,27 nipype.workflow INFO:
+	 [Node] Cached "_fix_surfs2" - collecting precomputed outputs
+221022-17:15:14,27 nipype.workflow INFO:
+	 [Node] "_fix_surfs2" found cached.
+221022-17:15:14,28 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs3" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs3".
+221022-17:15:14,31 nipype.workflow INFO:
+	 [Node] Cached "_fix_surfs3" - collecting precomputed outputs
+221022-17:15:14,31 nipype.workflow INFO:
+	 [Node] "_fix_surfs3" found cached.
+221022-17:15:14,32 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs4" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs4".
+221022-17:15:14,34 nipype.workflow INFO:
+	 [Node] Cached "_fix_surfs4" - collecting precomputed outputs
+221022-17:15:14,34 nipype.workflow INFO:
+	 [Node] "_fix_surfs4" found cached.
+221022-17:15:14,35 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs5" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs5".
+221022-17:15:14,37 nipype.workflow INFO:
+	 [Node] Cached "_fix_surfs5" - collecting precomputed outputs
+221022-17:15:14,37 nipype.workflow INFO:
+	 [Node] "_fix_surfs5" found cached.
+221022-17:15:14,38 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs6" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs6".
+221022-17:15:14,41 nipype.workflow INFO:
+	 [Node] Cached "_fix_surfs6" - collecting precomputed outputs
+221022-17:15:14,41 nipype.workflow INFO:
+	 [Node] "_fix_surfs6" found cached.
+221022-17:15:14,42 nipype.workflow INFO:
+	 [Node] Setting-up "_fix_surfs7" in "/out/tmp/qsiprep_wf/single_subject_160667_wf/anat_preproc_wf/surface_recon_wf/gifti_surface_wf/fix_surfs/mapflow/_fix_surfs7".
+221022-17:15:14,45 nipype.workflow INFO:
+	 [Node] Cached "_fix_surfs7" - collecting precomputed outputs
+221022-17:15:14,45 nipype.workflow INFO:
+	 [Node] "_fix_surfs7" found cached.
+221022-17:15:14,67 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.surface_recon_wf.gifti_surface_wf.fix_surfs".
+221022-17:15:56,356 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_160667_wf.anat_preproc_wf.mni_seg".

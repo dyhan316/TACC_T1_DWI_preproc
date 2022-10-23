@@ -1,0 +1,1714 @@
+221022-01:16:09,788 nipype.workflow INFO:
+	 Running with omp_nthreads=1, nthreads=2
+221022-01:16:09,825 nipype.workflow IMPORTANT:
+	 
+    Running qsiprep version 0.14.3:
+      * BIDS dataset path: /data.
+      * Participant list: ['131661'].
+      * Run identifier: 20221022-011602_cbea86a2-a1fc-45a2-9ea3-5899aceccf5a.
+    
+221022-01:16:10,159 nipype.utils WARNING:
+	 A newer version (1.8.4) of nipy/nipype is available. You are using 1.6.1
+221022-01:16:10,718 nipype.workflow INFO:
+	 Combining all 1 dwis within the single available session
+221022-01:16:10,731 nipype.workflow INFO:
+	 [{'dwi_series': ['/data/sub-131661/dwi/sub-131661_dwi.nii.gz'], 'fieldmap_info': {'suffix': None}, 'dwi_series_pedir': 'j', 'concatenated_bids_name': 'sub-131661'}]
+221022-01:16:10,853 nipype.workflow IMPORTANT:
+	 Creating dwi processing workflow "dwi_preproc_wf" to produce output sub-131661 (1.12 GB / 36 DWIs). Memory resampled/largemem=1.47/1.59 GB.
+221022-01:16:10,855 nipype.workflow INFO:
+	 Automatically using 5, 5, 5 window for dwidenoise
+221022-01:16:10,873 nipype.workflow INFO:
+	 Using 1 threads in eddy
+221022-01:16:25,777 nipype.workflow IMPORTANT:
+	 Works derived from this qsiprep execution should include the following boilerplate:
+
+
+Preprocessing was performed using *QSIPrep* 0.14.3,
+which is based on *Nipype* 1.6.1
+(@nipype1; @nipype2; RRID:SCR_002502).
+
+Anatomical data preprocessing
+
+: The T1-weighted (T1w) image was corrected for intensity non-uniformity (INU)
+using `N4BiasFieldCorrection` [@n4, ANTs 2.3.1],
+and used as T1w-reference throughout the workflow.
+The T1w-reference was then skull-stripped using `antsBrainExtraction.sh`
+(ANTs 2.3.1), using OASIS as target template.
+Brain surfaces were reconstructed using `recon-all` [FreeSurfer 6.0.1,
+RRID:SCR_001847, @fs_reconall], and the brain mask estimated
+previously was refined with a custom variation of the method to reconcile
+ANTs-derived and FreeSurfer-derived segmentations of the cortical
+gray-matter of Mindboggle [RRID:SCR_002438, @mindboggle].
+Spatial normalization to the ICBM 152 Nonlinear Asymmetrical
+template version 2009c [@mni, RRID:SCR_008796] was performed
+through nonlinear registration with `antsRegistration`
+[ANTs 2.3.1, RRID:SCR_004757, @ants], using
+brain-extracted versions of both T1w volume and template.
+Brain tissue segmentation of cerebrospinal fluid (CSF),
+white-matter (WM) and gray-matter (GM) was performed on
+the brain-extracted T1w using `FAST` [FSL 6.0.3:b862cdd5, RRID:SCR_002823,
+@fsl_fast].
+
+
+Diffusion data preprocessing
+
+: Any images with a b-value less than 100 s/mm^2 were treated as a *b*=0 image. MP-PCA denoising as implemented in MRtrix3's `dwidenoise`[@dwidenoise1] was applied with a 5-voxel window. After MP-PCA, Gibbs unringing was performed using MRtrix3's `mrdegibbs` [@mrdegibbs]. Following unringing, B1 field inhomogeneity was corrected using `dwibiascorrect` from MRtrix3 with the N4 algorithm [@n4]. After B1 bias correction, the mean intensity of the DWI series was adjusted so all the mean intensity of the b=0 images matched across eachseparate DWI scanning sequence.
+
+FSL (version 6.0.3:b862cdd5)'s eddy was used for head motion correction and Eddy current correction [@anderssoneddy]. Eddy was configured with a $q$-space smoothing factor of 10, a total of 5 iterations, and 1000 voxels used to estimate hyperparameters. A linear first level model and a linear second level model were used to characterize Eddy current-related spatial distortion. $q$-space coordinates were forcefully assigned to shells. Field offset was attempted to be separated from subject movement. Shells were aligned post-eddy. Eddy's outlier replacement was run [@eddyrepol]. Data were grouped by slice, only including values from slices determined to contain at least 250 intracerebral voxels. Groups deviating by more than 4 standard deviations from the prediction had their data replaced with imputed values. Final interpolation was performed using the `jac` method.
+
+Several confounding time-series were calculated based on the
+preprocessed DWI: framewise displacement (FD) using the
+implementation in *Nipype* [following the definitions by @power_fd_dvars].
+The head-motion estimates calculated in the correction step were also
+placed within the corresponding confounds file. Slicewise cross correlation
+was also calculated.
+The DWI time-series were resampled to ACPC,
+generating a *preprocessed DWI run in ACPC space* with 1.2mm isotropic voxels.
+
+
+Many internal operations of *QSIPrep* use
+*Nilearn* 0.8.1 [@nilearn, RRID:SCR_001362] and
+*Dipy* [@dipy].
+For more details of the pipeline, see [the section corresponding
+to workflows in *QSIPrep*'s documentation](https://qsiprep.readthedocs.io/en/latest/workflows.html "QSIPrep's documentation").
+
+
+### References
+
+
+221022-01:16:54,324 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.output_grid_wf.autobox_template" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/output_grid_wf/autobox_template".
+221022-01:16:54,417 nipype.workflow INFO:
+	 [Node] Running "autobox_template" ("nipype.interfaces.afni.utils.Autobox"), a CommandLine Interface with command:
+3dAutobox -input /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/output_grid_wf/autobox_template/mni_1mm_t1w_lps.nii.gz -prefix mni_1mm_t1w_lps_autobox.nii.gz -npad 8
+221022-01:16:57,142 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.bidssrc" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/bidssrc".
+221022-01:16:57,160 nipype.workflow INFO:
+	 [Node] Running "bidssrc" ("qsiprep.interfaces.bids.BIDSDataGrabber")
+221022-01:16:57,161 nipype.interface WARNING:
+	 No 't2w' images found for sub-<undefined>
+221022-01:16:57,161 nipype.interface WARNING:
+	 No 'flair' images found for sub-<undefined>
+221022-01:16:57,161 nipype.interface WARNING:
+	 No 'fmap' images found for sub-<undefined>
+221022-01:16:57,162 nipype.interface WARNING:
+	 No 'sbref' images found for sub-<undefined>
+221022-01:16:57,162 nipype.interface WARNING:
+	 No 'roi' images found for sub-<undefined>
+221022-01:16:57,172 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.bidssrc".
+221022-01:16:57,294 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.output_grid_wf.autobox_template".
+221022-01:16:58,247 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conform_dwis01" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conform_dwis01".
+221022-01:16:58,259 nipype.workflow INFO:
+	 [Node] Running "conform_dwis01" ("qsiprep.interfaces.images.ConformDwi")
+221022-01:17:01,319 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.anat_template_wf.t1_template_dimensions" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/anat_template_wf/t1_template_dimensions".
+221022-01:17:02,234 nipype.workflow INFO:
+	 [Node] Running "t1_template_dimensions" ("qsiprep.niworkflows.interfaces.images.TemplateDimensions")
+221022-01:17:02,348 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.anat_template_wf.t1_template_dimensions".
+221022-01:17:04,429 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.output_grid_wf.deoblique_autobox" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/output_grid_wf/deoblique_autobox".
+221022-01:17:04,444 nipype.workflow INFO:
+	 [Node] Running "deoblique_autobox" ("nipype.interfaces.afni.preprocess.Warp"), a CommandLine Interface with command:
+3dWarp -deoblique -prefix mni_1mm_t1w_lps_autobox_warp.nii.gz /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/output_grid_wf/deoblique_autobox/mni_1mm_t1w_lps_autobox.nii.gz
+221022-01:17:07,100 nipype.interface INFO:
+	 Not applying reorientation to /data/sub-131661/dwi/sub-131661_dwi.nii.gz: already in LAS
+221022-01:17:07,145 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conform_dwis01".
+221022-01:17:07,318 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.output_grid_wf.deoblique_autobox".
+221022-01:17:08,252 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_raw_images" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_raw_images".
+221022-01:17:08,252 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_images" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_images".
+221022-01:17:08,263 nipype.workflow INFO:
+	 [Node] Running "conformed_raw_images" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:08,265 nipype.workflow INFO:
+	 [Node] Running "conformed_images" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:08,280 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_raw_images".
+221022-01:17:08,282 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_images".
+221022-01:17:10,254 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_bvals" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_bvals".
+221022-01:17:10,255 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_bvecs" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformed_bvecs".
+221022-01:17:10,275 nipype.workflow INFO:
+	 [Node] Running "conformed_bvecs" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:10,276 nipype.workflow INFO:
+	 [Node] Running "conformed_bvals" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:10,284 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_bvecs".
+221022-01:17:10,287 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformed_bvals".
+221022-01:17:12,256 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformation_reports" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/conformation_reports".
+221022-01:17:12,269 nipype.workflow INFO:
+	 [Node] Running "conformation_reports" ("nipype.interfaces.utility.base.Merge")
+221022-01:17:12,292 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.conformation_reports".
+221022-01:17:12,580 nipype.utils WARNING:
+	 A newer version (1.8.4) of nipy/nipype is available. You are using 1.6.1
+221022-01:17:12,753 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.anat_template_wf.t1_conform" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/anat_template_wf/t1_conform".
+221022-01:17:13,365 nipype.workflow INFO:
+	 [Node] Setting-up "_t1_conform0" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/anat_template_wf/t1_conform/mapflow/_t1_conform0".
+221022-01:17:14,220 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.anat_derivatives_wf.t1_name" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/anat_derivatives_wf/t1_name".
+221022-01:17:14,991 nipype.workflow INFO:
+	 [Node] Running "_t1_conform0" ("qsiprep.interfaces.images.Conform")
+221022-01:17:15,100 nipype.workflow INFO:
+	 [Node] Running "t1_name" ("nipype.interfaces.utility.wrappers.Function")
+221022-01:17:15,170 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.anat_derivatives_wf.t1_name".
+221022-01:17:16,214 nipype.interface WARNING:
+	 Removing obliquity from image affine
+221022-01:17:16,713 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.output_grid_wf.resample_to_voxel_size" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size".
+221022-01:17:16,728 nipype.workflow INFO:
+	 [Node] Running "resample_to_voxel_size" ("nipype.interfaces.afni.utils.Resample"), a CommandLine Interface with command:
+3dresample -prefix mni_1mm_t1w_lps_autobox_warp_resample.nii.gz -dxyz 1.200000 1.200000 1.200000 -inset /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/output_grid_wf/resample_to_voxel_size/mni_1mm_t1w_lps_autobox_warp.nii.gz
+221022-01:17:19,48 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.output_grid_wf.resample_to_voxel_size".
+221022-01:17:19,920 nipype.workflow INFO:
+	 [Node] Finished "_t1_conform0".
+221022-01:17:19,929 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.anat_template_wf.t1_conform".
+221022-01:17:20,325 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.raw_merge" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/raw_merge".
+221022-01:17:20,326 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merge_dwis" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merge_dwis".
+221022-01:17:20,339 nipype.workflow INFO:
+	 [Node] Running "raw_merge" ("qsiprep.interfaces.nilearn.Merge")
+221022-01:17:20,342 nipype.workflow INFO:
+	 [Node] Running "merge_dwis" ("qsiprep.interfaces.dwi_merge.MergeDWIs")
+221022-01:17:23,524 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merge_dwis".
+221022-01:17:24,674 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.t1_skull_strip" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip".
+221022-01:17:24,691 nipype.workflow INFO:
+	 [Node] Running "t1_skull_strip" ("nipype.interfaces.ants.segmentation.BrainExtraction"), a CommandLine Interface with command:
+antsBrainExtraction.sh -a /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/anat_template_wf/t1_conform/mapflow/_t1_conform0/sub-131661_T1w_lps.nii.gz -m /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/tpl-OASIS30ANTs_res-01_class-brainmask_probtissue.nii.gz -e /niworkflows_data/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_T1w.nii.gz -d 3 -f /niworkflows_data/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_label-BrainCerebellumExtraction_roi.nii.gz -s nii.gz -k 1 -o highres001_ -q 1 -u 1
+221022-01:17:35,828 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.raw_merge".
+221022-01:17:36,278 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.test_pre_hmc_connect" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/test_pre_hmc_connect".
+221022-01:17:36,290 nipype.workflow INFO:
+	 [Node] Running "test_pre_hmc_connect" ("qsiprep.interfaces.utils.TestInput")
+221022-01:17:36,291 nipype.workflow WARNING:
+	 Storing result file without outputs
+221022-01:17:36,295 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.test_pre_hmc_connect".
+221022-01:17:38,301 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_src" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src".
+221022-01:17:38,325 nipype.workflow INFO:
+	 [Node] Running "raw_src" ("qsiprep.interfaces.dsi_studio.DSIStudioCreateSrc"), a CommandLine Interface with command:
+dsi_studio --action=src  --bval=/data/sub-131661/dwi/sub-131661_dwi.bval --bvec=/data/sub-131661/dwi/sub-131661_dwi.bvec --source=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/raw_merge/sub-131661_dwi_merged.nii.gz --threads=1 --output=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src/sub-131661_dwi_merged.src.gz
+221022-01:18:14,85 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_src".
+221022-01:18:14,315 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.denoiser" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/denoiser".
+221022-01:18:14,332 nipype.workflow INFO:
+	 [Node] Running "denoiser" ("qsiprep.interfaces.mrtrix.DWIDenoise"), a CommandLine Interface with command:
+dwidenoise -extent 5,5,5 -noise sub-131661_dwi_noise.nii.gz /data/sub-131661/dwi/sub-131661_dwi.nii.gz sub-131661_dwi_denoised.nii.gz
+221022-01:26:31,916 nipype.interface INFO:
+	 Generating denoising visual report
+221022-01:30:09,888 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.denoiser".
+221022-01:30:11,36 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_src" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src".
+221022-01:30:11,85 nipype.workflow INFO:
+	 [Node] Running "raw_src" ("qsiprep.interfaces.dsi_studio.DSIStudioCreateSrc"), a CommandLine Interface with command:
+dsi_studio --action=src  --bval=/data/sub-131661/dwi/sub-131661_dwi.bval --bvec=/data/sub-131661/dwi/sub-131661_dwi.bvec --source=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/raw_merge/sub-131661_dwi_merged.nii.gz --threads=1 --output=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src/sub-131661_dwi_merged.src.gz
+221022-01:30:50,469 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_src".
+221022-01:30:51,169 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_src_qc" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src_qc".
+221022-01:30:51,184 nipype.workflow INFO:
+	 [Node] Running "raw_src_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioSrcQC")
+221022-01:30:57,334 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src_qc/sub-131661_dwi_merged.src.gz
+action=qc
+checking /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_src_qc/sub-131661_dwi_merged.src.gz
+
+221022-01:30:57,348 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_src_qc".
+221022-01:30:59,57 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_gqi" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi".
+221022-01:30:59,75 nipype.workflow INFO:
+	 [Node] Running "raw_gqi" ("qsiprep.interfaces.dsi_studio.DSIStudioGQIReconstruction"), a CommandLine Interface with command:
+dsi_studio --action=rec --method=4 --check_btable=0 --source=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi/sub-131661_dwi_merged.src.gz --threads=1 --num_fiber=3 --record_odf=1 --param0=1.2500 --thread_count=1
+current dir /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi
+input src /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi/sub-131661_dwi_merged.src.gz
+split src name sub-131661_dwi_merged.src.gz
+search target /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_gqi/sub-131661_dwi_merged.src.gz*gqi*.fib.gz
+221022-01:34:21,581 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_gqi".
+221022-01:34:23,416 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.degibbser" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/degibbser".
+221022-01:34:23,430 nipype.workflow INFO:
+	 [Node] Running "degibbser" ("qsiprep.interfaces.mrtrix.MRDeGibbs"), a CommandLine Interface with command:
+mrdegibbs /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/denoiser/sub-131661_dwi_denoised.nii.gz sub-131661_dwi_denoised_mrdegibbs.nii.gz
+221022-01:39:40,998 nipype.interface INFO:
+	 Generating denoising visual report
+221022-01:41:07,59 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.degibbser".
+221022-01:41:07,649 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_src_qc" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src_qc".
+221022-01:41:07,675 nipype.workflow INFO:
+	 [Node] Running "raw_src_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioSrcQC")
+221022-01:41:13,98 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src_qc/sub-131661_dwi_merged.src.gz
+action=qc
+checking /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_src_qc/sub-131661_dwi_merged.src.gz
+
+221022-01:41:13,109 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_src_qc".
+221022-01:41:13,691 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_gqi" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi".
+221022-01:41:13,727 nipype.workflow INFO:
+	 [Node] Running "raw_gqi" ("qsiprep.interfaces.dsi_studio.DSIStudioGQIReconstruction"), a CommandLine Interface with command:
+dsi_studio --action=rec --method=4 --check_btable=0 --source=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi/sub-131661_dwi_merged.src.gz --threads=1 --num_fiber=3 --record_odf=1 --param0=1.2500 --thread_count=1
+current dir /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi
+input src /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi/sub-131661_dwi_merged.src.gz
+split src name sub-131661_dwi_merged.src.gz
+search target /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_gqi/sub-131661_dwi_merged.src.gz*gqi*.fib.gz
+221022-01:44:26,334 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_gqi".
+221022-01:44:27,833 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_fib_qc" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_fib_qc".
+221022-01:44:27,858 nipype.workflow INFO:
+	 [Node] Running "raw_fib_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioFibQC")
+221022-01:44:40,87 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_fib_qc/sub-131661_dwi_merged.src.gz.odf.gqi.1.25.fib.gz
+action=qc
+loading /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/raw_fib_qc/sub-131661_dwi_merged.src.gz.odf.gqi.1.25.fib.gz...
+
+221022-01:44:40,102 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.raw_fib_qc".
+221022-01:44:42,12 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.get_b0s" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/get_b0s".
+221022-01:44:42,53 nipype.workflow INFO:
+	 [Node] Running "get_b0s" ("qsiprep.interfaces.gradients.ExtractB0s")
+221022-01:44:46,917 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.get_b0s".
+221022-01:44:47,916 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_fib_qc" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_fib_qc".
+221022-01:44:47,938 nipype.workflow INFO:
+	 [Node] Running "raw_fib_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioFibQC")
+221022-01:44:59,781 nipype.interface INFO:
+	 DSI Studio Sep 16 2021, Fang-Cheng Yeh
+source=/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_fib_qc/sub-131661_dwi_merged.src.gz.odf.gqi.1.25.fib.gz
+action=qc
+loading /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/raw_fib_qc/sub-131661_dwi_merged.src.gz.odf.gqi.1.25.fib.gz...
+
+221022-01:44:59,793 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.raw_fib_qc".
+221022-01:45:01,895 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.merged_qc" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/dwi_qc_wf/merged_qc".
+221022-01:45:01,972 nipype.workflow INFO:
+	 [Node] Running "merged_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioMergeQC")
+221022-01:45:02,0 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.dwi_qc_wf.merged_qc".
+221022-01:45:03,904 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.quick_mask" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/quick_mask".
+221022-01:45:03,917 nipype.workflow INFO:
+	 [Node] Running "quick_mask" ("qsiprep.interfaces.nilearn.MaskEPI")
+221022-01:45:14,787 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.quick_mask".
+221022-01:45:15,908 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.merged_qc" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/dwi_qc_wf/merged_qc".
+221022-01:45:15,929 nipype.workflow INFO:
+	 [Node] Running "merged_qc" ("qsiprep.interfaces.dsi_studio.DSIStudioMergeQC")
+221022-01:45:15,948 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.dwi_qc_wf.merged_qc".
+221022-01:45:17,858 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.biascorr" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/biascorr".
+221022-01:45:17,879 nipype.workflow INFO:
+	 [Node] Running "biascorr" ("qsiprep.interfaces.mrtrix.DWIBiasCorrect"), a CommandLine Interface with command:
+dwibiascorrect ants -ants.b [150,3] -ants.c [200x200,1e-6] -bias sub-131661_dwi_denoised_mrdegibbs_bias.nii.gz -fslgrad /data/sub-131661/dwi/sub-131661_dwi.bvec /data/sub-131661/dwi/sub-131661_dwi.bval -mask /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/quick_mask/sub-131661_dwi_denoised_mrdegibbs_b0_series_mask.nii.gz /out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/degibbser/sub-131661_dwi_denoised_mrdegibbs.nii.gz sub-131661_dwi_denoised_mrdegibbs_N4.nii.gz
+221022-01:46:22,994 nipype.interface INFO:
+	 Generating denoising visual report
+221022-01:48:42,218 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.biascorr".
+221022-01:48:44,257 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.merge_confounds" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/merge_confounds".
+221022-01:48:44,292 nipype.workflow INFO:
+	 [Node] Running "merge_confounds" ("nipype.interfaces.utility.base.Merge")
+221022-01:48:44,301 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.merge_confounds".
+221022-01:48:46,107 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.hmc_sdc_wf.gather_inputs" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/hmc_sdc_wf/gather_inputs".
+221022-01:48:46,126 nipype.workflow INFO:
+	 [Node] Running "gather_inputs" ("qsiprep.interfaces.eddy.GatherEddyInputs")
+221022-01:48:52,445 nipype.interface WARNING:
+	 Using slower b02b0_1.cnf because an axis has an odd number of slices
+221022-01:48:53,512 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.hmc_sdc_wf.gather_inputs".
+221022-01:48:54,119 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.hstack_confounds" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merged_denoise/hstack_confounds".
+221022-01:48:54,133 nipype.workflow INFO:
+	 [Node] Running "hstack_confounds" ("qsiprep.interfaces.dwi_merge.StackConfounds")
+221022-01:48:54,167 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merged_denoise.hstack_confounds".
+221022-01:48:56,119 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.hmc_sdc_wf.enhance_pre_sdc" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/hmc_sdc_wf/enhance_pre_sdc".
+221022-01:48:56,136 nipype.workflow INFO:
+	 [Node] Running "enhance_pre_sdc" ("qsiprep.interfaces.nilearn.EnhanceB0")
+221022-01:49:08,207 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.hmc_sdc_wf.enhance_pre_sdc".
+221022-01:49:10,138 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.hmc_sdc_wf.distorted_merge" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/hmc_sdc_wf/distorted_merge".
+221022-01:49:10,152 nipype.workflow INFO:
+	 [Node] Running "distorted_merge" ("qsiprep.interfaces.images.IntraModalMerge")
+221022-01:49:10,488 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.hmc_sdc_wf.distorted_merge".
+221022-01:49:12,132 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merge_confounds" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/merge_confounds".
+221022-01:49:12,147 nipype.workflow INFO:
+	 [Node] Running "merge_confounds" ("nipype.interfaces.utility.base.Merge")
+221022-01:49:12,156 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.merge_confounds".
+221022-01:49:14,156 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.hstack_confounds" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/dwi_preproc_wf/pre_hmc_wf/merge_and_denoise_wf/hstack_confounds".
+221022-01:49:14,168 nipype.workflow INFO:
+	 [Node] Running "hstack_confounds" ("qsiprep.interfaces.dwi_merge.StackConfounds")
+221022-01:49:14,206 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.dwi_preproc_wf.pre_hmc_wf.merge_and_denoise_wf.hstack_confounds".
+221022-02:53:11,258 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.t1_skull_strip".
+221022-02:53:13,278 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_align" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align".
+221022-02:53:13,306 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_align" ("nipype.interfaces.ants.registration.Registration"), a CommandLine Interface with command:
+antsRegistration --collapse-output-transforms 1 --dimensionality 3 --initial-moving-transform [ /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz, /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_N4Corrected0.nii.gz, 1 ] --initialize-transforms-per-stage 0 --interpolation LanczosWindowedSinc --output [ transform, transform_Warped.nii.gz ] --transform Rigid[ 0.2 ] --metric Mattes[ /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz, /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_N4Corrected0.nii.gz, 1, 32, Random, 0.25 ] --convergence [ 10000x1000x10000x10000, 1e-06, 10 ] --smoothing-sigmas 7.0x3.0x1.0x0.0vox --shrink-factors 8x4x2x1 --use-histogram-matching 1 --winsorize-image-intensities [ 0.025, 0.975 ]  --write-composite-transform 0
+221022-02:59:12,122 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_align".
+221022-02:59:13,670 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_head" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_head".
+221022-02:59:13,675 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_brain" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_brain".
+221022-02:59:13,743 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_resample_head" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_N4Corrected0.nii.gz --input-image-type 0 --interpolation LanczosWindowedSinc --output highres001_N4Corrected0_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align/transform0GenericAffine.mat
+221022-02:59:13,746 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_resample_brain" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_BrainExtractionBrain.nii.gz --input-image-type 0 --interpolation LanczosWindowedSinc --output highres001_BrainExtractionBrain_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align/transform0GenericAffine.mat
+221022-02:59:41,753 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_brain".
+221022-02:59:43,729 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_mask" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_mask".
+221022-02:59:43,746 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_resample_mask" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_BrainExtractionMask.nii.gz --input-image-type 0 --interpolation MultiLabel --output highres001_BrainExtractionMask_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align/transform0GenericAffine.mat
+221022-02:59:49,605 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_head".
+221022-02:59:49,713 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_seg" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_seg".
+221022-02:59:49,730 nipype.workflow INFO:
+	 [Node] Running "rigid_acpc_resample_seg" ("nipype.interfaces.ants.resampling.ApplyTransforms"), a CommandLine Interface with command:
+antsApplyTransforms --default-value 0 --float 0 --input /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/t1_skull_strip/highres001_BrainExtractionSegmentation.nii.gz --input-image-type 0 --interpolation MultiLabel --output highres001_BrainExtractionSegmentation_trans.nii.gz --reference-image /usr/local/miniconda/lib/python3.7/site-packages/qsiprep/data/mni_1mm_t1w_lps_brain.nii.gz --transform /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_align/transform0GenericAffine.mat
+221022-03:00:45,765 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_mask".
+221022-03:00:47,803 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.recon_config" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/recon_config".
+221022-03:00:47,872 nipype.workflow INFO:
+	 [Node] Running "recon_config" ("qsiprep.interfaces.freesurfer.FSDetectInputs")
+221022-03:00:47,897 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.recon_config".
+221022-03:00:50,34 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.autorecon1" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon1".
+221022-03:00:50,99 nipype.workflow INFO:
+	 [Node] Running "autorecon1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon1 -i /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_head/highres001_N4Corrected0_trans.nii.gz -noskullstrip -openmp 1 -subjid sub-131661 -sd /out/freesurfer
+221022-03:00:53,95 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.skullstrip_wf.rigid_acpc_resample_seg".
+221022-03:06:00,354 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.autorecon1".
+221022-03:06:02,89 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.skull_strip_extern" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/skull_strip_extern".
+221022-03:06:02,89 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.fsnative_2_t1_xfm" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/fsnative_2_t1_xfm".
+221022-03:06:02,100 nipype.workflow INFO:
+	 [Node] Running "skull_strip_extern" ("qsiprep.interfaces.freesurfer.FSInjectBrainExtracted")
+221022-03:06:02,104 nipype.workflow INFO:
+	 [Node] Running "fsnative_2_t1_xfm" ("nipype.interfaces.freesurfer.preprocess.RobustRegister"), a CommandLine Interface with command:
+mri_robust_register --satit --iscale --lta /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/fsnative_2_t1_xfm/T1_robustreg.lta --mov /out/freesurfer/sub-131661/mri/T1.mgz --dst /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/skullstrip_wf/rigid_acpc_resample_head/highres001_N4Corrected0_trans.nii.gz
+221022-03:06:04,443 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.skull_strip_extern".
+221022-03:06:06,96 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon2_vol".
+221022-03:06:06,114 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon2-volonly -openmp 1 -subjid sub-131661 -sd /out/freesurfer 
+221022-03:06:06,115 nipype.workflow INFO:
+	 [Node] Running "autorecon2_vol" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon2-volonly -openmp 1 -subjid sub-131661 -sd /out/freesurfer 
+221022-03:06:06,117 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon2-volonly -openmp 1 -subjid sub-131661 -sd /out/freesurfer 
+221022-03:06:42,27 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.fsnative_2_t1_xfm".
+221022-03:06:42,191 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.t1_2_fsnative_xfm" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/t1_2_fsnative_xfm".
+221022-03:06:42,208 nipype.workflow INFO:
+	 [Node] Running "t1_2_fsnative_xfm" ("qsiprep.interfaces.freesurfer.PatchedLTAConvert"), a CommandLine Interface with command:
+lta_convert --inlta /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/fsnative_2_t1_xfm/T1_robustreg.lta --invert --outlta /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/t1_2_fsnative_xfm/out.lta
+221022-03:06:42,355 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.t1_2_fsnative_xfm".
+221022-03:06:44,190 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.anat_derivatives_wf.lta_2_itk" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/anat_derivatives_wf/lta_2_itk".
+221022-03:06:44,208 nipype.workflow INFO:
+	 [Node] Running "lta_2_itk" ("qsiprep.interfaces.freesurfer.PatchedLTAConvert"), a CommandLine Interface with command:
+lta_convert --inlta /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/t1_2_fsnative_xfm/out.lta --outitk /out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/anat_derivatives_wf/lta_2_itk/out.txt
+221022-03:06:44,411 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.anat_derivatives_wf.lta_2_itk".
+221022-06:46:45,866 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol".
+221022-06:46:49,929 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221022-06:46:49,930 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221022-06:46:49,946 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-131661 -sd /out/freesurfer 
+221022-06:46:49,947 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-131661 -sd /out/freesurfer 
+221022-06:46:49,948 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-131661 -sd /out/freesurfer 
+221022-06:46:49,949 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-131661 -sd /out/freesurfer 
+221022-06:46:49,950 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-131661 -sd /out/freesurfer 
+221022-06:46:49,952 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-131661 -sd /out/freesurfer 
+221022-12:05:13,144 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221022-13:13:21,638 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221022-13:13:23,251 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221022-13:13:23,276 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221022-13:13:23,312 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-13:13:23,314 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221022-13:13:23,317 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-13:13:23,509 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221022-13:13:23,514 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221022-13:13:23,646 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-13:13:23,648 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221022-13:13:23,650 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-13:13:23,889 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221022-13:13:23,899 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221022-13:13:27,217 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon30" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3/mapflow/_autorecon30".
+221022-13:13:27,219 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon31" in "/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3/mapflow/_autorecon31".
+221022-13:13:27,234 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi rh -openmp 1 -subjid sub-131661 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-13:13:27,234 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-131661 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-13:13:27,236 nipype.workflow INFO:
+	 [Node] Running "_autorecon31" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon3 -hemi rh -openmp 1 -subjid sub-131661 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-13:13:27,236 nipype.workflow INFO:
+	 [Node] Running "_autorecon30" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-131661 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-13:13:27,239 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi rh -openmp 1 -subjid sub-131661 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-13:13:27,240 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-131661 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-13:36:52,180 nipype.workflow WARNING:
+	 Storing result file without outputs
+221022-13:36:52,184 nipype.workflow WARNING:
+	 [Node] Error on "_autorecon30" (/out/tmp/qsiprep_wf/single_subject_131661_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3/mapflow/_autorecon30)
+221022-13:36:52,522 nipype.workflow ERROR:
+	 Node _autorecon30 failed to run on host c501-103.stampede2.tacc.utexas.edu.
+221022-13:36:52,578 nipype.workflow ERROR:
+	 Saving crash info to /out/qsiprep/sub-131661/log/20221022-011602_cbea86a2-a1fc-45a2-9ea3-5899aceccf5a/crash-20221022-133652-tg881334-_autorecon30-de8ef17f-b66e-44d1-986b-93c089b54a56.txt
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 67, in run_node
+    result["result"] = node.run(updatehash=updatehash)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 516, in run
+    result = self._run_interface(execute=True)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 635, in _run_interface
+    return self._run_command(execute)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/nodes.py", line 741, in _run_command
+    result = self._interface.run(cwd=outdir)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/interfaces/base/core.py", line 428, in run
+    runtime = self._run_interface(runtime)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/interfaces/base/core.py", line 822, in _run_interface
+    self.raise_exception(runtime)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/interfaces/base/core.py", line 753, in raise_exception
+    ).format(**runtime.dictcopy())
+RuntimeError: Command:
+recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-131661 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+Standard output:
+Subject Stamp: freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.1-f53a55a
+Current Stamp: freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.1-f53a55a
+INFO: SUBJECTS_DIR is /out/freesurfer
+Actual FREESURFER_HOME /opt/freesurfer
+-rw-rw-r-- 1 tg881334 G-820004 143685 Oct 22 06:46 /out/freesurfer/sub-131661/scripts/recon-all.log
+Linux c501-103.stampede2.tacc.utexas.edu 3.10.0-1160.53.1.el7.x86_64 #1 SMP Fri Jan 14 13:59:45 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+'/opt/freesurfer/bin/recon-all' -> '/out/freesurfer/sub-131661/scripts/recon-all.local-copy'
+#--------------------------------------------
+#@# Cortical ribbon mask Sat Oct 22 13:13:28 CDT 2022
+/out/freesurfer/sub-131661/mri
+
+ mris_volmask --aseg_name aseg.presurf --label_left_white 2 --label_left_ribbon 3 --label_right_white 41 --label_right_ribbon 42 --save_ribbon sub-131661 
+
+SUBJECTS_DIR is /out/freesurfer
+loading input data...
+computing distance to left white surface 
+computing distance to left pial surface 
+computing distance to right white surface 
+computing distance to right pial surface 
+ hemi masks overlap voxels = 1710
+writing volume /out/freesurfer/sub-131661/mri/ribbon.mgz
+mris_volmask took 2.55 minutes
+ writing ribbon files
+#-----------------------------------------
+#@# Parcellation Stats lh Sat Oct 22 13:16:01 CDT 2022
+/out/freesurfer/sub-131661/scripts
+
+ mris_anatomical_stats -th3 -mgz -cortex ../label/lh.cortex.label -f ../stats/lh.aparc.stats -b -a ../label/lh.aparc.annot -c ../label/aparc.annot.ctab sub-131661 lh white 
+
+computing statistics for each annotation in ../label/lh.aparc.annot.
+reading volume /out/freesurfer/sub-131661/mri/wm.mgz...
+reading input surface /out/freesurfer/sub-131661/surf/lh.white...
+reading input pial surface /out/freesurfer/sub-131661/surf/lh.pial...
+reading input white surface /out/freesurfer/sub-131661/surf/lh.white...
+INFO: using TH3 volume calc
+INFO: assuming MGZ format for volumes.
+INFO: using ../label/lh.cortex.label as mask to calc cortex NumVert, SurfArea and MeanThickness.
+Using TH3 vertex volume calc
+Total face volume 167429
+Total vertex volume 166164 (mask=0)
+reading colortable from annotation file...
+colortable with 36 entries read (originally /autofs/space/tanha_002/users/greve/fsdev.build/average/colortable_desikan_killiany.txt)
+Saving annotation colortable ../label/aparc.annot.ctab
+
+table columns are:
+    number of vertices
+    total surface area (mm^2)
+    total gray matter volume (mm^3)
+    average cortical thickness +- standard deviation (mm)
+    integrated rectified mean curvature
+    integrated rectified Gaussian curvature
+    folding index
+    intrinsic curvature index
+    structure name
+
+atlas_icv (eTIV) = 1487043 mm^3    (det: 1.310053 )
+lhCtxGM: 162291.386 163796.000  diff=-1504.6  pctdiff=-0.927
+rhCtxGM: 145293.006 144521.000  diff=  772.0  pctdiff= 0.531
+lhCtxWM: 354740.264 356342.000  diff=-1601.7  pctdiff=-0.452
+rhCtxWM: 380871.734 381015.000  diff= -143.3  pctdiff=-0.038
+SubCortGMVol  54591.000
+SupraTentVol  1109692.391 (1106376.000) diff=3316.391 pctdiff=0.299
+SupraTentVolNotVent  1103587.391 (1100271.000) diff=3316.391 pctdiff=0.301
+BrainSegVol  1234140.000 (1232135.000) diff=2005.000 pctdiff=0.162
+BrainSegVolNotVent  1225067.000 (1222521.391) diff=2545.609 pctdiff=0.208
+BrainSegVolNotVent  1225067.000
+CerebellumVol 124728.000
+VentChorVol    6105.000
+3rd4th5thCSF   2968.000
+CSFVol   963.000, OptChiasmVol    68.000
+MaskVol 1390747.000
+  803    403   1024  2.274 0.838     0.049     0.014       15     0.3  bankssts
+  436    274    660  2.681 1.200     0.182     0.215       33     2.0  caudalanteriorcingulate
+ 1772   1235   5180  3.984 0.804     0.117     0.030       17     2.8  caudalmiddlefrontal
+ 1012    757   1461  1.890 1.033     0.207     0.095       34     5.3  cuneus
+  642    344   1608  3.804 0.831     0.102     0.041       11     0.7  entorhinal
+ 2357   1422   5975  3.750 0.918     0.098     0.044       30     4.9  fusiform
+ 2736   1874   6142  3.210 0.955     0.100     0.025       12     3.5  inferiorparietal
+ 2340   1565   7443  4.215 0.854     0.115     0.052       86     4.7  inferiortemporal
+  180    117    361  3.990 0.730     0.148     0.090        3     0.5  isthmuscingulate
+ 3718   2213   8830  3.482 1.153     0.130     0.080      146    14.0  lateraloccipital
+ 1854   1203   4065  3.177 1.000     0.096     0.058       97     5.4  lateralorbitofrontal
+ 1610    962   2779  2.856 0.879     0.103     0.048       17     3.9  lingual
+ 1620    751   2707  2.832 0.823     0.098     0.059       31     5.2  medialorbitofrontal
+ 1916   1237   5123  3.831 1.036     0.106     0.030       10     3.0  middletemporal
+  673    266   1010  3.183 0.969     0.096     0.084       26     2.8  parahippocampal
+ 1914   1047   4005  3.367 1.007     0.115     0.069       40     6.6  paracentral
+ 1475    964   3975  3.984 0.737     0.085     0.018        5     1.3  parsopercularis
+  566    281   1318  3.742 0.636     0.063     0.012        2     0.3  parsorbitalis
+ 1094    713   2946  3.829 0.809     0.073     0.036       33     2.0  parstriangularis
+  686    429   1432  3.378 1.083     0.125     0.053        8     2.2  pericalcarine
+ 3497   2153   7659  3.235 1.196     0.126     0.056       65    10.5  postcentral
+  697    606   1708  3.634 0.925     0.138     0.043        5     1.5  posteriorcingulate
+ 3999   2922  12687  4.181 0.784     0.126     0.037       58     7.6  precentral
+ 3680   2358   8073  3.334 1.018     0.117     0.055       73    10.3  precuneus
+  648    426   1034  2.550 1.242     0.168     0.083       22     2.5  rostralanteriorcingulate
+ 4576   2862  12884  4.141 0.819     0.110     0.036       43     8.2  rostralmiddlefrontal
+ 7518   4598  19890  3.863 0.939     0.110     0.049      121    18.0  superiorfrontal
+ 4290   3144  11970  3.781 1.044     0.150     0.077       77    12.4  superiorparietal
+ 2623   1740   6410  3.313 1.017     0.099     0.053       30     8.4  superiortemporal
+ 2650   1377   3888  2.488 0.976     0.062     0.023       47     2.7  supramarginal
+  316    109    728  4.390 0.348     0.061     0.014        2     0.2  frontalpole
+  599    292   1348  3.947 0.992     0.094     0.042        6     0.9  temporalpole
+  258    205    843  3.878 0.766     0.124     0.037        2     0.5  transversetemporal
+ 3430   2589   8851  3.264 1.297     0.145     0.076       92    14.1  insula
+
+ mris_anatomical_stats -th3 -mgz -cortex ../label/lh.cortex.label -f ../stats/lh.aparc.pial.stats -b -a ../label/lh.aparc.annot -c ../label/aparc.annot.ctab sub-131661 lh pial 
+
+computing statistics for each annotation in ../label/lh.aparc.annot.
+reading volume /out/freesurfer/sub-131661/mri/wm.mgz...
+reading input surface /out/freesurfer/sub-131661/surf/lh.pial...
+reading input pial surface /out/freesurfer/sub-131661/surf/lh.pial...
+reading input white surface /out/freesurfer/sub-131661/surf/lh.white...
+INFO: using TH3 volume calc
+INFO: assuming MGZ format for volumes.
+INFO: using ../label/lh.cortex.label as mask to calc cortex NumVert, SurfArea and MeanThickness.
+Using TH3 vertex volume calc
+Total face volume 167429
+Total vertex volume 166164 (mask=0)
+reading colortable from annotation file...
+colortable with 36 entries read (originally /autofs/space/tanha_002/users/greve/fsdev.build/average/colortable_desikan_killiany.txt)
+Saving annotation colortable ../label/aparc.annot.ctab
+
+table columns are:
+    number of vertices
+    total surface area (mm^2)
+    total gray matter volume (mm^3)
+    average cortical thickness +- standard deviation (mm)
+    integrated rectified mean curvature
+    integrated rectified Gaussian curvature
+    folding index
+    intrinsic curvature index
+    structure name
+
+atlas_icv (eTIV) = 1487043 mm^3    (det: 1.310053 )
+lhCtxGM: 162291.386 163796.000  diff=-1504.6  pctdiff=-0.927
+rhCtxGM: 145293.006 144521.000  diff=  772.0  pctdiff= 0.531
+lhCtxWM: 354740.264 356342.000  diff=-1601.7  pctdiff=-0.452
+rhCtxWM: 380871.734 381015.000  diff= -143.3  pctdiff=-0.038
+SubCortGMVol  54591.000
+SupraTentVol  1109692.391 (1106376.000) diff=3316.391 pctdiff=0.299
+SupraTentVolNotVent  1103587.391 (1100271.000) diff=3316.391 pctdiff=0.301
+BrainSegVol  1234140.000 (1232135.000) diff=2005.000 pctdiff=0.162
+BrainSegVolNotVent  1225067.000 (1222521.391) diff=2545.609 pctdiff=0.208
+BrainSegVolNotVent  1225067.000
+CerebellumVol 124728.000
+VentChorVol    6105.000
+3rd4th5thCSF   2968.000
+CSFVol   963.000, OptChiasmVol    68.000
+MaskVol 1390747.000
+  803    537   1024  2.274 0.838     0.191     0.325      216    18.5  bankssts
+  436    242    660  2.681 1.200     0.104     0.058       17     0.9  caudalanteriorcingulate
+ 1772   1210   5180  3.984 0.804     0.104     0.037       33     3.2  caudalmiddlefrontal
+ 1012    796   1461  1.890 1.033     0.164     0.055       16     2.5  cuneus
+  642    440   1608  3.804 0.831     0.102     0.046        7     1.4  entorhinal
+ 2357   1633   5975  3.750 0.918     0.107     0.031       28     3.2  fusiform
+ 2736   1815   6142  3.210 0.955     0.090     0.027       19     2.9  inferiorparietal
+ 2340   1684   7443  4.215 0.854     0.121     0.048       44     4.6  inferiortemporal
+  180    112    361  3.990 0.730     0.105     0.052        3     0.2  isthmuscingulate
+ 3718   2587   8830  3.482 1.153     0.102     0.031       52     4.9  lateraloccipital
+ 1854   1191   4065  3.177 1.000     0.095     0.042       24     2.1  lateralorbitofrontal
+ 1610   1025   2779  2.856 0.879     0.122     0.088       47     6.5  lingual
+ 1620   1081   2707  2.832 0.823     0.104     0.031       21     2.0  medialorbitofrontal
+ 1916   1334   5123  3.831 1.036     0.082     0.018       10     1.4  middletemporal
+  673    376   1010  3.183 0.969     0.109     0.046       12     1.4  parahippocampal
+ 1914   1202   4005  3.367 1.007     0.110     0.046       27     3.7  paracentral
+ 1475   1001   3975  3.984 0.737     0.080     0.021       10     0.9  parsopercularis
+  566    407   1318  3.742 0.636     0.061     0.006        1     0.2  parsorbitalis
+ 1094    753   2946  3.829 0.809     0.074     0.140       13    11.5  parstriangularis
+  686    433   1432  3.378 1.083     0.112     0.035        8     0.9  pericalcarine
+ 3497   2135   7659  3.235 1.196     0.139     0.094      175    19.1  postcentral
+  697    495   1708  3.634 0.925     0.139     0.068       25     2.4  posteriorcingulate
+ 3999   2725  12687  4.181 0.784     0.114     0.044       94     8.9  precentral
+ 3680   2291   8073  3.334 1.018     0.110     0.042       69     6.2  precuneus
+  648    434   1034  2.550 1.242     0.200     0.186       62     5.9  rostralanteriorcingulate
+ 4576   3034  12884  4.141 0.819     0.101     0.052      113    12.3  rostralmiddlefrontal
+ 7518   5013  19890  3.863 0.939     0.111     0.044      121    12.6  superiorfrontal
+ 4290   2710  11970  3.781 1.044     0.107     0.052      148    10.3  superiorparietal
+ 2623   1905   6410  3.313 1.017     0.103     0.036       57     4.6  superiortemporal
+ 2650   1793   3888  2.488 0.976     0.163     0.097       65    10.4  supramarginal
+  316    210    728  4.390 0.348     0.056     0.007        0     0.1  frontalpole
+  599    349   1348  3.947 0.992     0.101     0.045        8     1.1  temporalpole
+  258    231    843  3.878 0.766     0.157     0.048        3     0.5  transversetemporal
+ 3430   2504   8851  3.264 1.297     0.135     0.067      126    10.3  insula
+#-----------------------------------------
+#@# Cortical Parc 2 lh Sat Oct 22 13:16:58 CDT 2022
+/out/freesurfer/sub-131661/scripts
+
+ mris_ca_label -l ../label/lh.cortex.label -aseg ../mri/aseg.presurf.mgz -seed 1234 sub-131661 lh ../surf/lh.sphere.reg /opt/freesurfer/average/lh.CDaparc.atlas.acfb40.noaparc.i12.2016-08-02.gcs ../label/lh.aparc.a2009s.annot 
+
+setting seed for random number generator to 1234
+using ../mri/aseg.presurf.mgz aseg volume to correct midline
+$Id: mris_ca_label.c,v 1.37 2014/02/04 17:46:42 fischl Exp $
+  $Id: mrisurf.c,v 1.781.2.6 2016/12/27 16:47:14 zkaufman Exp $
+reading atlas from /opt/freesurfer/average/lh.CDaparc.atlas.acfb40.noaparc.i12.2016-08-02.gcs...
+reading color table from GCSA file....
+average std = 2.9   using min determinant for regularization = 0.086
+0 singular and 762 ill-conditioned covariance matrices regularized
+input 0: MEAN CURVATURE, flags 0, avgs 5, name mean_curvature
+labeling surface...
+1312 labels changed using aseg
+relabeling using gibbs priors...
+000:   5608 changed, 73901 examined...
+001:   1268 changed, 21992 examined...
+002:    353 changed, 6753 examined...
+003:    141 changed, 2035 examined...
+004:     58 changed, 831 examined...
+005:     26 changed, 353 examined...
+006:     14 changed, 155 examined...
+007:      6 changed, 83 examined...
+008:      4 changed, 30 examined...
+009:      2 changed, 23 examined...
+010:      1 changed, 12 examined...
+011:      1 changed, 8 examined...
+012:      0 changed, 6 examined...
+191 labels changed using aseg
+000: 234 total segments, 144 labels (1175 vertices) changed
+001: 96 total segments, 6 labels (27 vertices) changed
+002: 90 total segments, 0 labels (0 vertices) changed
+10 filter iterations complete (10 requested, 17 changed)
+rationalizing unknown annotations with cortex label
+relabeling Medial_wall label...
+1922 vertices marked for relabeling...
+1922 labels changed in reclassification.
+writing output to ../label/lh.aparc.a2009s.annot...
+classification took 0 minutes and 14 seconds.
+#-----------------------------------------
+#@# Parcellation Stats 2 lh Sat Oct 22 13:17:12 CDT 2022
+/out/freesurfer/sub-131661/scripts
+
+ mris_anatomical_stats -th3 -mgz -cortex ../label/lh.cortex.label -f ../stats/lh.aparc.a2009s.stats -b -a ../label/lh.aparc.a2009s.annot -c ../label/aparc.annot.a2009s.ctab sub-131661 lh white 
+
+computing statistics for each annotation in ../label/lh.aparc.a2009s.annot.
+reading volume /out/freesurfer/sub-131661/mri/wm.mgz...
+reading input surface /out/freesurfer/sub-131661/surf/lh.white...
+reading input pial surface /out/freesurfer/sub-131661/surf/lh.pial...
+reading input white surface /out/freesurfer/sub-131661/surf/lh.white...
+INFO: using TH3 volume calc
+INFO: assuming MGZ format for volumes.
+INFO: using ../label/lh.cortex.label as mask to calc cortex NumVert, SurfArea and MeanThickness.
+Using TH3 vertex volume calc
+Total face volume 167429
+Total vertex volume 166164 (mask=0)
+reading colortable from annotation file...
+colortable with 76 entries read (originally Simple_surface_labels2008.txt)
+Saving annotation colortable ../label/aparc.annot.a2009s.ctab
+
+table columns are:
+    number of vertices
+    total surface area (mm^2)
+    total gray matter volume (mm^3)
+    average cortical thickness +- standard deviation (mm)
+    integrated rectified mean curvature
+    integrated rectified Gaussian curvature
+    folding index
+    intrinsic curvature index
+    structure name
+
+atlas_icv (eTIV) = 1487043 mm^3    (det: 1.310053 )
+lhCtxGM: 162291.386 163796.000  diff=-1504.6  pctdiff=-0.927
+rhCtxGM: 145293.006 144521.000  diff=  772.0  pctdiff= 0.531
+lhCtxWM: 354740.264 356342.000  diff=-1601.7  pctdiff=-0.452
+rhCtxWM: 380871.734 381015.000  diff= -143.3  pctdiff=-0.038
+SubCortGMVol  54591.000
+SupraTentVol  1109692.391 (1106376.000) diff=3316.391 pctdiff=0.299
+SupraTentVolNotVent  1103587.391 (1100271.000) diff=3316.391 pctdiff=0.301
+BrainSegVol  1234140.000 (1232135.000) diff=2005.000 pctdiff=0.162
+BrainSegVolNotVent  1225067.000 (1222521.391) diff=2545.609 pctdiff=0.208
+BrainSegVolNotVent  1225067.000
+CerebellumVol 124728.000
+VentChorVol    6105.000
+3rd4th5thCSF   2968.000
+CSFVol   963.000, OptChiasmVol    68.000
+MaskVol 1390747.000
+  700    425   2065  4.549 0.497     0.081     0.018        2     0.6  G&S_frontomargin
+  958    564   1768  3.063 1.165     0.168     0.096       43     5.5  G&S_occipital_inf
+ 1190    617   2904  3.678 1.248     0.130     0.073       29     4.2  G&S_paracentral
+  809    528   1712  3.100 1.057     0.107     0.029        5     1.1  G&S_subcentral
+  506    211   1394  4.576 0.376     0.065     0.015        3     0.3  G&S_transv_frontopol
+ 1253   1030   3331  3.290 1.358     0.180     0.090       31     4.5  G&S_cingul-Ant
+  989    736   2568  3.770 1.095     0.147     0.089       33     2.8  G&S_cingul-Mid-Ant
+ 1005    782   2580  3.786 0.846     0.137     0.045       14     2.4  G&S_cingul-Mid-Post
+   77     99    151  3.385 1.290     0.210     0.119        1     0.2  G_cingul-Post-dorsal
+  897    579   1015  1.637 0.794     0.203     0.151       43     4.9  G_cuneus
+  750    454   1786  3.531 0.572     0.061     0.010        1     0.3  G_front_inf-Opercular
+  375    165    730  3.351 0.857     0.067     0.076       32     1.6  G_front_inf-Orbital
+  783    461   2032  3.844 0.589     0.064     0.014        1     0.4  G_front_inf-Triangul
+ 2482   1299   6203  3.837 0.717     0.081     0.023       23     2.8  G_front_middle
+ 5224   2369  11235  3.554 0.951     0.086     0.053       91    13.6  G_front_sup
+  424    223   1074  3.487 1.161     0.102     0.049        5     1.0  G_Ins_lg&S_cent_ins
+  579    288   1486  4.037 0.598     0.068     0.019        3     0.3  G_insular_short
+ 1019    618   2525  3.684 0.816     0.086     0.020        4     1.0  G_occipital_middle
+  709    537   1964  3.411 1.011     0.168     0.216       25     3.5  G_occipital_sup
+  803    491   1937  3.592 0.563     0.066     0.012        3     0.4  G_oc-temp_lat-fusifor
+  971    561   1790  2.978 0.890     0.090     0.041        9     2.1  G_oc-temp_med-Lingual
+ 1719    957   3752  3.362 1.085     0.109     0.070       50     5.0  G_oc-temp_med-Parahip
+ 1263    680   2783  3.369 0.849     0.079     0.036       11     2.2  G_orbital
+ 1123    601   1876  2.768 0.908     0.059     0.062       13     5.2  G_pariet_inf-Angular
+ 1243    617   1563  2.136 0.815     0.047     0.015       33     0.6  G_pariet_inf-Supramar
+ 1839    985   4658  4.005 0.793     0.117     0.045       24     3.8  G_parietal_sup
+ 1462    715   2326  2.792 1.138     0.100     0.051       36     4.1  G_postcentral
+ 1469    810   4460  4.354 0.687     0.089     0.022       11     1.4  G_precentral
+ 2004   1158   3691  2.904 1.073     0.121     0.070       63     6.8  G_precuneus
+  888    316   1253  2.629 0.894     0.119     0.093       28     4.7  G_rectus
+  897    592   1177  2.128 1.128     0.167     0.114       42     6.0  G_subcallosal
+  198    146    640  3.647 0.851     0.074     0.017        0     0.1  G_temp_sup-G_T_transv
+  990    543   1881  2.930 0.940     0.068     0.030        7     1.3  G_temp_sup-Lateral
+  522    234   1130  3.923 0.753     0.069     0.022        4     0.4  G_temp_sup-Plan_polar
+  458    326   1012  3.309 0.892     0.112     0.030        2     0.8  G_temp_sup-Plan_tempo
+ 1229    667   3755  4.229 0.843     0.080     0.053       63     1.5  G_temporal_inf
+ 1238    677   2958  3.679 1.020     0.087     0.025        7     1.5  G_temporal_middle
+   14      9     35  3.486 0.515     0.065     0.004        0     0.0  Lat_Fis-ant-Horizont
+  137    103    395  4.420 0.429     0.069     0.008        0     0.0  Lat_Fis-ant-Vertical
+  695    595   1852  3.345 1.060     0.195     0.083       17     3.2  Lat_Fis-post
+ 1064    701   3194  3.679 1.282     0.167     0.112       60     6.3  Pole_occipital
+ 1236    648   3249  3.985 1.107     0.163     0.087       32     4.9  Pole_temporal
+  963    583   1862  3.501 0.997     0.113     0.040        8     2.0  S_calcarine
+ 1900   1481   5825  3.880 1.036     0.172     0.070       54     7.3  S_central
+  973    714   2742  3.968 0.670     0.102     0.028        7     1.2  S_cingul-Marginalis
+  470    425   1454  3.736 1.019     0.123     0.035        4     0.8  S_circular_insula_ant
+  692    750   2679  4.218 0.707     0.193     0.068       11     2.8  S_circular_insula_inf
+  759    678   2621  3.851 1.170     0.130     0.053       14     2.4  S_circular_insula_sup
+  446    525   2203  4.919 0.188     0.177     0.045        5     1.2  S_collat_transv_ant
+  162    135    359  2.835 0.376     0.066     0.011        0     0.1  S_collat_transv_post
+ 1390    979   4267  4.412 0.692     0.106     0.027        6     1.8  S_front_inf
+  924    666   2367  3.623 0.958     0.171     0.070       17     3.4  S_front_middle
+ 1675   1547   5921  4.386 0.755     0.170     0.047       24     4.3  S_front_sup
+  144     60    131  1.792 0.631     0.024     0.003        0     0.0  S_interm_prim-Jensen
+ 1190    855   3307  3.987 0.677     0.109     0.027        5     1.7  S_intrapariet&P_trans
+  424    294   1125  3.636 0.848     0.100     0.023        1     0.6  S_oc_middle&Lunatus
+  468    350   1625  4.482 0.614     0.152     0.047        4     1.3  S_oc_sup&transversal
+  376    200    631  2.728 0.610     0.076     0.046        7     0.9  S_occipital_ant
+  354    252    836  3.374 0.819     0.108     0.034        3     0.7  S_oc-temp_lat
+ 1222    715   2358  3.085 1.207     0.097     0.041       12     2.5  S_oc-temp_med&Lingual
+   99    110    398  4.938 0.092     0.149     0.027        0     0.2  S_orbital_lateral
+  280    156    537  3.033 0.390     0.053     0.020        3     0.2  S_orbital_med-olfact
+  669    450   1308  2.851 0.839     0.112     0.086       85     3.1  S_orbital-H_Shaped
+ 1261    874   2645  3.122 1.179     0.143     0.067       29     4.3  S_parieto_occipital
+   35     45     33  1.089 1.051     0.252     0.090        1     0.1  S_pericallosal
+ 1358   1199   3865  3.614 0.879     0.162     0.046       22     3.3  S_postcentral
+  905    823   3084  4.304 0.573     0.154     0.038        6     1.9  S_precentral-inf-part
+  555    578   2265  4.610 0.448     0.167     0.056        6     1.6  S_precentral-sup-part
+  335    229    644  2.971 0.650     0.079     0.021        1     0.3  S_suborbital
+  820    546   1928  3.775 0.803     0.099     0.041        8     1.5  S_subparietal
+  528    334   1409  4.181 0.707     0.115     0.041       29     1.3  S_temporal_inf
+ 2624   1844   5703  2.956 1.107     0.098     0.027       24     3.3  S_temporal_sup
+   54     36    138  3.843 0.665     0.038     0.006        0     0.0  S_temporal_transverse
+#-----------------------------------------
+#@# Cortical Parc 3 lh Sat Oct 22 13:17:39 CDT 2022
+/out/freesurfer/sub-131661/scripts
+
+ mris_ca_label -l ../label/lh.cortex.label -aseg ../mri/aseg.presurf.mgz -seed 1234 sub-131661 lh ../surf/lh.sphere.reg /opt/freesurfer/average/lh.DKTaparc.atlas.acfb40.noaparc.i12.2016-08-02.gcs ../label/lh.aparc.DKTatlas.annot 
+
+setting seed for random number generator to 1234
+using ../mri/aseg.presurf.mgz aseg volume to correct midline
+$Id: mris_ca_label.c,v 1.37 2014/02/04 17:46:42 fischl Exp $
+  $Id: mrisurf.c,v 1.781.2.6 2016/12/27 16:47:14 zkaufman Exp $
+reading atlas from /opt/freesurfer/average/lh.DKTaparc.atlas.acfb40.noaparc.i12.2016-08-02.gcs...
+reading color table from GCSA file....
+average std = 1.4   using min determinant for regularization = 0.020
+0 singular and 383 ill-conditioned covariance matrices regularized
+input 0: MEAN CURVATURE, flags 0, avgs 5, name mean_curvature
+labeling surface...
+2001 labels changed using aseg
+relabeling using gibbs priors...
+000:   1463 changed, 73901 examined...
+001:    325 changed, 6961 examined...
+002:     97 changed, 1853 examined...
+003:     31 changed, 534 examined...
+004:     17 changed, 206 examined...
+005:      9 changed, 110 examined...
+006:      9 changed, 51 examined...
+007:      4 changed, 56 examined...
+008:      2 changed, 25 examined...
+009:      1 changed, 16 examined...
+010:      4 changed, 9 examined...
+011:      2 changed, 17 examined...
+012:      1 changed, 16 examined...
+013:      1 changed, 9 examined...
+014:      1 changed, 4 examined...
+015:      2 changed, 8 examined...
+016:      2 changed, 13 examined...
+017:      1 changed, 19 examined...
+018:      2 changed, 7 examined...
+019:      2 changed, 11 examined...
+020:      2 changed, 14 examined...
+021:      2 changed, 10 examined...
+022:      2 changed, 16 examined...
+023:      3 changed, 15 examined...
+024:      1 changed, 11 examined...
+025:      1 changed, 7 examined...
+026:      1 changed, 9 examined...
+027:      1 changed, 7 examined...
+028:      1 changed, 7 examined...
+029:      0 changed, 7 examined...
+224 labels changed using aseg
+000: 79 total segments, 45 labels (461 vertices) changed
+001: 36 total segments, 2 labels (12 vertices) changed
+002: 34 total segments, 0 labels (0 vertices) changed
+9 filter iterations complete (10 requested, 0 changed)
+rationalizing unknown annotations with cortex label
+relabeling unknown label...
+relabeling corpuscallosum label...
+1680 vertices marked for relabeling...
+1680 labels changed in reclassification.
+writing output to ../label/lh.aparc.DKTatlas.annot...
+classification took 0 minutes and 12 seconds.
+#-----------------------------------------
+#@# Parcellation Stats 3 lh Sat Oct 22 13:17:51 CDT 2022
+/out/freesurfer/sub-131661/scripts
+
+ mris_anatomical_stats -th3 -mgz -cortex ../label/lh.cortex.label -f ../stats/lh.aparc.DKTatlas.stats -b -a ../label/lh.aparc.DKTatlas.annot -c ../label/aparc.annot.DKTatlas.ctab sub-131661 lh white 
+
+computing statistics for each annotation in ../label/lh.aparc.DKTatlas.annot.
+reading volume /out/freesurfer/sub-131661/mri/wm.mgz...
+reading input surface /out/freesurfer/sub-131661/surf/lh.white...
+reading input pial surface /out/freesurfer/sub-131661/surf/lh.pial...
+reading input white surface /out/freesurfer/sub-131661/surf/lh.white...
+INFO: using TH3 volume calc
+INFO: assuming MGZ format for volumes.
+INFO: using ../label/lh.cortex.label as mask to calc cortex NumVert, SurfArea and MeanThickness.
+Using TH3 vertex volume calc
+Total face volume 167429
+Total vertex volume 166164 (mask=0)
+reading colortable from annotation file...
+colortable with 36 entries read (originally /autofs/space/tanha_002/users/greve/fsdev.build/average/colortable_desikan_killiany.txt)
+Saving annotation colortable ../label/aparc.annot.DKTatlas.ctab
+
+table columns are:
+    number of vertices
+    total surface area (mm^2)
+    total gray matter volume (mm^3)
+    average cortical thickness +- standard deviation (mm)
+    integrated rectified mean curvature
+    integrated rectified Gaussian curvature
+    folding index
+    intrinsic curvature index
+    structure name
+
+atlas_icv (eTIV) = 1487043 mm^3    (det: 1.310053 )
+lhCtxGM: 162291.386 163796.000  diff=-1504.6  pctdiff=-0.927
+rhCtxGM: 145293.006 144521.000  diff=  772.0  pctdiff= 0.531
+lhCtxWM: 354740.264 356342.000  diff=-1601.7  pctdiff=-0.452
+rhCtxWM: 380871.734 381015.000  diff= -143.3  pctdiff=-0.038
+SubCortGMVol  54591.000
+SupraTentVol  1109692.391 (1106376.000) diff=3316.391 pctdiff=0.299
+SupraTentVolNotVent  1103587.391 (1100271.000) diff=3316.391 pctdiff=0.301
+BrainSegVol  1234140.000 (1232135.000) diff=2005.000 pctdiff=0.162
+BrainSegVolNotVent  1225067.000 (1222521.391) diff=2545.609 pctdiff=0.208
+BrainSegVolNotVent  1225067.000
+CerebellumVol 124728.000
+VentChorVol    6105.000
+3rd4th5thCSF   2968.000
+CSFVol   963.000, OptChiasmVol    68.000
+MaskVol 1390747.000
+  907    627   2158  3.559 1.297     0.161     0.129       37     3.1  caudalanteriorcingulate
+ 1925   1323   5594  4.018 0.797     0.117     0.032       18     3.2  caudalmiddlefrontal
+ 1474   1101   2280  2.062 1.108     0.206     0.130       61     8.1  cuneus
+  846    591   2310  3.611 1.118     0.109     0.044       13     1.1  entorhinal
+ 1994   1320   5244  3.715 0.892     0.088     0.028       17     2.8  fusiform
+ 2639   1784   5899  3.221 0.931     0.095     0.023       10     2.9  inferiorparietal
+ 2507   1546   7683  4.184 0.845     0.117     0.063       95     6.3  inferiortemporal
+  194    141    396  3.939 0.858     0.169     0.088        3     0.5  isthmuscingulate
+ 3681   2238   9019  3.536 1.136     0.133     0.070      133    14.3  lateraloccipital
+ 2177   1338   4738  3.235 0.905     0.085     0.050       99     5.5  lateralorbitofrontal
+ 1612    988   2809  2.815 0.880     0.104     0.048       17     4.0  lingual
+ 2198   1087   3150  2.534 1.046     0.128     0.094       82    11.5  medialorbitofrontal
+ 2786   1701   6604  3.522 1.158     0.097     0.027       18     3.8  middletemporal
+  699    289   1099  3.205 0.989     0.093     0.078       26     2.8  parahippocampal
+ 2116   1162   4585  3.464 0.976     0.112     0.064       43     6.9  paracentral
+ 1346    880   3642  3.997 0.734     0.085     0.019        5     1.3  parsopercularis
+  594    307   1352  3.711 0.835     0.072     0.055       32     1.7  parsorbitalis
+ 1255    890   3635  4.010 0.712     0.084     0.021        4     1.3  parstriangularis
+  700    431   1467  3.468 1.012     0.120     0.043        6     1.7  pericalcarine
+ 4042   2647   9306  3.328 1.205     0.131     0.055       79    11.8  postcentral
+  866    735   2255  3.790 0.932     0.148     0.052       12     2.3  posteriorcingulate
+ 3889   2853  12323  4.148 0.801     0.126     0.036       55     7.1  precentral
+ 3816   2371   8303  3.360 1.064     0.113     0.054       80    10.1  precuneus
+  903    714   1755  2.573 1.309     0.190     0.079       25     3.5  rostralanteriorcingulate
+ 3423   2061   9335  4.063 0.842     0.106     0.037       32     6.1  rostralmiddlefrontal
+ 7864   4628  20528  3.874 0.947     0.105     0.045      118    17.1  superiorfrontal
+ 3408   2362   9312  3.789 0.953     0.142     0.080       58     9.3  superiorparietal
+ 3838   2357   8723  3.323 1.094     0.094     0.050       55    10.9  superiortemporal
+ 2465   1400   3977  2.538 1.012     0.073     0.026       45     3.0  supramarginal
+  256    195    824  3.850 0.785     0.113     0.035        2     0.4  transversetemporal
+ 1826   1484   5860  3.820 1.046     0.142     0.052       27     5.2  insula
+#-----------------------------------------
+#@# WM/GM Contrast lh Sat Oct 22 13:18:18 CDT 2022
+/out/freesurfer/sub-131661/scripts
+
+ pctsurfcon --s sub-131661 --lh-only 
+
+Log file is /out/freesurfer/sub-131661/scripts/pctsurfcon.log
+Sat Oct 22 13:18:18 CDT 2022
+setenv SUBJECTS_DIR /out/freesurfer
+cd /out/freesurfer/sub-131661/scripts
+/opt/freesurfer/bin/pctsurfcon
+$Id: pctsurfcon,v 1.15 2016/02/12 21:43:15 zkaufman Exp $
+Linux c501-103.stampede2.tacc.utexas.edu 3.10.0-1160.53.1.el7.x86_64 #1 SMP Fri Jan 14 13:59:45 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+FREESURFER_HOME /opt/freesurfer
+mri_vol2surf --mov /out/freesurfer/sub-131661/mri/rawavg.mgz --hemi lh --noreshape --interp trilinear --projdist -1 --o /out/freesurfer/sub-131661/surf/tmp.pctsurfcon.111709/lh.wm.mgh --regheader sub-131661 --cortex
+srcvol = /out/freesurfer/sub-131661/mri/rawavg.mgz
+srcreg unspecified
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+ProjDist = -1
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+Computing registration from header.
+  Using /out/freesurfer/sub-131661/mri/orig.mgz as target reference.
+-------- original matrix -----------
+ 1.00000   0.00000   0.00000   0.00000;
+ 0.00000   0.00000   1.00000   0.00000;
+ 0.00000   1.00000   0.00000   0.00000;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /out/freesurfer/sub-131661/label/lh.cortex.label
+Reading surface /out/freesurfer/sub-131661/surf/lh.white
+Done reading source surface
+Mapping Source Volume onto Source Subject Surface
+ 1 -1 -1 -1
+using old
+Done mapping volume to surface
+Number of source voxels hit = 36391
+Masking with /out/freesurfer/sub-131661/label/lh.cortex.label
+Writing to /out/freesurfer/sub-131661/surf/tmp.pctsurfcon.111709/lh.wm.mgh
+Dim: 73901 1 1
+mri_vol2surf --mov /out/freesurfer/sub-131661/mri/rawavg.mgz --hemi lh --noreshape --interp trilinear --o /out/freesurfer/sub-131661/surf/tmp.pctsurfcon.111709/lh.gm.mgh --projfrac 0.3 --regheader sub-131661 --cortex
+srcvol = /out/freesurfer/sub-131661/mri/rawavg.mgz
+srcreg unspecified
+srcregold = 0
+srcwarp unspecified
+surf = white
+hemi = lh
+ProjFrac = 0.3
+thickness = thickness
+reshape = 0
+interp = trilinear
+float2int = round
+GetProjMax = 0
+INFO: float2int code = 0
+Done loading volume
+Computing registration from header.
+  Using /out/freesurfer/sub-131661/mri/orig.mgz as target reference.
+-------- original matrix -----------
+ 1.00000   0.00000   0.00000   0.00000;
+ 0.00000   0.00000   1.00000   0.00000;
+ 0.00000   1.00000   0.00000   0.00000;
+ 0.00000   0.00000   0.00000   1.00000;
+-------- original matrix -----------
+Loading label /out/freesurfer/sub-131661/label/lh.cortex.label
+Reading surface /out/freesurfer/sub-131661/surf/lh.white
+Done reading source surface
+Reading thickness /out/freesurfer/sub-131661/surf/lh.thickness
+Done
+Mapping Source Volume onto Source Subject Surface
+ 1 0.3 0.3 0.3
+using old
+Done mapping volume to surface
+Number of source voxels hit = 42571
+Masking with /out/freesurfer/sub-131661/label/lh.cortex.label
+Writing to /out/freesurfer/sub-131661/surf/tmp.pctsurfcon.111709/lh.gm.mgh
+Dim: 73901 1 1
+mri_concat /out/freesurfer/sub-131661/surf/tmp.pctsurfcon.111709/lh.wm.mgh /out/freesurfer/sub-131661/surf/tmp.pctsurfcon.111709/lh.gm.mgh --paired-diff-norm --mul 100 --o /out/freesurfer/sub-131661/surf/lh.w-g.pct.mgh
+ninputs = 2
+Checking inputs
+nframestot = 2
+Allocing output
+Done allocing
+Combining pairs
+nframes = 1
+Multiplying by 100.000000
+Writing to /out/freesurfer/sub-131661/surf/lh.w-g.pct.mgh
+mri_segstats --in /out/freesurfer/sub-131661/surf/lh.w-g.pct.mgh --annot sub-131661 lh aparc --sum /out/freesurfer/sub-131661/stats/lh.w-g.pct.stats --snr
+
+$Id: mri_segstats.c,v 1.121 2016/05/31 17:27:11 greve Exp $
+cwd 
+cmdline mri_segstats --in /out/freesurfer/sub-131661/surf/lh.w-g.pct.mgh --annot sub-131661 lh aparc --sum /out/freesurfer/sub-131661/stats/lh.w-g.pct.stats --snr 
+sysname  Linux
+hostname c501-103.stampede2.tacc.utexas.edu
+machine  x86_64
+user     tg881334
+UseRobust  0
+Constructing seg from annotation
+
+Reading annotation /out/freesurfer/sub-131661/label/lh.aparc.annot
+reading colortable from annotation file...
+colortable with 36 entries read (originally /autofs/space/tanha_002/users/greve/fsdev.build/average/colortable_desikan_killiany.txt)
+Seg base 1000
+Loading /out/freesurfer/sub-131661/surf/lh.w-g.pct.mgh
+Vertex Area is 0.639848 mm^3
+Generating list of segmentation ids
+Found  36 segmentations
+Computing statistics for each segmentation
+
+Reporting on  35 segmentations
+Using PrintSegStat
+mri_segstats done
+Cleaning up
+#-----------------------------------------
+#@# Relabel Hypointensities Sat Oct 22 13:18:23 CDT 2022
+/out/freesurfer/sub-131661/mri
+
+ mri_relabel_hypointensities aseg.presurf.mgz ../surf aseg.presurf.hypos.mgz 
+
+reading input surface ../surf/lh.white...
+relabeling lh hypointensities...
+58923 voxels changed to hypointensity...
+reading input surface ../surf/rh.white...
+relabeling rh hypointensities...
+66553 voxels changed to hypointensity...
+59323 hypointense voxels neighboring cortex changed
+#-----------------------------------------
+#@# AParc-to-ASeg aparc Sat Oct 22 13:18:45 CDT 2022
+/out/freesurfer/sub-131661
+
+ mri_aparc2aseg --s sub-131661 --volmask --aseg aseg.presurf.hypos --relabel mri/norm.mgz mri/transforms/talairach.m3z /opt/freesurfer/average/RB_all_2016-05-10.vc700.gca mri/aseg.auto_noCCseg.label_intensities.txt 
+
+relabeling unlikely voxels interior to white matter surface:
+	norm: mri/norm.mgz
+	 XFORM: mri/transforms/talairach.m3z
+	GCA: /opt/freesurfer/average/RB_all_2016-05-10.vc700.gca
+	label intensities: mri/aseg.auto_noCCseg.label_intensities.txt
+SUBJECTS_DIR /out/freesurfer
+subject sub-131661
+outvol /out/freesurfer/sub-131661/mri/aparc+aseg.mgz
+useribbon 0
+baseoffset 0
+RipUnknown 0
+
+Reading lh white surface 
+ /out/freesurfer/sub-131661/surf/lh.white
+
+Reading lh pial surface 
+ /out/freesurfer/sub-131661/surf/lh.pial
+
+Loading lh annotations from /out/freesurfer/sub-131661/label/lh.aparc.annot
+reading colortable from annotation file...
+colortable with 36 entries read (originally /autofs/space/tanha_002/users/greve/fsdev.build/average/colortable_desikan_killiany.txt)
+
+Reading rh white surface 
+ /out/freesurfer/sub-131661/surf/rh.white
+
+Reading rh pial surface 
+ /out/freesurfer/sub-131661/surf/rh.pial
+
+Loading rh annotations from /out/freesurfer/sub-131661/label/rh.aparc.annot
+reading colortable from annotation file...
+colortable with 36 entries read (originally /autofs/space/tanha_002/users/greve/fsdev.build/average/colortable_desikan_killiany.txt)
+Have color table for lh white annotation
+Have color table for rh white annotation
+Loading ribbon segmentation from /out/freesurfer/sub-131661/mri/ribbon.mgz
+
+Building hash of lh white
+
+Building hash of lh pial
+
+Building hash of rh white
+
+Building hash of rh pial
+
+Loading aseg from /out/freesurfer/sub-131661/mri/aseg.presurf.hypos.mgz
+ASeg Vox2RAS: -----------
+-1.00000   0.00000   0.00000   128.00000;
+ 0.00000   0.00000   1.00000  -128.00000;
+ 0.00000  -1.00000   0.00000   128.00000;
+ 0.00000   0.00000   0.00000   1.00000;
+-------------------------
+
+Labeling Slice
+relabeling unlikely voxels in interior of white matter
+setting orig areas to linear transform determinant scaled 7.19
+reading 47 labels from mri/aseg.auto_noCCseg.label_intensities.txt
+rescaling Left_Cerebral_White_Matter from 107 --> 103
+rescaling Left_Cerebral_Cortex from 61 --> 87
+rescaling Left_Lateral_Ventricle from 13 --> 46
+rescaling Left_Inf_Lat_Vent from 34 --> 47
+rescaling Left_Cerebellum_White_Matter from 86 --> 96
+rescaling Left_Cerebellum_Cortex from 60 --> 87
+rescaling Left_Thalamus from 94 --> 105
+rescaling Left_Thalamus_Proper from 84 --> 100
+rescaling Left_Caudate from 75 --> 83
+rescaling Left_Putamen from 80 --> 93
+rescaling Left_Pallidum from 98 --> 100
+rescaling Third_Ventricle from 25 --> 56
+rescaling Fourth_Ventricle from 22 --> 34
+rescaling Brain_Stem from 81 --> 87
+rescaling Left_Hippocampus from 57 --> 83
+rescaling Left_Amygdala from 56 --> 83
+rescaling CSF from 32 --> 81
+rescaling Left_Accumbens_area from 62 --> 75
+rescaling Left_VentralDC from 87 --> 95
+rescaling Right_Cerebral_White_Matter from 105 --> 104
+rescaling Right_Cerebral_Cortex from 58 --> 90
+rescaling Right_Lateral_Ventricle from 13 --> 28
+rescaling Right_Inf_Lat_Vent from 25 --> 35
+rescaling Right_Cerebellum_White_Matter from 87 --> 96
+rescaling Right_Cerebellum_Cortex from 59 --> 89
+rescaling Right_Thalamus_Proper from 85 --> 95
+rescaling Right_Caudate from 62 --> 95
+rescaling Right_Putamen from 80 --> 93
+rescaling Right_Pallidum from 97 --> 100
+rescaling Right_Hippocampus from 53 --> 82
+rescaling Right_Amygdala from 55 --> 85
+rescaling Right_Accumbens_area from 65 --> 91
+rescaling Right_VentralDC from 86 --> 99
+rescaling Fifth_Ventricle from 40 --> 68
+rescaling WM_hypointensities from 78 --> 76
+rescaling non_WM_hypointensities from 40 --> 43
+  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19 
+ 20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39 
+ 40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59 
+ 60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79 
+ 80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 
+100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 
+120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 
+140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 
+160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 
+180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 
+200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 
+220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 
+240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 nctx = 308809
+Used brute-force search on 0 voxels
+relabeling unlikely voxels in interior of white matter
+average std[0] = 7.3
+pass 1: 1132 changed.
+pass 2: 262 changed.
+pass 3: 88 changed.
+pass 4: 45 changed.
+pass 5: 22 changed.
+pass 6: 14 changed.
+pass 7: 5 changed.
+pass 8: 2 changed.
+pass 9: 1 changed.
+pass 10: 0 changed.
+nchanged = 0
+Writing output aseg to /out/freesurfer/sub-131661/mri/aparc+aseg.mgz
+#-----------------------------------------
+#@# AParc-to-ASeg a2009s Sat Oct 22 13:24:42 CDT 2022
+/out/freesurfer/sub-131661
+
+ mri_aparc2aseg --s sub-131661 --volmask --aseg aseg.presurf.hypos --relabel mri/norm.mgz mri/transforms/talairach.m3z /opt/freesurfer/average/RB_all_2016-05-10.vc700.gca mri/aseg.auto_noCCseg.label_intensities.txt --a2009s 
+
+relabeling unlikely voxels interior to white matter surface:
+	norm: mri/norm.mgz
+	 XFORM: mri/transforms/talairach.m3z
+	GCA: /opt/freesurfer/average/RB_all_2016-05-10.vc700.gca
+	label intensities: mri/aseg.auto_noCCseg.label_intensities.txt
+SUBJECTS_DIR /out/freesurfer
+subject sub-131661
+outvol /out/freesurfer/sub-131661/mri/aparc.a2009s+aseg.mgz
+useribbon 0
+baseoffset 10100
+RipUnknown 0
+
+Reading lh white surface 
+ /out/freesurfer/sub-131661/surf/lh.white
+
+Reading lh pial surface 
+ /out/freesurfer/sub-131661/surf/lh.pial
+
+Loading lh annotations from /out/freesurfer/sub-131661/label/lh.aparc.a2009s.annot
+reading colortable from annotation file...
+colortable with 76 entries read (originally Simple_surface_labels2008.txt)
+
+Reading rh white surface 
+ /out/freesurfer/sub-131661/surf/rh.white
+
+Reading rh pial surface 
+ /out/freesurfer/sub-131661/surf/rh.pial
+
+Loading rh annotations from /out/freesurfer/sub-131661/label/rh.aparc.a2009s.annot
+reading colortable from annotation file...
+colortable with 76 entries read (originally Simple_surface_labels2008.txt)
+Have color table for lh white annotation
+Have color table for rh white annotation
+Loading ribbon segmentation from /out/freesurfer/sub-131661/mri/ribbon.mgz
+
+Building hash of lh white
+
+Building hash of lh pial
+
+Building hash of rh white
+
+Building hash of rh pial
+
+Loading aseg from /out/freesurfer/sub-131661/mri/aseg.presurf.hypos.mgz
+ASeg Vox2RAS: -----------
+-1.00000   0.00000   0.00000   128.00000;
+ 0.00000   0.00000   1.00000  -128.00000;
+ 0.00000  -1.00000   0.00000   128.00000;
+ 0.00000   0.00000   0.00000   1.00000;
+-------------------------
+
+Labeling Slice
+relabeling unlikely voxels in interior of white matter
+setting orig areas to linear transform determinant scaled 7.19
+reading 47 labels from mri/aseg.auto_noCCseg.label_intensities.txt
+rescaling Left_Cerebral_White_Matter from 107 --> 103
+rescaling Left_Cerebral_Cortex from 61 --> 87
+rescaling Left_Lateral_Ventricle from 13 --> 46
+rescaling Left_Inf_Lat_Vent from 34 --> 47
+rescaling Left_Cerebellum_White_Matter from 86 --> 96
+rescaling Left_Cerebellum_Cortex from 60 --> 87
+rescaling Left_Thalamus from 94 --> 105
+rescaling Left_Thalamus_Proper from 84 --> 100
+rescaling Left_Caudate from 75 --> 83
+rescaling Left_Putamen from 80 --> 93
+rescaling Left_Pallidum from 98 --> 100
+rescaling Third_Ventricle from 25 --> 56
+rescaling Fourth_Ventricle from 22 --> 34
+rescaling Brain_Stem from 81 --> 87
+rescaling Left_Hippocampus from 57 --> 83
+rescaling Left_Amygdala from 56 --> 83
+rescaling CSF from 32 --> 81
+rescaling Left_Accumbens_area from 62 --> 75
+rescaling Left_VentralDC from 87 --> 95
+rescaling Right_Cerebral_White_Matter from 105 --> 104
+rescaling Right_Cerebral_Cortex from 58 --> 90
+rescaling Right_Lateral_Ventricle from 13 --> 28
+rescaling Right_Inf_Lat_Vent from 25 --> 35
+rescaling Right_Cerebellum_White_Matter from 87 --> 96
+rescaling Right_Cerebellum_Cortex from 59 --> 89
+rescaling Right_Thalamus_Proper from 85 --> 95
+rescaling Right_Caudate from 62 --> 95
+rescaling Right_Putamen from 80 --> 93
+rescaling Right_Pallidum from 97 --> 100
+rescaling Right_Hippocampus from 53 --> 82
+rescaling Right_Amygdala from 55 --> 85
+rescaling Right_Accumbens_area from 65 --> 91
+rescaling Right_VentralDC from 86 --> 99
+rescaling Fifth_Ventricle from 40 --> 68
+rescaling WM_hypointensities from 78 --> 76
+rescaling non_WM_hypointensities from 40 --> 43
+  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19 
+ 20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39 
+ 40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59 
+ 60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79 
+ 80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 
+100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 
+120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 
+140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 
+160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 
+180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 
+200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 
+220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 
+240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 nctx = 309104
+Used brute-force search on 0 voxels
+relabeling unlikely voxels in interior of white matter
+average std[0] = 7.3
+pass 1: 1132 changed.
+pass 2: 262 changed.
+pass 3: 88 changed.
+pass 4: 45 changed.
+pass 5: 22 changed.
+pass 6: 14 changed.
+pass 7: 5 changed.
+pass 8: 2 changed.
+pass 9: 1 changed.
+pass 10: 0 changed.
+nchanged = 0
+Writing output aseg to /out/freesurfer/sub-131661/mri/aparc.a2009s+aseg.mgz
+#-----------------------------------------
+#@# AParc-to-ASeg DKTatlas Sat Oct 22 13:30:24 CDT 2022
+/out/freesurfer/sub-131661
+
+ mri_aparc2aseg --s sub-131661 --volmask --aseg aseg.presurf.hypos --relabel mri/norm.mgz mri/transforms/talairach.m3z /opt/freesurfer/average/RB_all_2016-05-10.vc700.gca mri/aseg.auto_noCCseg.label_intensities.txt --annot aparc.DKTatlas --o mri/aparc.DKTatlas+aseg.mgz 
+
+relabeling unlikely voxels interior to white matter surface:
+	norm: mri/norm.mgz
+	 XFORM: mri/transforms/talairach.m3z
+	GCA: /opt/freesurfer/average/RB_all_2016-05-10.vc700.gca
+	label intensities: mri/aseg.auto_noCCseg.label_intensities.txt
+SUBJECTS_DIR /out/freesurfer
+subject sub-131661
+outvol mri/aparc.DKTatlas+aseg.mgz
+useribbon 0
+baseoffset 0
+RipUnknown 0
+
+Reading lh white surface 
+ /out/freesurfer/sub-131661/surf/lh.white
+
+Reading lh pial surface 
+ /out/freesurfer/sub-131661/surf/lh.pial
+
+Loading lh annotations from /out/freesurfer/sub-131661/label/lh.aparc.DKTatlas.annot
+reading colortable from annotation file...
+colortable with 36 entries read (originally /autofs/space/tanha_002/users/greve/fsdev.build/average/colortable_desikan_killiany.txt)
+
+Reading rh white surface 
+ /out/freesurfer/sub-131661/surf/rh.white
+
+Reading rh pial surface 
+ /out/freesurfer/sub-131661/surf/rh.pial
+
+Loading rh annotations from /out/freesurfer/sub-131661/label/rh.aparc.DKTatlas.annot
+reading colortable from annotation file...
+colortable with 36 entries read (originally /autofs/space/tanha_002/users/greve/fsdev.build/average/colortable_desikan_killiany.txt)
+Have color table for lh white annotation
+Have color table for rh white annotation
+Loading ribbon segmentation from /out/freesurfer/sub-131661/mri/ribbon.mgz
+
+Building hash of lh white
+
+Building hash of lh pial
+
+Building hash of rh white
+
+Building hash of rh pial
+
+Loading aseg from /out/freesurfer/sub-131661/mri/aseg.presurf.hypos.mgz
+ASeg Vox2RAS: -----------
+-1.00000   0.00000   0.00000   128.00000;
+ 0.00000   0.00000   1.00000  -128.00000;
+ 0.00000  -1.00000   0.00000   128.00000;
+ 0.00000   0.00000   0.00000   1.00000;
+-------------------------
+
+Labeling Slice
+relabeling unlikely voxels in interior of white matter
+setting orig areas to linear transform determinant scaled 7.19
+reading 47 labels from mri/aseg.auto_noCCseg.label_intensities.txt
+rescaling Left_Cerebral_White_Matter from 107 --> 103
+rescaling Left_Cerebral_Cortex from 61 --> 87
+rescaling Left_Lateral_Ventricle from 13 --> 46
+rescaling Left_Inf_Lat_Vent from 34 --> 47
+rescaling Left_Cerebellum_White_Matter from 86 --> 96
+rescaling Left_Cerebellum_Cortex from 60 --> 87
+rescaling Left_Thalamus from 94 --> 105
+rescaling Left_Thalamus_Proper from 84 --> 100
+rescaling Left_Caudate from 75 --> 83
+rescaling Left_Putamen from 80 --> 93
+rescaling Left_Pallidum from 98 --> 100
+rescaling Third_Ventricle from 25 --> 56
+rescaling Fourth_Ventricle from 22 --> 34
+rescaling Brain_Stem from 81 --> 87
+rescaling Left_Hippocampus from 57 --> 83
+rescaling Left_Amygdala from 56 --> 83
+rescaling CSF from 32 --> 81
+rescaling Left_Accumbens_area from 62 --> 75
+rescaling Left_VentralDC from 87 --> 95
+rescaling Right_Cerebral_White_Matter from 105 --> 104
+rescaling Right_Cerebral_Cortex from 58 --> 90
+rescaling Right_Lateral_Ventricle from 13 --> 28
+rescaling Right_Inf_Lat_Vent from 25 --> 35
+rescaling Right_Cerebellum_White_Matter from 87 --> 96
+rescaling Right_Cerebellum_Cortex from 59 --> 89
+rescaling Right_Thalamus_Proper from 85 --> 95
+rescaling Right_Caudate from 62 --> 95
+rescaling Right_Putamen from 80 --> 93
+rescaling Right_Pallidum from 97 --> 100
+rescaling Right_Hippocampus from 53 --> 82
+rescaling Right_Amygdala from 55 --> 85
+rescaling Right_Accumbens_area from 65 --> 91
+rescaling Right_VentralDC from 86 --> 99
+rescaling Fifth_Ventricle from 40 --> 68
+rescaling WM_hypointensities from 78 --> 76
+rescaling non_WM_hypointensities from 40 --> 43
+  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19 
+ 20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39 
+ 40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59 
+ 60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79 
+ 80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 
+100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 
+120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 
+140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 
+160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 
+180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 
+200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 
+220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 
+240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 nctx = 309104
+Used brute-force search on 0 voxels
+relabeling unlikely voxels in interior of white matter
+average std[0] = 7.3
+pass 1: 1132 changed.
+pass 2: 262 changed.
+pass 3: 88 changed.
+pass 4: 45 changed.
+pass 5: 22 changed.
+pass 6: 14 changed.
+pass 7: 5 changed.
+pass 8: 2 changed.
+pass 9: 1 changed.
+pass 10: 0 changed.
+nchanged = 0
+Writing output aseg to mri/aparc.DKTatlas+aseg.mgz
+#-----------------------------------------
+#@# APas-to-ASeg Sat Oct 22 13:36:39 CDT 2022
+/out/freesurfer/sub-131661/mri
+
+ apas2aseg --i aparc+aseg.mgz --o aseg.mgz 
+
+Sat Oct 22 13:36:39 CDT 2022
+
+setenv SUBJECTS_DIR /out/freesurfer
+cd /out/freesurfer/sub-131661/mri
+/opt/freesurfer/bin/apas2aseg --i aparc+aseg.mgz --o aseg.mgz
+
+freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.1-f53a55a
+$Id: apas2aseg,v 1.2 2016/02/12 21:43:14 zkaufman Exp $
+Linux c501-103.stampede2.tacc.utexas.edu 3.10.0-1160.53.1.el7.x86_64 #1 SMP Fri Jan 14 13:59:45 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+mri_binarize --i aparc+aseg.mgz --o aseg.mgz --replace 1000 3 --replace 2000 42 --replace 1001 3 --replace 2001 42 --replace 1002 3 --replace 2002 42 --replace 1003 3 --replace 2003 42 --replace 1004 3 --replace 2004 42 --replace 1005 3 --replace 2005 42 --replace 1006 3 --replace 2006 42 --replace 1007 3 --replace 2007 42 --replace 1008 3 --replace 2008 42 --replace 1009 3 --replace 2009 42 --replace 1010 3 --replace 2010 42 --replace 1011 3 --replace 2011 42 --replace 1012 3 --replace 2012 42 --replace 1013 3 --replace 2013 42 --replace 1014 3 --replace 2014 42 --replace 1015 3 --replace 2015 42 --replace 1016 3 --replace 2016 42 --replace 1017 3 --replace 2017 42 --replace 1018 3 --replace 2018 42 --replace 1019 3 --replace 2019 42 --replace 1020 3 --replace 2020 42 --replace 1021 3 --replace 2021 42 --replace 1022 3 --replace 2022 42 --replace 1023 3 --replace 2023 42 --replace 1024 3 --replace 2024 42 --replace 1025 3 --replace 2025 42 --replace 1026 3 --replace 2026 42 --replace 1027 3 --replace 2027 42 --replace 1028 3 --replace 2028 42 --replace 1029 3 --replace 2029 42 --replace 1030 3 --replace 2030 42 --replace 1031 3 --replace 2031 42 --replace 1032 3 --replace 2032 42 --replace 1033 3 --replace 2033 42 --replace 1034 3 --replace 2034 42 --replace 1035 3 --replace 2035 42
+
+$Id: mri_binarize.c,v 1.43 2016/06/09 20:46:21 greve Exp $
+cwd /out/freesurfer/sub-131661/mri
+cmdline mri_binarize.bin --i aparc+aseg.mgz --o aseg.mgz --replace 1000 3 --replace 2000 42 --replace 1001 3 --replace 2001 42 --replace 1002 3 --replace 2002 42 --replace 1003 3 --replace 2003 42 --replace 1004 3 --replace 2004 42 --replace 1005 3 --replace 2005 42 --replace 1006 3 --replace 2006 42 --replace 1007 3 --replace 2007 42 --replace 1008 3 --replace 2008 42 --replace 1009 3 --replace 2009 42 --replace 1010 3 --replace 2010 42 --replace 1011 3 --replace 2011 42 --replace 1012 3 --replace 2012 42 --replace 1013 3 --replace 2013 42 --replace 1014 3 --replace 2014 42 --replace 1015 3 --replace 2015 42 --replace 1016 3 --replace 2016 42 --replace 1017 3 --replace 2017 42 --replace 1018 3 --replace 2018 42 --replace 1019 3 --replace 2019 42 --replace 1020 3 --replace 2020 42 --replace 1021 3 --replace 2021 42 --replace 1022 3 --replace 2022 42 --replace 1023 3 --replace 2023 42 --replace 1024 3 --replace 2024 42 --replace 1025 3 --replace 2025 42 --replace 1026 3 --replace 2026 42 --replace 1027 3 --replace 2027 42 --replace 1028 3 --replace 2028 42 --replace 1029 3 --replace 2029 42 --replace 1030 3 --replace 2030 42 --replace 1031 3 --replace 2031 42 --replace 1032 3 --replace 2032 42 --replace 1033 3 --replace 2033 42 --replace 1034 3 --replace 2034 42 --replace 1035 3 --replace 2035 42 
+sysname  Linux
+hostname c501-103.stampede2.tacc.utexas.edu
+machine  x86_64
+user     tg881334
+
+input      aparc+aseg.mgz
+frame      0
+nErode3d   0
+nErode2d   0
+output     aseg.mgz
+Binarizing based on threshold
+min        -infinity
+max        +infinity
+binval        1
+binvalnot     0
+fstart = 0, fend = 0, nframes = 1
+Replacing 72
+ 1:  1000    3
+ 2:  2000   42
+ 3:  1001    3
+ 4:  2001   42
+ 5:  1002    3
+ 6:  2002   42
+ 7:  1003    3
+ 8:  2003   42
+ 9:  1004    3
+10:  2004   42
+11:  1005    3
+12:  2005   42
+13:  1006    3
+14:  2006   42
+15:  1007    3
+16:  2007   42
+17:  1008    3
+18:  2008   42
+19:  1009    3
+20:  2009   42
+21:  1010    3
+22:  2010   42
+23:  1011    3
+24:  2011   42
+25:  1012    3
+26:  2012   42
+27:  1013    3
+28:  2013   42
+29:  1014    3
+30:  2014   42
+31:  1015    3
+32:  2015   42
+33:  1016    3
+34:  2016   42
+35:  1017    3
+36:  2017   42
+37:  1018    3
+38:  2018   42
+39:  1019    3
+40:  2019   42
+41:  1020    3
+42:  2020   42
+43:  1021    3
+44:  2021   42
+45:  1022    3
+46:  2022   42
+47:  1023    3
+48:  2023   42
+49:  1024    3
+50:  2024   42
+51:  1025    3
+52:  2025   42
+53:  1026    3
+54:  2026   42
+55:  1027    3
+56:  2027   42
+57:  1028    3
+58:  2028   42
+59:  1029    3
+60:  2029   42
+61:  1030    3
+62:  2030   42
+63:  1031    3
+64:  2031   42
+65:  1032    3
+66:  2032   42
+67:  1033    3
+68:  2033   42
+69:  1034    3
+70:  2034   42
+71:  1035    3
+72:  2035   42
+Found 0 values in range
+Counting number of voxels in first frame
+Found 0 voxels in final mask
+Count: 0 0.000000 16777216 0.000000
+mri_binarize done
+ 
+Started at Sat Oct 22 13:36:39 CDT 2022 
+Ended   at Sat Oct 22 13:36:49 CDT 2022
+Apas2aseg-Run-Time-Sec 10
+ 
+apas2aseg Done
+#--------------------------------------------
+#@# ASeg Stats Sat Oct 22 13:36:49 CDT 2022
+/out/freesurfer/sub-131661
+
+ mri_segstats --seg mri/aseg.mgz --sum stats/aseg.stats --pv mri/norm.mgz --empty --brainmask mri/brainmask.mgz --brain-vol-from-seg --excludeid 0 --excl-ctxgmwm --supratent --subcortgray --in mri/norm.mgz --in-intensity-name norm --in-intensity-units MR --etiv --surf-wm-vol --surf-ctx-vol --totalgray --euler --ctab /opt/freesurfer/ASegStatsLUT.txt --subject sub-131661 
+
+
+$Id: mri_segstats.c,v 1.121 2016/05/31 17:27:11 greve Exp $
+cwd 
+cmdline mri_segstats --seg mri/aseg.mgz --sum stats/aseg.stats --pv mri/norm.mgz --empty --brainmask mri/brainmask.mgz --brain-vol-from-seg --excludeid 0 --excl-ctxgmwm --supratent --subcortgray --in mri/norm.mgz --in-intensity-name norm --in-intensity-units MR --etiv --surf-wm-vol --surf-ctx-vol --totalgray --euler --ctab /opt/freesurfer/ASegStatsLUT.txt --subject sub-131661 
+sysname  Linux
+hostname c501-103.stampede2.tacc.utexas.edu
+machine  x86_64
+user     tg881334
+UseRobust  0
+atlas_icv (eTIV) = 1487043 mm^3    (det: 1.310053 )
+mghRead(mri/aseg.mgz): could not read 262144 bytes at slice 93
+Computing euler number
+orig.nofix lheno = -474, rheno = -278
+orig.nofix lhholes =  238, rhholes = 140
+Loading mri/aseg.mgz
+No such file or directory
+ERROR: loading mri/aseg.mgz
+Linux c501-103.stampede2.tacc.utexas.edu 3.10.0-1160.53.1.el7.x86_64 #1 SMP Fri Jan 14 13:59:45 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+
+recon-all -s sub-131661 exited with ERRORS at Sat Oct 22 13:36:51 CDT 2022
+
+For more details, see the log file /out/freesurfer/sub-131661/scripts/recon-all.log
+To report a problem, see http://surfer.nmr.mgh.harvard.edu/fswiki/BugReporting
+
+Standard error:
+
+Return code: 1
+
+221022-14:04:51,350 nipype.workflow INFO:
+	 [Node] Finished "_autorecon31".
+221022-14:04:54,188 nipype.workflow ERROR:
+	 could not run node: qsiprep_wf.single_subject_131661_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon3

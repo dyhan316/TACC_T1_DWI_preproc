@@ -1,0 +1,291 @@
+Launcher: Setup complete.
+
+------------- SUMMARY ---------------
+   Number of hosts:    3
+   Working directory:  /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing
+   Processes per host: 42
+   Total processes:    126
+   Total jobs:         125
+   Scheduling method:  dynamic
+
+-------------------------------------
+Launcher: Starting parallel tasks...
+Launcher: Task 7 running job 3 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-200104.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20010)
+Launcher: Task 3 running job 2 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-101751.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-10175)
+Launcher: Task 1 running job 1 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160609.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16060)
+Launcher: Task 40 running job 4 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150898.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15089)
+Launcher: Task 11 running job 5 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-111565.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11156)
+Launcher: Task 78 running job 6 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-111577.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11157)
+Launcher: Task 74 running job 7 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-111795.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11179)
+Launcher: Task 115 running job 12 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-131659.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13165)
+Launcher: Task 98 running job 9 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-131670.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13167)
+Launcher: Task 107 running job 11 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-121180.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-12118)
+Launcher: Task 90 running job 10 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-111547.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11154)
+Launcher: Task 114 running job 8 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-140935.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14093)
+Launcher: Task 117 running job 13 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160629.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16062)
+Launcher: Task 18 running job 14 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160546.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16054)
+Launcher: Task 33 running job 15 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-141063.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14106)
+Launcher: Task 34 running job 16 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-200108.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20010)
+Launcher: Task 58 running job 18 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150780.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15078)
+Launcher: Task 46 running job 17 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-131661.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13166)
+Launcher: Task 56 running job 19 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-170412.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-17041)
+Launcher: Task 63 running job 20 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160679.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16067)
+Launcher: Task 77 running job 21 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160589.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16058)
+Launcher: Task 94 running job 22 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-140977.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14097)
+Launcher: Task 104 running job 23 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150880.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15088)
+Launcher: Task 121 running job 24 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-131688.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13168)
+Launcher: Task 8 running job 25 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150712.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15071)
+Launcher: Task 28 running job 26 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-210034.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-21003)
+Launcher: Task 13 running job 27 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150738.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15073)
+Launcher: Task 49 running job 29 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-200114.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20011)
+Launcher: Task 47 running job 28 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150823.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15082)
+Launcher: Task 43 running job 32 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160667.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16066)
+Launcher: Task 45 running job 30 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160673.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16067)
+Launcher: Task 52 running job 31 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-101580.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-10158)
+Launcher: Task 48 running job 33 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150870.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15087)
+Launcher: Task 62 running job 34 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-170517.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-17051)
+Launcher: Task 51 running job 35 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-180286.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-18028)
+Launcher: Task 84 running job 36 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150653.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15065)
+Launcher: Task 96 running job 37 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150791.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15079)
+Launcher: Task 15 running job 38 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160710.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16071)
+Launcher: Task 6 running job 39 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-131316.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13131)
+Launcher: Task 37 running job 40 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160600.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16060)
+Launcher: Task 55 running job 41 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150842.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15084)
+Launcher: Task 54 running job 42 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-200092.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20009)
+Launcher: Task 70 running job 43 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-170468.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-17046)
+Launcher: Task 67 running job 45 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-180276.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-18027)
+Launcher: Task 71 running job 44 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-200116.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20011)
+Launcher: Task 81 running job 46 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-180285.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-18028)
+Launcher: Task 87 running job 47 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-141077.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14107)
+Launcher: Task 102 running job 48 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-200153.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20015)
+Launcher: Task 118 running job 49 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-160562.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16056)
+Launcher: Task 122 running job 50 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-200073.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20007)
+Launcher: Task 2 running job 51 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-101757.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-10175)
+Launcher: Task 0 running job 52 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-131300.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13130)
+Launcher: Task 14 running job 54 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-150843.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15084)
+Launcher: Task 5 running job 53 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-111791.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11179)
+Launcher: Task 19 running job 55 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-131320.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13132)
+Launcher: Task 35 running job 56 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-131648.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13164)
+Launcher: Task 44 running job 57 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-111774.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11177)
+Launcher: Task 60 running job 58 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-111576.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11157)
+Launcher: Task 59 running job 59 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_6_to_7/run_shell_sub-140930.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14093)
+Launcher: Task 50 running job 60 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-200091.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20009)
+Launcher: Task 86 running job 61 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-131668.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13166)
+Launcher: Task 88 running job 62 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-111764.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11176)
+Launcher: Task 95 running job 64 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-111120.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11112)
+Launcher: Task 89 running job 63 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-101506.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-10150)
+Launcher: Task 100 running job 65 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-160542.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16054)
+Launcher: Task 27 running job 66 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-170487.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-17048)
+Launcher: Task 25 running job 67 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-140942.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14094)
+Launcher: Task 20 running job 68 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-170392.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-17039)
+Launcher: Task 30 running job 69 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-180372.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-18037)
+Launcher: Task 22 running job 70 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-160594.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16059)
+Launcher: Task 76 running job 72 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-131286.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13128)
+Launcher: Task 73 running job 71 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-131635.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13163)
+Launcher: Task 66 running job 73 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-160572.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16057)
+Launcher: Task 82 running job 74 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-131290.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13129)
+Launcher: Task 72 running job 75 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-111772.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11177)
+Launcher: Task 97 running job 77 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-160721.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16072)
+Launcher: Task 106 running job 78 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-111783.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11178)
+Launcher: Task 91 running job 76 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-121186.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-12118)
+Launcher: Task 111 running job 79 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_8_to_9/run_shell_sub-190251.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-19025)
+Launcher: Task 112 running job 80 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-200119.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20011)
+Launcher: Task 116 running job 81 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-150901.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15090)
+Launcher: Task 4 running job 82 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-131280.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13128)
+Launcher: Task 16 running job 83 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-170417.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-17041)
+Launcher: Task 29 running job 84 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-170429.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-17042)
+Launcher: Task 31 running job 86 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-101482.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-10148)
+Launcher: Task 38 running job 85 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-140971.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14097)
+Launcher: Task 32 running job 87 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-150879.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15087)
+Launcher: Task 69 running job 88 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-101462.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-10146)
+Launcher: Task 83 running job 89 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-180310.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-18031)
+Launcher: Task 80 running job 90 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-160578.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16057)
+Launcher: Task 92 running job 91 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-131628.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13162)
+Launcher: Task 108 running job 92 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-111534.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11153)
+Launcher: Task 109 running job 93 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-150875.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15087)
+Launcher: Task 110 running job 94 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-131639.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13163)
+Launcher: Task 123 running job 95 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-140873.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14087)
+Launcher: Task 124 running job 96 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_9_to_10/run_shell_sub-210024.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-21002)
+Launcher: Task 12 running job 97 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-141057.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14105)
+Launcher: Task 41 running job 99 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-141086.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14108)
+Launcher: Task 24 running job 98 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-160645.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16064)
+Launcher: Task 68 running job 101 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-180354.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-18035)
+Launcher: Task 53 running job 100 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-150845.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15084)
+Launcher: Task 36 running job 102 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-160602.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16060)
+Launcher: Task 75 running job 103 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-111597.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11159)
+Launcher: Task 85 running job 104 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-111610.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11161)
+Launcher: Task 101 running job 105 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-101461.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-10146)
+Launcher: Task 99 running job 106 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-160674.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16067)
+Launcher: Task 120 running job 107 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-170396.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-17039)
+Launcher: Task 125 running job 108 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-170493.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-17049)
+Launcher: Task 10 running job 109 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-111533.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11153)
+Launcher: Task 9 running job 110 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-150836.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-15083)
+Launcher: Task 23 running job 112 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-160534.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-16053)
+Launcher: Task 17 running job 111 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-111550.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11155)
+Launcher: Task 26 running job 113 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-141061.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-14106)
+Launcher: Task 42 running job 115 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-131281.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13128)
+Launcher: Task 21 running job 114 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-210060.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-21006)
+Launcher: Task 65 running job 116 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-131689.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13168)
+Launcher: Task 61 running job 117 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-180321.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-18032)
+Launcher: Task 39 running job 118 on c501-102.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_10_to_13/run_shell_sub-131637.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13163)
+Launcher: Task 57 running job 119 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_13_to_16/run_shell_sub-121163.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-12116)
+Launcher: Task 64 running job 120 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_13_to_16/run_shell_sub-121155.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-12115)
+Launcher: Task 79 running job 121 on c501-103.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_13_to_16/run_shell_sub-111723.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-11172)
+Launcher: Task 93 running job 122 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_16_to_18/run_shell_sub-200107.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20010)
+Launcher: Task 103 running job 123 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_16_to_18/run_shell_sub-200079.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-20007)
+Launcher: Task 105 running job 124 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_16_to_18/run_shell_sub-131294.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-13129)
+Launcher: Task 119 running job 125 on c501-124.stampede2.tacc.utexas.edu (/work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/run_this_test/age_18_to_20/run_shell_sub-210011.sh >> /work2/08834/tg881334/stampede2/CHA_preproc/IMP_shell_scripts/IMP_MAIN_REAL_every_preprocessing/step4_shell_outputs/log_outputs/output-${LAUNCHER_TSK_ID}_sub-21001)
+Launcher: Job 29 completed in 872 seconds.
+Launcher: Task 49 done. Exiting.
+Launcher: Job 53 completed in 902 seconds.
+Launcher: Task 5 done. Exiting.
+Launcher: Job 8 completed in 953 seconds.
+Launcher: Task 114 done. Exiting.
+Launcher: Job 36 completed in 977 seconds.
+Launcher: Task 84 done. Exiting.
+Launcher: Job 39 completed in 1006 seconds.
+Launcher: Task 6 done. Exiting.
+Launcher: Job 69 completed in 1069 seconds.
+Launcher: Task 30 done. Exiting.
+Launcher: Job 70 completed in 1089 seconds.
+Launcher: Task 22 done. Exiting.
+Launcher: Job 121 completed in 1097 seconds.
+Launcher: Task 79 done. Exiting.
+Launcher: Job 73 completed in 1116 seconds.
+Launcher: Task 66 done. Exiting.
+Launcher: Job 67 completed in 1121 seconds.
+Launcher: Task 25 done. Exiting.
+Launcher: Job 10 completed in 1127 seconds.
+Launcher: Task 90 done. Exiting.
+Launcher: Job 14 completed in 1137 seconds.
+Launcher: Task 18 done. Exiting.
+Launcher: Job 97 completed in 1135 seconds.
+Launcher: Task 12 done. Exiting.
+Launcher: Job 63 completed in 1156 seconds.
+Launcher: Task 89 done. Exiting.
+Launcher: Job 109 completed in 1242 seconds.
+Launcher: Task 10 done. Exiting.
+Launcher: Job 2 completed in 1253 seconds.
+Launcher: Task 3 done. Exiting.
+Launcher: Job 88 completed in 1310 seconds.
+Launcher: Task 69 done. Exiting.
+Launcher: Job 35 completed in 1347 seconds.
+Launcher: Task 51 done. Exiting.
+Launcher: Job 38 completed in 1347 seconds.
+Launcher: Task 15 done. Exiting.
+Launcher: Job 5 completed in 1370 seconds.
+Launcher: Task 11 done. Exiting.
+Launcher: Job 77 completed in 1535 seconds.
+Launcher: Task 97 done. Exiting.
+Launcher: Job 94 completed in 1535 seconds.
+Launcher: Task 110 done. Exiting.
+Launcher: Job 18 completed in 1664 seconds.
+Launcher: Task 58 done. Exiting.
+Launcher: Job 78 completed in 38954 seconds.
+Launcher: Task 106 done. Exiting.
+Launcher: Job 17 completed in 46149 seconds.
+Launcher: Task 46 done. Exiting.
+Launcher: Job 28 completed in 46504 seconds.
+Launcher: Task 47 done. Exiting.
+Launcher: Job 51 completed in 46752 seconds.
+Launcher: Task 2 done. Exiting.
+Launcher: Job 79 completed in 47451 seconds.
+Launcher: Task 111 done. Exiting.
+Launcher: Job 23 completed in 49638 seconds.
+Launcher: Task 104 done. Exiting.
+Launcher: Job 76 completed in 50828 seconds.
+Launcher: Task 91 done. Exiting.
+Launcher: Job 60 completed in 51439 seconds.
+Launcher: Task 50 done. Exiting.
+Launcher: Job 100 completed in 51622 seconds.
+Launcher: Task 53 done. Exiting.
+Launcher: Job 65 completed in 51851 seconds.
+Launcher: Task 100 done. Exiting.
+Launcher: Job 26 completed in 52272 seconds.
+Launcher: Task 28 done. Exiting.
+Launcher: Job 116 completed in 52679 seconds.
+Launcher: Task 65 done. Exiting.
+Launcher: Job 102 completed in 52874 seconds.
+Launcher: Task 36 done. Exiting.
+Launcher: Job 96 completed in 52876 seconds.
+Launcher: Task 124 done. Exiting.
+Launcher: Job 37 completed in 53100 seconds.
+Launcher: Task 96 done. Exiting.
+Launcher: Job 122 completed in 53455 seconds.
+Launcher: Task 93 done. Exiting.
+Launcher: Job 123 completed in 53459 seconds.
+Launcher: Task 103 done. Exiting.
+Launcher: Job 16 completed in 54404 seconds.
+Launcher: Task 34 done. Exiting.
+Launcher: Job 125 completed in 54430 seconds.
+Launcher: Task 119 done. Exiting.
+Launcher: Job 118 completed in 54594 seconds.
+Launcher: Task 39 done. Exiting.
+Launcher: Job 114 completed in 54814 seconds.
+Launcher: Task 21 done. Exiting.
+Launcher: Job 3 completed in 54828 seconds.
+Launcher: Task 7 done. Exiting.
+Launcher: Job 9 completed in 54953 seconds.
+Launcher: Task 98 done. Exiting.
+Launcher: Job 104 completed in 55163 seconds.
+Launcher: Task 85 done. Exiting.
+Launcher: Job 52 completed in 55611 seconds.
+Launcher: Task 0 done. Exiting.
+Launcher: Job 24 completed in 55815 seconds.
+Launcher: Task 121 done. Exiting.
+Launcher: Job 48 completed in 56023 seconds.
+Launcher: Task 102 done. Exiting.
+Launcher: Job 101 completed in 56366 seconds.
+Launcher: Task 68 done. Exiting.
+Launcher: Job 50 completed in 56681 seconds.
+Launcher: Task 122 done. Exiting.
+Launcher: Job 110 completed in 56857 seconds.
+Launcher: Task 9 done. Exiting.
+Launcher: Job 80 completed in 57233 seconds.
+Launcher: Task 112 done. Exiting.
+Launcher: Job 54 completed in 57279 seconds.
+Launcher: Task 14 done. Exiting.
+Launcher: Job 32 completed in 57613 seconds.
+Launcher: Task 43 done. Exiting.
+Launcher: Job 117 completed in 58384 seconds.
+Launcher: Task 61 done. Exiting.
+Launcher: Job 105 completed in 59573 seconds.
+Launcher: Task 101 done. Exiting.
+Launcher: Job 44 completed in 59696 seconds.
+Launcher: Task 71 done. Exiting.
+Launcher: Job 15 completed in 59805 seconds.
+Launcher: Task 33 done. Exiting.
+Launcher: Job 91 completed in 60542 seconds.
+Launcher: Task 92 done. Exiting.
+Launcher: Job 84 completed in 60658 seconds.
+Launcher: Task 29 done. Exiting.
+Launcher: Job 113 completed in 61401 seconds.
+Launcher: Task 26 done. Exiting.
+Launcher: Job 61 completed in 62048 seconds.
+Launcher: Task 86 done. Exiting.
+Launcher: Job 42 completed in 62092 seconds.
+Launcher: Task 54 done. Exiting.
+Launcher: Job 62 completed in 62197 seconds.
+Launcher: Task 88 done. Exiting.
+Launcher: Job 111 completed in 62463 seconds.
+Launcher: Task 17 done. Exiting.
+Launcher: Job 95 completed in 62536 seconds.
+Launcher: Task 123 done. Exiting.
+Launcher: Job 20 completed in 62762 seconds.
+Launcher: Task 63 done. Exiting.
+Launcher: Job 75 completed in 62929 seconds.
+Launcher: Task 72 done. Exiting.
+Launcher: Job 92 completed in 63473 seconds.
+Launcher: Task 108 done. Exiting.
+Launcher: Job 12 completed in 65616 seconds.
+Launcher: Task 115 done. Exiting.
+Launcher: Job 64 completed in 65683 seconds.
+Launcher: Task 95 done. Exiting.
+Launcher: Job 82 completed in 66507 seconds.
+Launcher: Task 4 done. Exiting.
+Launcher: Job 7 completed in 67140 seconds.
+Launcher: Task 74 done. Exiting.
+Launcher: Job 6 completed in 67924 seconds.
+Launcher: Task 78 done. Exiting.
+Launcher: Job 71 completed in 71537 seconds.
+Launcher: Task 73 done. Exiting.
