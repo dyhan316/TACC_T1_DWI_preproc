@@ -1,0 +1,239 @@
+WARNING (10/24/22 08:47:06): LAUNCHER_WORKDIR variable not set. Using current directory.
+using /tmp/launcher.10442480.hostlist.x7hMRJvS to get hosts
+starting job on c505-133
+Warning: Permanently added 'c505-133' (ECDSA) to the list of known hosts.
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[[WWAARRNING] NTIhNiGs ]d ocTuhmiesn td ofcourmmeantt  rfeoqrumiarte sr eaq uniorense map tnyo n<etmipttlye >< teiltelmee>n te.l
+e m ePnlte.a
+s e  sPpleecaisfey  sepietchiefry  'etiitthleer'  'otri t'lpea' goetri t'lpea'g eitni ttlhee'  mient atdhaet am.e
+ta d aFtaal.l
+i n gF ablalcikn gt ob a'ckC ItToA 'TIOCNI'T
+ATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[[WWAARNRINNIGN]G ] ThTihsi sd odcoucmuemnetn tf ofromramta tr erqeuqiurierse sa  nao nneomnpetmyp t<y t<ittiltel>e >e leelmeemnetn.t
+. 
+  P lPelaesaes es psepceicfiyf ye ietihtehre r' t'ittiltel'e 'o ro r' p'apgaegteittiltel'e 'i ni nt hteh em emteatdaadtaat.a
+. 
+  F aFlallilnign gb abcakc tko  t'o C'ITCAITTIAOTNI'O
+N'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[[WWARNARNINGI]N G]T hiTsh idso cduomceunmte nfto rfmoartm arte qrueiqrueisr eas  nao nneomnpetmyp t<yt i<ttliet>l ee>l eemleenmten.t
+. 
+  P lPelaesaes es psepceicfiyf eyi tehietrh e'rt i'ttliet'le 'o ro r' p'apgaegteittilet'l ei'n  itnh teh em emteatdaadtaat.a
+. 
+ F a lFlailnlgi nbga cbka ctko  t'o C'ITCAITTIAOTNI'O
+N'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+Sentry is attempting to send 2 pending error messages
+Waiting up to 2 seconds
+Press Ctrl-C to quit
+ file none does not exist . 
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+ file none does not exist . 
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+Sentry is attempting to send 3 pending error messages
+Waiting up to 2 seconds
+Press Ctrl-C to quit
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+Sentry is attempting to send 1 pending error messages
+Waiting up to 2 seconds
+Press Ctrl-C to quit
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+Sentry is attempting to send 4 pending error messages
+Waiting up to 2 seconds
+Press Ctrl-C to quit
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+Sentry is attempting to send 2 pending error messages
+Waiting up to 2 seconds
+Press Ctrl-C to quit
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+Sentry is attempting to send 3 pending error messages
+Waiting up to 2 seconds
+Press Ctrl-C to quit
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+Sentry is attempting to send 3 pending error messages
+Waiting up to 2 seconds
+Press Ctrl-C to quit
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+QSIPrep failed: Workflow did not execute cleanly. Check log for details
+Traceback (most recent call last):
+  File "/usr/local/miniconda/bin/qsiprep", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/miniconda/lib/python3.7/site-packages/qsiprep/cli/run.py", line 647, in main
+    qsiprep_wf.run(**plugin_settings)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/engine/workflows.py", line 638, in run
+    runner.run(execgraph, updatehash=updatehash, config=self.config)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/base.py", line 192, in run
+    report_nodes_not_run(notrun)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/tools.py", line 97, in report_nodes_not_run
+    ("Workflow did not execute cleanly. " "Check log for details")
+RuntimeError: Workflow did not execute cleanly. Check log for details
+Sentry is attempting to send 3 pending error messages
+Waiting up to 2 seconds
+Press Ctrl-C to quit
+slurmstepd: error: *** JOB 10442480 ON c505-133 CANCELLED AT 2022-10-24T09:57:28 ***
+Killed by signal 15.

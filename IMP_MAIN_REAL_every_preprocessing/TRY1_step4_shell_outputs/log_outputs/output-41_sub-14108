@@ -453,3 +453,49 @@ recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc
 	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 1 -subjid sub-141086 -sd /out/freesurfer 
 221022-13:38:05,742 nipype.workflow INFO:
 	 [Node] Finished "_autorecon_surfs0".
+221022-21:29:02,184 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221022-21:29:04,184 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_141086_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_141086_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221022-21:29:04,228 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_141086_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221022-21:29:04,373 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-21:29:04,375 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221022-21:29:04,377 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-21:29:04,518 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221022-21:29:04,520 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_141086_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221022-21:29:04,570 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-21:29:04,571 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221022-21:29:04,573 nipype.interface INFO:
+	 recon-all complete : Not running
+221022-21:29:04,705 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221022-21:29:04,714 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_141086_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221022-21:29:08,185 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon30" in "/out/tmp/qsiprep_wf/single_subject_141086_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3/mapflow/_autorecon30".
+221022-21:29:08,187 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon31" in "/out/tmp/qsiprep_wf/single_subject_141086_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon3/mapflow/_autorecon31".
+221022-21:29:08,199 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi rh -openmp 1 -subjid sub-141086 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-21:29:08,199 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-141086 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-21:29:08,200 nipype.workflow INFO:
+	 [Node] Running "_autorecon30" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-141086 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-21:29:08,200 nipype.workflow INFO:
+	 [Node] Running "_autorecon31" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon3 -hemi rh -openmp 1 -subjid sub-141086 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-21:29:08,202 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi lh -openmp 1 -subjid sub-141086 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial
+221022-21:29:08,203 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon3 -hemi rh -openmp 1 -subjid sub-141086 -sd /out/freesurfer -nosphere -nosurfreg -nojacobian_white -noavgcurv -nocortparc -nopial

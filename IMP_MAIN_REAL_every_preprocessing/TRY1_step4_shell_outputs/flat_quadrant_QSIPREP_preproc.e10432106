@@ -1292,3 +1292,7 @@ Press Ctrl-C to quit
  file none does not exist . 
  file none does not exist . 
  file none does not exist . 
+slurmstepd: error: *** JOB 10432106 ON c501-102 CANCELLED AT 2022-10-22T21:38:33 ***
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.

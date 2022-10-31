@@ -9,11 +9,11 @@ import pdb
 #args = parser.parse_args()
 
 ######IMPORTANT TO SELECT THIS########
-ntasks_per_node = 48 #node당 몇명을 할지 (have to be optimized so memory error doeens't occur)
-node = "skx" #or "icx"
+ntasks_per_node = 24#48 #node당 몇명을 할지 (have to be optimized so memory error doeens't occur)
+node = "skx"#"skx" #or "icx"
 
-age_list = ['age_6_to_7', 'age_8_to_9','age_9_to_10','age_10_to_13','age_13_to_16','age_16_to_18','age_18_to_20']
-            #['age_4.5_to_5','age_5_to_5.5']
+age_list = ['age_9_to_10','age_13_to_16','age_18_to_20','age_16_to_18'] #,'age_18_to_20']
+           #['age_4.5_to_5','age_5_to_5.5']
            #below : not done yet
            #,'age_5.5_to_6','age_6_to_7','age_7_to_8','age_8_to_9','age_9_to_10']
            #['age_0_to_1',  'age_1.5_to_2','age_1_to_1.5','age_3.5_to_4','age_4_to_4.5','age_10_to_13',
@@ -23,7 +23,8 @@ if node	== "skx":
     total_cpu =	96 #count of total cpus
 elif node == "icx":
     total_cpu =	160
-
+elif node == "flat-quadrant":
+    total_cpu = 240
 qsiprep_nthreads_per_sub = int(total_cpu/ntasks_per_node)
 
 #######ASSUMPTIONS######
@@ -105,7 +106,7 @@ for age_range in age_list:
     num_subs+=len(args.sub_list) #addition over all age groups 
 import math
 
-num_subs = num_subs + 1 #had to do +1 to get every subject to be done (one process seems to be reserfved for running the thing as a whole)
+#num_subs = num_subs + 1 #had to do +1 to get every subject to be done (one process seems to be reserfved for running the thing as a whole)
 num_nodes = int(math.ceil(float(num_subs)/ntasks_per_node)) #number of nodes to take, with ntasks per node satisfiedceiling으로 필요한 만큼 node가져가기
 subprocess.run(f"sbatch -n {num_subs} -N {num_nodes} {args.base_dir}/REAL_activate_step4.sh", shell = True)
 #added -n {num_subs} so that it automatically chooses the right number of jobs (slurm number of jobs)
