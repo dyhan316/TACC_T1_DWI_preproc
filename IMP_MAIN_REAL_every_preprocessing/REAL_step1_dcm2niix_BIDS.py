@@ -39,6 +39,9 @@ total_set = set()
 for year in range(2010, 2021+1):
     total_set = total_set.union(set(get_year_file(year)['영상파일 번호'].values))
 
+
+    
+   
 """2. 이상한 폴더들 해서 분리하는 것 하기"""
 def find_wrong_files(path): 
     #path : folder path of the DICOM files
@@ -144,7 +147,9 @@ for sub_path in file_dict['survived_files']:
             shutil.move(os.path.join(raw_path,sub),os.path.join(sep_age_path,"age_{}_to_{}".format(lower_age, upper_age)))
             #print(sub, " : this age is it:{}".format(sub_age), upper_age)
         lower_age = upper_age
-    
+
+def get_all_metadata():
+    return total_set
 
 """4. dcm2niix : 위에서 것들을 그대로 가져와서하기 + sub-형태로 이름 바꾸기"""
 
