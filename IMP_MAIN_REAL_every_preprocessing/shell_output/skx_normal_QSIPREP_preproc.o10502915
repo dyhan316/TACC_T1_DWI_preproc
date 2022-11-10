@@ -17286,3 +17286,811 @@ recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc
 recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111764 -sd /out/freesurfer 
 221109-01:59:38,940 nipype.interface INFO:
 	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111764 -sd /out/freesurfer 
+221109-02:05:26,777 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_190230_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol".
+221109-02:05:27,479 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_111120_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-02:05:27,518 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111120 -sd /out/freesurfer 
+221109-02:05:27,520 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111120 -sd /out/freesurfer 
+221109-02:05:27,521 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111120 -sd /out/freesurfer 
+221109-02:24:57,131 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-02:24:58,442 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_111120_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-02:24:58,454 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111120 -sd /out/freesurfer 
+221109-02:24:58,455 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111120 -sd /out/freesurfer 
+221109-02:24:58,458 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111120 -sd /out/freesurfer 
+221109-02:25:44,618 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_200125_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol".
+221109-02:25:46,680 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_111783_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-02:25:46,736 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111783 -sd /out/freesurfer 
+221109-02:25:46,738 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111783 -sd /out/freesurfer 
+221109-02:25:46,740 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111783 -sd /out/freesurfer 
+221109-02:29:03,464 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_200091_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol".
+221109-02:29:04,995 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_111783_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-02:29:05,6 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111783 -sd /out/freesurfer 
+221109-02:29:05,8 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111783 -sd /out/freesurfer 
+221109-02:29:05,10 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111783 -sd /out/freesurfer 
+221109-02:29:46,884 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-02:29:49,113 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_121186_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_121186_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-02:29:49,133 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_121186_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-02:29:49,172 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-02:29:49,174 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-02:29:49,175 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-02:29:49,306 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-02:29:49,308 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_121186_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-02:29:49,358 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-02:29:49,360 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-02:29:49,362 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-02:29:49,493 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-02:29:49,500 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_121186_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-02:29:51,302 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_101506_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-02:29:51,342 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101506 -sd /out/freesurfer 
+221109-02:29:51,343 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101506 -sd /out/freesurfer 
+221109-02:29:51,345 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101506 -sd /out/freesurfer 
+221109-02:53:03,593 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_210051_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol".
+221109-02:53:05,372 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_101506_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-02:53:05,520 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101506 -sd /out/freesurfer 
+221109-02:53:05,522 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101506 -sd /out/freesurfer 
+221109-02:53:05,525 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101506 -sd /out/freesurfer 
+221109-02:56:19,951 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_210004_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol".
+221109-02:56:22,373 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_101743_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-02:56:22,407 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101743 -sd /out/freesurfer 
+221109-02:56:22,408 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101743 -sd /out/freesurfer 
+221109-02:56:22,410 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101743 -sd /out/freesurfer 
+221109-02:58:37,857 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_210056_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon2_vol".
+221109-02:58:38,303 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_101743_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-02:58:38,318 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101743 -sd /out/freesurfer 
+221109-02:58:38,320 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101743 -sd /out/freesurfer 
+221109-02:58:38,323 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101743 -sd /out/freesurfer 
+221109-03:21:40,895 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-03:21:43,803 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_130354_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-03:21:44,204 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-130354 -sd /out/freesurfer 
+221109-03:21:44,699 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-130354 -sd /out/freesurfer 
+221109-03:21:44,701 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-130354 -sd /out/freesurfer 
+221109-03:36:57,356 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-03:36:58,642 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_111783_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_111783_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-03:36:58,669 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_111783_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-03:36:58,693 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-03:36:58,695 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-03:36:58,697 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-03:36:58,822 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-03:36:58,824 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_111783_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-03:36:58,873 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-03:36:58,874 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-03:36:58,876 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-03:36:58,996 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-03:36:59,3 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_111783_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-03:37:05,247 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_130354_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-03:37:05,261 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-130354 -sd /out/freesurfer 
+221109-03:37:05,262 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-130354 -sd /out/freesurfer 
+221109-03:37:05,265 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-130354 -sd /out/freesurfer 
+221109-04:14:32,842 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-04:14:33,904 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_111570_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-04:14:33,956 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111570 -sd /out/freesurfer 
+221109-04:14:33,958 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111570 -sd /out/freesurfer 
+221109-04:14:33,959 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111570 -sd /out/freesurfer 
+221109-05:05:15,116 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-05:05:17,457 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_111570_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-05:05:17,500 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111570 -sd /out/freesurfer 
+221109-05:05:17,502 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111570 -sd /out/freesurfer 
+221109-05:05:17,505 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111570 -sd /out/freesurfer 
+221109-05:21:11,401 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-05:21:11,860 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_111120_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_111120_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-05:21:11,891 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_111120_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-05:21:11,956 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-05:21:11,958 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-05:21:11,960 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-05:21:12,101 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-05:21:12,104 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_111120_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-05:21:12,167 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-05:21:12,169 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-05:21:12,171 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-05:21:12,303 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-05:21:12,311 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_111120_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-05:21:13,964 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_101754_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-05:21:14,26 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101754 -sd /out/freesurfer 
+221109-05:21:14,28 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101754 -sd /out/freesurfer 
+221109-05:21:14,29 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101754 -sd /out/freesurfer 
+221109-05:36:56,672 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-05:36:58,683 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_111764_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_111764_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-05:36:58,717 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_111764_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-05:36:58,904 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-05:36:58,906 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-05:36:58,909 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-05:36:59,95 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-05:36:59,98 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_111764_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-05:36:59,176 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-05:36:59,178 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-05:36:59,180 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-05:36:59,373 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-05:36:59,383 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_111764_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-05:37:00,775 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_101754_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-05:37:00,789 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101754 -sd /out/freesurfer 
+221109-05:37:00,791 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101754 -sd /out/freesurfer 
+221109-05:37:00,794 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101754 -sd /out/freesurfer 
+221109-06:01:02,590 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-06:01:04,963 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_101742_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-06:01:05,10 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101742 -sd /out/freesurfer 
+221109-06:01:05,12 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101742 -sd /out/freesurfer 
+221109-06:01:05,13 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101742 -sd /out/freesurfer 
+221109-06:39:24,109 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-06:39:25,219 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_101742_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-06:39:25,253 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101742 -sd /out/freesurfer 
+221109-06:39:25,261 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101742 -sd /out/freesurfer 
+221109-06:39:25,264 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-101742 -sd /out/freesurfer 
+221109-07:00:31,719 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-07:00:32,741 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_101743_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_101743_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-07:00:32,772 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_101743_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-07:00:32,882 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-07:00:32,883 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-07:00:32,885 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-07:00:33,17 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-07:00:33,19 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_101743_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-07:00:33,140 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-07:00:33,142 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-07:00:33,144 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-07:00:33,276 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-07:00:33,284 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_101743_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-07:00:34,963 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_111772_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-07:00:35,24 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111772 -sd /out/freesurfer 
+221109-07:00:35,26 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111772 -sd /out/freesurfer 
+221109-07:00:35,28 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111772 -sd /out/freesurfer 
+221109-07:23:19,439 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-07:23:20,278 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_111772_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-07:23:20,301 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111772 -sd /out/freesurfer 
+221109-07:23:20,317 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111772 -sd /out/freesurfer 
+221109-07:23:20,321 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-111772 -sd /out/freesurfer 
+221109-07:48:37,893 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-07:48:39,959 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_111570_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_111570_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-07:48:40,404 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_111570_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-07:48:41,32 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-07:48:41,33 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-07:48:41,36 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-07:48:41,187 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-07:48:41,190 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_111570_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-07:48:41,265 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-07:48:41,267 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-07:48:41,269 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-07:48:41,402 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-07:48:41,410 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_111570_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-07:48:42,188 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_131290_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-07:48:42,251 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131290 -sd /out/freesurfer 
+221109-07:48:42,253 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131290 -sd /out/freesurfer 
+221109-07:48:42,254 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131290 -sd /out/freesurfer 
+221109-09:11:18,126 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-09:11:20,610 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_131290_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-09:11:20,681 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131290 -sd /out/freesurfer 
+221109-09:11:20,683 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131290 -sd /out/freesurfer 
+221109-09:11:20,684 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131290 -sd /out/freesurfer 
+221109-09:25:41,266 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-09:25:42,586 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_101506_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_101506_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-09:25:43,450 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_101506_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-09:25:46,579 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-09:25:46,581 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-09:25:46,584 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-09:25:46,757 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-09:25:46,760 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_101506_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-09:25:46,908 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-09:25:46,910 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-09:25:46,912 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-09:25:47,45 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-09:25:47,52 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_101506_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-09:25:49,313 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_140994_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-09:25:49,405 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140994 -sd /out/freesurfer 
+221109-09:25:49,406 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140994 -sd /out/freesurfer 
+221109-09:25:49,408 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140994 -sd /out/freesurfer 
+221109-09:39:48,748 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-09:39:49,349 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_111772_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_111772_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-09:39:49,818 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_111772_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-09:39:49,926 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-09:39:49,928 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-09:39:49,929 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-09:39:50,65 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-09:39:50,67 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_111772_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-09:39:50,428 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-09:39:50,430 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-09:39:50,432 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-09:39:50,569 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-09:39:50,577 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_111772_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-09:39:51,518 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_140994_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-09:39:51,530 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140994 -sd /out/freesurfer 
+221109-09:39:51,532 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140994 -sd /out/freesurfer 
+221109-09:39:51,534 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140994 -sd /out/freesurfer 
+221109-11:04:14,885 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-11:04:17,350 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_131668_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-11:04:17,402 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131668 -sd /out/freesurfer 
+221109-11:04:17,403 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131668 -sd /out/freesurfer 
+221109-11:04:17,405 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131668 -sd /out/freesurfer 
+221109-11:47:56,972 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-11:47:58,472 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_140994_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_140994_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-11:47:58,498 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_140994_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-11:47:58,544 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-11:47:58,546 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-11:47:58,549 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-11:47:58,710 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-11:47:58,713 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_140994_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-11:47:58,743 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-11:47:58,744 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-11:47:58,746 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-11:47:58,874 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-11:47:58,881 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_140994_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-11:48:00,621 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_131668_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-11:48:00,643 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131668 -sd /out/freesurfer 
+221109-11:48:00,645 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131668 -sd /out/freesurfer 
+221109-11:48:00,648 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131668 -sd /out/freesurfer 
+221109-12:13:19,897 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-12:13:21,164 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_140942_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-12:13:21,204 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140942 -sd /out/freesurfer 
+221109-12:13:21,205 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140942 -sd /out/freesurfer 
+221109-12:13:21,207 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140942 -sd /out/freesurfer 
+221109-13:39:21,860 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-13:39:22,505 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_101742_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_101742_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-13:39:22,533 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_101742_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-13:39:22,652 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-13:39:22,653 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-13:39:22,655 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-13:39:22,790 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-13:39:22,793 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_101742_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-13:39:22,841 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-13:39:22,842 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-13:39:22,844 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-13:39:22,979 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-13:39:22,985 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_101742_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-13:39:24,876 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_140942_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-13:39:24,950 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140942 -sd /out/freesurfer 
+221109-13:39:24,952 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140942 -sd /out/freesurfer 
+221109-13:39:24,954 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-140942 -sd /out/freesurfer 
+221109-14:23:50,907 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-14:23:51,607 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_150796_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-14:23:51,653 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-150796 -sd /out/freesurfer 
+221109-14:23:51,654 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-150796 -sd /out/freesurfer 
+221109-14:23:51,656 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-150796 -sd /out/freesurfer 
+221109-14:32:50,139 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-14:32:51,129 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131668_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_131668_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-14:32:51,166 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_131668_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-14:32:51,238 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-14:32:51,240 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-14:32:51,242 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-14:32:51,425 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-14:32:51,427 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_131668_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-14:32:51,456 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-14:32:51,458 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-14:32:51,460 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-14:32:51,644 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-14:32:51,651 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131668_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-14:32:53,208 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_150796_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-14:32:53,225 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-150796 -sd /out/freesurfer 
+221109-14:32:53,227 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-150796 -sd /out/freesurfer 
+221109-14:32:53,230 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-150796 -sd /out/freesurfer 
+221109-15:04:39,416 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-15:04:40,702 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_141071_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-15:04:40,783 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141071 -sd /out/freesurfer 
+221109-15:04:40,785 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141071 -sd /out/freesurfer 
+221109-15:04:40,787 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141071 -sd /out/freesurfer 
+221109-15:25:06,473 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-15:25:08,191 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_141071_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-15:25:09,311 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141071 -sd /out/freesurfer 
+221109-15:25:09,313 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141071 -sd /out/freesurfer 
+221109-15:25:09,315 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141071 -sd /out/freesurfer 
+221109-16:19:55,351 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-16:19:56,935 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_131635_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-16:19:56,999 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131635 -sd /out/freesurfer 
+221109-16:19:57,1 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131635 -sd /out/freesurfer 
+221109-16:19:57,2 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131635 -sd /out/freesurfer 
+221109-16:51:13,229 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-16:51:14,609 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_141071_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_141071_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-16:51:14,959 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_141071_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-16:51:15,88 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-16:51:15,89 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-16:51:15,91 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-16:51:15,228 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-16:51:15,231 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_141071_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-16:51:15,265 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-16:51:15,266 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-16:51:15,268 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-16:51:15,409 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-16:51:15,416 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_141071_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-16:51:16,692 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_131635_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-16:51:16,703 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131635 -sd /out/freesurfer 
+221109-16:51:16,704 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131635 -sd /out/freesurfer 
+221109-16:51:16,707 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-131635 -sd /out/freesurfer 
+221109-19:26:14,609 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-19:26:17,24 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_141058_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-19:26:17,90 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141058 -sd /out/freesurfer 
+221109-19:26:17,92 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141058 -sd /out/freesurfer 
+221109-19:26:17,93 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141058 -sd /out/freesurfer 
+221109-19:40:18,521 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-19:40:19,475 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_141058_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-19:40:19,490 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141058 -sd /out/freesurfer 
+221109-19:40:19,491 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141058 -sd /out/freesurfer 
+221109-19:40:19,495 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141058 -sd /out/freesurfer 
+221109-20:43:18,421 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-20:43:19,672 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_131635_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_131635_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-20:43:19,708 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_131635_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-20:43:19,751 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-20:43:19,753 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-20:43:19,755 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-20:43:19,926 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-20:43:19,936 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_131635_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-20:43:20,1 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-20:43:20,3 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-20:43:20,5 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-20:43:20,181 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-20:43:20,189 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_131635_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-20:43:21,764 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_141034_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-20:43:21,830 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141034 -sd /out/freesurfer 
+221109-20:43:21,832 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141034 -sd /out/freesurfer 
+221109-20:43:21,834 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141034 -sd /out/freesurfer 
+221109-21:08:52,108 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-21:08:54,69 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_141034_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-21:08:54,83 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141034 -sd /out/freesurfer 
+221109-21:08:54,85 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141034 -sd /out/freesurfer 
+221109-21:08:54,88 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-141034 -sd /out/freesurfer 
+221109-21:39:26,531 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-21:39:27,88 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_140942_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_140942_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-21:39:27,109 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_140942_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-21:39:27,160 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-21:39:27,161 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-21:39:27,163 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-21:39:27,330 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-21:39:27,333 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_140942_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-21:39:27,390 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-21:39:27,391 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-21:39:27,393 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-21:39:27,557 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-21:39:27,565 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_140942_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-21:39:29,237 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_160536_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-21:39:29,264 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-160536 -sd /out/freesurfer 
+221109-21:39:29,265 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-160536 -sd /out/freesurfer 
+221109-21:39:29,267 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi lh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-160536 -sd /out/freesurfer 
+221109-21:39:47,92 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-21:39:49,167 nipype.workflow INFO:
+	 [Node] Setting-up "qsiprep_wf.single_subject_141058_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs" in "/out/tmp/qsiprep_wf/single_subject_141058_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs".
+221109-21:39:49,190 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs0" in "/out/tmp/qsiprep_wf/single_subject_141058_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs0".
+221109-21:39:49,250 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-21:39:49,251 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs0" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-21:39:49,253 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-21:39:49,386 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs0".
+221109-21:39:49,388 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_141058_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-21:39:49,441 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-21:39:49,471 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+echo recon-all: nothing to do
+221109-21:39:49,473 nipype.interface INFO:
+	 recon-all complete : Not running
+221109-21:39:49,602 nipype.workflow INFO:
+	 [Node] Finished "_autorecon_surfs1".
+221109-21:39:49,610 nipype.workflow INFO:
+	 [Node] Finished "qsiprep_wf.single_subject_141058_wf.anat_preproc_wf.surface_recon_wf.autorecon_resume_wf.autorecon_surfs".
+221109-21:39:51,244 nipype.workflow INFO:
+	 [Node] Setting-up "_autorecon_surfs1" in "/out/tmp/qsiprep_wf/single_subject_160536_wf/anat_preproc_wf/surface_recon_wf/autorecon_resume_wf/autorecon_surfs/mapflow/_autorecon_surfs1".
+221109-21:39:51,259 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-160536 -sd /out/freesurfer 
+221109-21:39:51,261 nipype.workflow INFO:
+	 [Node] Running "_autorecon_surfs1" ("nipype.interfaces.freesurfer.preprocess.ReconAll"), a CommandLine Interface with command:
+recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-160536 -sd /out/freesurfer 
+221109-21:39:51,264 nipype.interface INFO:
+	 resume recon-all : recon-all -autorecon-hemi rh -noparcstats -nocortparc2 -noparcstats2 -nocortparc3 -noparcstats3 -nopctsurfcon -nohyporelabel -noaparc2aseg -noapas2aseg -nosegstats -nowmparc -nobalabels -openmp 8 -subjid sub-160536 -sd /out/freesurfer 
