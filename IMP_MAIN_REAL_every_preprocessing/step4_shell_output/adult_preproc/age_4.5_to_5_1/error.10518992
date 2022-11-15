@@ -1,0 +1,70 @@
+[WARNING] This document format requires a nonempty <title> element.
+  Please specify either 'title' or 'pagetitle' in the metadata.
+  Falling back to 'CITATION'
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+ file none does not exist . 
+slurmstepd: error: *** JOB 10518992 ON c496-021 CANCELLED AT 2022-11-14T20:45:55 DUE TO TIME LIMIT ***
+exception calling callback for <Future at 0x2ac31e73b438 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+exception calling callback for <Future at 0x2ac31e5d5e48 state=finished raised BrokenProcessPool>
+Traceback (most recent call last):
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 324, in _invoke_callbacks
+    callback(self)
+  File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/pipeline/plugins/multiproc.py", line 159, in _async_callback
+    result = args.result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/miniconda/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+/usr/local/miniconda/lib/python3.7/multiprocessing/semaphore_tracker.py:144: UserWarning: semaphore_tracker: There appear to be 5 leaked semaphores to clean up at shutdown
+  len(cache))

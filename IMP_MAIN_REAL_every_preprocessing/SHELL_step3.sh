@@ -11,5 +11,7 @@
 #SBATCH --account=TG-IBN180001
 #SBATCH --cpus-per-task=30
 
-python REAL_step3_BIDS_one_per_sub.py
+
+python REAL_step3_group_by_50.py
+#python REAL_step3_BIDS_one_per_sub.py
 #REAL_step3_BIDS_one_per_sub.py
